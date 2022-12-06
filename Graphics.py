@@ -8,49 +8,51 @@ BLACK = (0, 0, 0)
 screensize = [1600, 900]
 
 
-def set_level_textures(screensize, level1, mid_screen, level_1_surface, bg_surface):
+def set_level_textures(screensize, ball_size, level1, mid_screen,
+                       ball_texture, level_1_surface, bg_surface, ball_surface):
    level1 = pg.transform.scale(level1, screensize)
    mid_screen = pg.transform.scale(mid_screen, screensize)
    bg_surface.blit(mid_screen, (0, 0))
    level_1_surface.blit(level1, (0, 0))
-   return level_1_surface, bg_surface
+   ball_texture = pg.transform.scale(ball_texture, ball_size)
+   ball_surface.blit(ball_texture, (0, 0))
+   return level_1_surface, bg_surface, ball_surface
 
 
 def draw_level(screen, level_1_surface, bg_surface, ball):
     screen.blit(bg_surface, (0, 0))
-    if (ball.ax != 0) and (ball.ay == 0):
-        while ball.ax != 0:
-            screen.blit(level_1_surface, (-ball.ax, 0))
-            if ball.ax <= 0:
-                ball.ax += 1
+    ax = int(ball.ax * 10)
+    ay = int(ball.ay * 10)
+    if (ax != 0) and (ay == 0):
+        while ax != 0:
+            screen.blit(level_1_surface, (-ax, 0))
+            if ax <= 0:
+                ax += 1
             else:
-                ball.ax -= 1
-    elif (ball.ax == 0) and (ball.ay != 0):
-        while ball.ay != 0:
-            screen.blit(level_1_surface, (0,ball.ay))
-            if ball.ay <= 0:
-                ball.ay += 1
+                ax -= 1
+    elif (ax == 0) and (ay != 0):
+        while ay != 0:
+            screen.blit(level_1_surface, (0, -ay))
+            if ay <= 0:
+                ay += 1
             else:
-                ball.ay -= 1
-    elif (ball.ax != 0) and (ball.ay != 0):
-        while ball.ax != 0:
-            screen.blit(level_1_surface, (-ball.ax, ball.ay))
-            if ball.ax <= 0:
-                ball.ax += 1
+                ay -= 1
+    elif (ax != 0) and (ay != 0):
+        while ax != 0:
+            screen.blit(level_1_surface, (-ax, -ay))
+            if ax <= 0:
+                ax += 1
             else:
-                ball.ax -= 1
-            if ball.ay <= 0:
-                ball.ay += 1
+                ax -= 1
+            if ay <= 0:
+                ay += 1
             else:
-                ball.ay -= 1
+                ay -= 1
     else:
         screen.blit(level_1_surface, (0, 0))
 
-
-
-
-
-
+def draw_ball(screen, ball_surface, ball):
+    screen.blit(ball_surface, (ball.x, ball.y))
 
 """screen = pg.display.set_mode(size)
 clock = pg.time.Clock()
