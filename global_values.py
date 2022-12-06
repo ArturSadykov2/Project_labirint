@@ -1,0 +1,2 @@
+size_hight=1392
+size_width=783
