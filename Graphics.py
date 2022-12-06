@@ -2,23 +2,57 @@ import pygame as pg
 import math
 from random import choice, randint
 from game_texture import *
-
+from Objects import Ball
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
-size = [1600, 900]
+screensize = [1600, 900]
 
 
-def set_level_textures(screensize, level1, mid_screen):
+def set_level_textures(screensize, level1, mid_screen, level_1_surface, bg_surface):
    level1 = pg.transform.scale(level1, screensize)
    mid_screen = pg.transform.scale(mid_screen, screensize)
-   bg_surface = pg.Surface(screensize, pg.SRCALPHA)
    bg_surface.blit(mid_screen, (0, 0))
-   level1_surface = pg.Surface(screensize, pg.SRCALPHA)
-   level1_surface.blit(level1, (0, 0))
-   return level1_surface, bg_surface
+   level_1_surface.blit(level1, (0, 0))
+   return level_1_surface, bg_surface
 
 
-screen = pg.display.set_mode(size)
+def draw_level(screen, level_1_surface, bg_surface, ball):
+    screen.blit(bg_surface, (0, 0))
+    if (ball.ax != 0) and (ball.ay == 0):
+        while ball.ax != 0:
+            screen.blit(level_1_surface, (-ball.ax, 0))
+            if ball.ax <= 0:
+                ball.ax += 1
+            else:
+                ball.ax -= 1
+    elif (ball.ax == 0) and (ball.ay != 0):
+        while ball.ay != 0:
+            screen.blit(level_1_surface, (0,ball.ay))
+            if ball.ay <= 0:
+                ball.ay += 1
+            else:
+                ball.ay -= 1
+    elif (ball.ax != 0) and (ball.ay != 0):
+        while ball.ax != 0:
+            screen.blit(level_1_surface, (-ball.ax, ball.ay))
+            if ball.ax <= 0:
+                ball.ax += 1
+            else:
+                ball.ax -= 1
+            if ball.ay <= 0:
+                ball.ay += 1
+            else:
+                ball.ay -= 1
+    else:
+        screen.blit(level_1_surface, (0, 0))
+
+
+
+
+
+
+
+"""screen = pg.display.set_mode(size)
 clock = pg.time.Clock()
 ball = pg.image.load('ball.png')#.convert_alpha()
 level_texture = pg.image.load('mask_lv2_without_background.png')#.convert_alpha()
@@ -51,4 +85,4 @@ while running:
     screen.blit(ball, (150, 150))
     pg.display.flip()
     clock.tick(60)
-pg.quit()
+pg.quit()"""

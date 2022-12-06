@@ -11,10 +11,22 @@ from Objects import Ball
 def level_1(screensize, mid_screen, ball_texture):
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
-    set_level_textures(screensize, level1, mid_screen)
+    bg_surface = pg.Surface(screensize, pg.SRCALPHA)
+    level_1_surface = pg.Surface(screensize, pg.SRCALPHA)
+    set_level_textures(screensize, level1, mid_screen, level_1_surface, bg_surface)
     running = True
     ball = Ball()
-    ball.__init__(100, 100, ball_texture)
+    ball.__init__()
     while running:
+        Ball.ball_boost(ball)
         for event in pg.event.get():
-            move_events(event, ball)
+            if event.type == pg.QUIT:
+                running = False
+        draw_level(screen, level_1_surface, bg_surface, ball)
+        pg.display.flip()
+        clock.tick(60)
+    pg.quit()
+
+
+level_1([1600, 900], mid_screen, disco_ball)
+
