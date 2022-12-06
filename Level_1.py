@@ -34,5 +34,5 @@ def level_1(screensize, ball_size, mid_screen, ball_texture):
     pg.quit()
 
 
-level_1([1600, 900], [30, 30], mid_screen, disco_ball)
+level_1([1600, 900], [15, 15], mid_screen, disco_ball)
 
