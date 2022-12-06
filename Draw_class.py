@@ -3,6 +3,6 @@ import math
 from random import choice, randint
 
 
-class DrawObjects:
-    x = 0
-    y = 0
+class LevelSurfaces:
+    def __init__(self,screen):
+        self.screen = screen
