@@ -30,12 +30,12 @@ class Ball:
         self.vx += self.ax
         self.vy += self.ay
         if self.vx != 0:
-            if (0.1*abs(self.vx)/self.vx) >= self.vx:
+            if abs(0.1*abs(self.vx)/self.vx) >= abs(self.vx):
                 self.vx = 0
             else:
                 self.vx -= (0.1*abs(self.vx)/self.vx)
         if self.vy != 0:
-            if (0.1*abs(self.vy)/self.vy) >= self.vy:
+            if abs(0.1*abs(self.vy)/self.vy) >= abs(self.vy):
                 self.vy = 0
             else:
                 self.vy -= (0.1*abs(self.vy)/self.vy)

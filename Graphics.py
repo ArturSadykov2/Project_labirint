@@ -20,9 +20,9 @@ def set_level_textures(screensize, ball_size, level1, mid_screen,
 
 
 def draw_level(screen, level_1_surface, bg_surface, ball):
-    screen.blit(bg_surface, (0, 0))
     ax = int(ball.ax * 10)
     ay = int(ball.ay * 10)
+    screen.blit(bg_surface, (0 - ax, 0 - ay))
     if (ax != 0) and (ay == 0):
         while ax != 0:
             screen.blit(level_1_surface, (-ax, 0))
