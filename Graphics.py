@@ -10,13 +10,13 @@ screensize = [1600, 900]
 
 def set_level_textures(screensize, ball_size, level1, mid_screen,
                        ball_texture, level_1_surface, bg_surface, ball_surface):
-   level1 = pg.transform.scale(level1, screensize)
-   mid_screen = pg.transform.scale(mid_screen, screensize)
-   bg_surface.blit(mid_screen, (0, 0))
-   level_1_surface.blit(level1, (0, 0))
-   ball_texture = pg.transform.scale(ball_texture, ball_size)
-   ball_surface.blit(ball_texture, (0, 0))
-   return level_1_surface, bg_surface, ball_surface
+    level1 = pg.transform.scale(level1, screensize)
+    mid_screen = pg.transform.scale(mid_screen, screensize)
+    bg_surface.blit(mid_screen, (0, 0))
+    level_1_surface.blit(level1, (0, 0))
+    ball_texture = pg.transform.scale(ball_texture, ball_size)
+    ball_surface.blit(ball_texture, (0, 0))
+    return level_1_surface, bg_surface, ball_surface
 
 
 def draw_level(screen, level_1_surface, bg_surface, ball):
@@ -51,40 +51,12 @@ def draw_level(screen, level_1_surface, bg_surface, ball):
     else:
         screen.blit(level_1_surface, (0, 0))
 
+
 def draw_ball(screen, ball_surface, ball):
     screen.blit(ball_surface, (ball.x, ball.y))
 
-"""screen = pg.display.set_mode(size)
-clock = pg.time.Clock()
-ball = pg.image.load('ball.png')#.convert_alpha()
-level_texture = pg.image.load('mask_lv2_without_background.png')#.convert_alpha()
-bg_texture = pg.image.load('bg_texture.jpg')#.convert_alpha()
-bg_texture = pg.transform.scale(bg_texture, size)
-level_texture = pg.transform.scale(level_texture, size)
-ball = pg.transform.scale(ball, (50, 50))
-bg_surface = pg.Surface(size, pg.SRCALPHA)
-bg_surface.blit(bg_texture, (0, 0))
-labirint_surface = pg.Surface(size, pg.SRCALPHA)
-labirint_surface.blit(level_texture, (0, 0))
-labirint_mask = pg.mask.from_surface(labirint_surface)
 
-
-running = True
-while running:
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            running = False
-        if event.type == pg.KEYDOWN:
-            if event.key == pg.K_UP:
-                running = False
-
-    screen.blit(bg_surface, (0, 0))
-    screen.blit(labirint_surface, (8, 8))
-    screen.blit(labirint_surface, (6, 6))
-    screen.blit(labirint_surface, (4, 4))
-    screen.blit(labirint_surface, (2, 2))
-    screen.blit(labirint_surface, (0, 0))
-    screen.blit(ball, (150, 150))
-    pg.display.flip()
-    clock.tick(60)
-pg.quit()"""
+def masks(level_mask, ball_mask):
+    overlap = level_mask.overlap(ball_mask, (5, 0))
+    if overlap:
+        print('The two masks overlap!', overlap)

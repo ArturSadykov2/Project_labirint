@@ -4,5 +4,5 @@ from random import choice, randint
 
 
 class LevelSurfaces:
-    def __init__(self,screen):
+    def __init__(self, screen):
         self.screen = screen
