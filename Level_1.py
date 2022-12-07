@@ -19,8 +19,8 @@ def level_1(screensize, ball_size, mid_screen, ball_texture):
     ball_mask = pg.mask.from_surface(ball_surface)
     level_mask = pg.mask.from_surface(level_1_surface)
     running = True
-    ball = Ball()
-    ball.__init__()
+    ball = Ball(ball_texture)
+    ball.__init__(ball_texture)
     while running:
         Ball.ball_boost(ball)
         for event in pg.event.get():
@@ -35,5 +35,5 @@ def level_1(screensize, ball_size, mid_screen, ball_texture):
     pg.quit()
 
 
-level_1([1600, 900], [60, 60], mid_screen, disco_ball)
+level_1([1600, 900], [60, 60], mid_screen, disco_ball_png)
 

@@ -1,12 +1,12 @@
-# import pygame as pg
-from game_texture import *
+import pygame as pg
+from game_texture_oleg import *
 
 
 class Ball:
-    def __init__(self):
+    def __init__(self, ball_texture):
         self.x = 100
         self.y = 100
-        self.texture = disco_ball
+        self.texture = ball_texture
         self.ax = 0
         self.ay = 0
         self.vx = 0
