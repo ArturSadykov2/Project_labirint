@@ -10,6 +10,11 @@ home_screen_png = pg.image.load(os.path.join("image","main_backgroubd.png"))
 settings_screen_png = pg.image.load(os.path.join("image", "menu_ball.png"))
 intermediate_menu_png = pg.image.load(os.path.join("image", "intermediate_menu.png"))
 
+#loading background textures
+texture_wood_png = pg.image.load(os.path.join("levels_image","texture_wood.jpg"))
+texture_wood_1_png = pg.image.load(os.path.join("levels_image","texture_wood_1.png"))
+texture_wood_2_png = pg.image.load(os.path.join("levels_image","texture_wood_2.png"))
+
 # load game textures
 dark_ball_png = pg.image.load(os.path.join("image", "dark_ball.png"))
 disco_ball_png = pg.image.load(os.path.join("image", "disco_ball.png"))
