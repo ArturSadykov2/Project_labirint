@@ -9,7 +9,7 @@ from Objects import Ball
 """Вызывается из меню, сама вызывает функции отрисовки и расчета физики"""
 
 
-def level_1(screensize, ball_size, mid_screen, ball_texture):
+def level_1(screensize, ball_size, ball_texture):
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     bg_surface = pg.Surface(screensize, pg.SRCALPHA)
@@ -35,5 +35,5 @@ def level_1(screensize, ball_size, mid_screen, ball_texture):
     pg.quit()
 
 
-level_1([1600, 900], [60, 60], mid_screen, disco_ball_png)
+level_1([1600, 900], [60, 60], disco_ball_png)
 
