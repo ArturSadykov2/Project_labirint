@@ -8,9 +8,9 @@ BLACK = (0, 0, 0)
 screensize = [1600, 900]
 
 
-def set_level_textures(screensize, ball_size, level1, mid_screen,
+def set_level_textures(screensize, ball_size, lv1_light, mid_screen,
                        ball_texture, level_1_surface, bg_surface, ball_surface):
-    level1 = pg.transform.scale(level1, screensize)
+    level1 = pg.transform.scale(lv1_light, screensize)
     mid_screen = pg.transform.scale(mid_screen, screensize)
     bg_surface.blit(mid_screen, (0, 0))
     level_1_surface.blit(level1, (0, 0))

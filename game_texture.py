@@ -30,7 +30,7 @@ striped_down = pg.image.load(os.path.join("image", "striped_down.png"))
 magma_down = pg.image.load(os.path.join("image", "magma_down.png"))
 
 # Level textures
-level1 = pg.image.load(os.path.join("image", "mask_lv2_without_background.png"))
+lv1_light = pg.image.load(os.path.join("lv1_light.png"))
 
 '''screen = pg.display.set_mode(screen_size)
 bg_texture = pg.transform.scale(bg_texture, size)
