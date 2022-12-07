@@ -10,16 +10,6 @@ size=[size_hight,size_width]
 
 screen = pg.display.set_mode(size)
 clock = pg.time.Clock()
-level_texture = pg.image.load('mask_lv2_without_background.png').convert_alpha()
-bg_texture = pg.image.load('bg_texture.jpg').convert_alpha()
-bg_texture = pg.transform.scale(bg_texture, size)
-level_texture = pg.transform.scale(level_texture, size)
-bg_surface = pg.Surface(size, pg.SRCALPHA)
-bg_surface.blit(bg_texture, (0, 0))
-labirint_surface = pg.Surface(size, pg.SRCALPHA)
-labirint_surface.blit(level_texture, (0, 0))
-labirint_mask = pg.mask.from_surface(labirint_surface)
-
 
 menu=Menu(screen)
 curs=Cursor(screen)
@@ -38,12 +28,12 @@ while running:
             print(event.pos[0],event.pos[1])
             if menu.home_surface:
                 menu.check_on(event)
-            if menu.start_of_set:
+            elif menu.start_of_set:
                 menu.check_on_settings(event)
         elif event.type == pg.MOUSEBUTTONUP:
             if menu.home_surface:
                 menu.check_off()
-            if menu.start_of_set:
+            elif menu.start_of_set:
                 menu.check_off_settings()
         elif event.type == pg.MOUSEMOTION:
             curs.cursor_change_pos(event)

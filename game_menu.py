@@ -26,90 +26,98 @@ class Menu:
         self.red_button=False
         self.striped_button=False
         self.magma_button=False
+        self.arrow_button=False
 
     def check_on(self, event):
         if (0<=event.pos[0]-131/1024*size_hight<=281/1024*size_hight) and (0<=event.pos[1]-153/576*size_width<=92/576*size_width):
             self.exit_on=True
-        if (0<=event.pos[0]-671/1024*size_hight<=206/1024*size_hight) and (0<=event.pos[1]-153/576*size_width<=107/576*size_width):
+        elif (0<=event.pos[0]-671/1024*size_hight<=206/1024*size_hight) and (0<=event.pos[1]-153/576*size_width<=107/576*size_width):
             self.go=True
-        if (0<=event.pos[0]-272/1024*size_hight<=320/1024*size_hight) and (0<=event.pos[1]-394/576*size_width<=106/576*size_width):
+        elif (0<=event.pos[0]-272/1024*size_hight<=320/1024*size_hight) and (0<=event.pos[1]-394/576*size_width<=106/576*size_width):
             self.settings=True
-        if (0<=event.pos[0]-671/1024*size_hight<=206/1024*size_hight) and (0<=event.pos[1]-153/576*size_width<=107/576*size_width):
+        elif (0<=event.pos[0]-671/1024*size_hight<=206/1024*size_hight) and (0<=event.pos[1]-153/576*size_width<=107/576*size_width):
             pass
             #self.nextlvl=True
 
     def check_on_settings(self,event):
         if (0<=event.pos[0]-721/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width<=215/576*size_width):
             self.dark_button=True
-        if (0<=event.pos[0]-74/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width<=215/576*size_width):
+        elif (0<=event.pos[0]-74/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width<=215/576*size_width):
             self.disco_button=True
-        if (0<=event.pos[0]-74/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width<=215/576*size_width):
+        elif (0<=event.pos[0]-74/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width<=215/576*size_width):
             self.grey_button=True
-        if (0<=event.pos[0]-399/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width<=215/576*size_width):
+        elif (0<=event.pos[0]-399/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width<=215/576*size_width):
             self.red_button=True
-        if (0<=event.pos[0]-399/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width<=215/576*size_width):
+        elif (0<=event.pos[0]-399/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width<=215/576*size_width):
             self.striped_button=True
-        if (0<=event.pos[0]-721/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width<=215/576*size_width):
+        elif (0<=event.pos[0]-721/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width<=215/576*size_width):
             self.magma_button=True
+        elif (0<=event.pos[0]<=61/1024*size_hight) and (0<=event.pos[1]<=46/576*size_width):
+            self.arrow_button=True
         
 
     def check_off(self):
         if self.exit_on:
             self.exit_off=True
             self.exit_on=False
-        if self.go:
+        elif self.go:
             self.go=False
-        if self.settings:
+        elif self.settings:
             self.settings=False
             self.start_of_set=1
             self.home_surface=0
-        if self.nextlvl:
+        elif self.nextlvl:
             self.nextlvl=False
 
     def check_off_settings(self):
-        if self.dark_button:
+        if self.arrow_button:
+            self.arrow_button = False
+            self.start_of_set=0
+            self.home_surface=1
+        elif self.dark_button:
             self.dark_button=False
-        if self.disco_button:
+        elif self.disco_button:
             self.disco_button=False
-        if self.grey_button:
+        elif self.grey_button:
             self.grey_button=False
-        if self.red_button:
+        elif self.red_button:
             self.red_button=False
-        if self.striped_button:
+        elif self.striped_button:
             self.striped_button=False
-        if self.magma_button:
+        elif self.magma_button:
             self.magma_button=False
 
     def draw_bottons(self):
         if self.exit_on:
             self.screen.blit(exit_surface, (131/1024*size_hight, 153/576*size_width))
-        if self.go:
+        elif self.go:
             self.screen.blit(go_surface, (672/1024*size_hight, 153/576*size_width))
-        if self.nextlvl:
+        elif self.nextlvl:
             #self.screen.blit(nextlvl_surface, (131/1024*size_hight, 153/576*size_width))
             pass
-        if self.settings:
+        elif self.settings:
             self.screen.blit(settings_surface, (272/1024*size_hight, 394/576*size_width))
     
     def draw_bottons_balls(self):
         if self.dark_button:
             self.screen.blit(dark_button_surface, (721/1024*size_hight, 50/576*size_width))
-        if self.disco_button:
+        elif self.disco_button:
             self.screen.blit(disco_button_surface, (74/1024*size_hight, 320/576*size_width))
-        if self.grey_button:
+        elif self.grey_button:
             self.screen.blit(grey_button_surface, (74/1024*size_hight, 50/576*size_width))
-        if self.red_button:
+        elif self.red_button:
             self.screen.blit(red_button_surface, (399/1024*size_hight, 50/576*size_width))
-        if self.striped_button:
+        elif self.striped_button:
             self.screen.blit(striped_button_surface, (399/1024*size_hight, 320/576*size_width))
-        if self.magma_button:
+        elif self.magma_button:
             self.screen.blit(magma_button_surface, (721/1024*size_hight, 320/576*size_width))
+        elif self.arrow_button:
+            self.screen.blit(arrow_button_surface, (0,0))
 
     def main_screen_draw(self):
         if self.start_of_set:
             self.screen.blit(menu_of_set_surface, (0,0))
-            #continue
-        if self.home_surface:
+        elif self.home_surface:
             self.screen.blit(home_surface, (0, 0))
 
             

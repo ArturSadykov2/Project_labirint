@@ -6,9 +6,9 @@ pg.init()
 size=[size_hight,size_width]
 
 # load main game textures
-home_screen_png = pg.image.load("image\main_backgroubd.png")
+home_screen_png = pg.image.load(os.path.join("image","main_backgroubd.png"))
 settings_screen_png = pg.image.load(os.path.join("image", "menu_ball.png"))
-middle_screen_png = pg.image.load(os.path.join("image", "background.png"))
+intermediate_menu_png = pg.image.load(os.path.join("image", "intermediate_menu.png"))
 
 # load game textures
 dark_ball_png = pg.image.load(os.path.join("image", "dark_ball.png"))
@@ -30,7 +30,8 @@ red_down_png = pg.image.load(os.path.join("image", "red_down.png"))
 striped_down_png = pg.image.load(os.path.join("image", "striped_down.png"))
 magma_down_png = pg.image.load(os.path.join("image", "magma_down.png"))
 
-<<<<<<< HEAD
+arrow_down_png = pg.image.load(os.path.join("image", "arrow_down.png"))
+
 #creating surfaces for objects 
 
 #creating main sirfaace
@@ -42,11 +43,11 @@ menu_of_set = pg.transform.scale(settings_screen_png, size)
 menu_of_set_surface = pg.Surface(size, pg.SRCALPHA)
 menu_of_set_surface.blit(menu_of_set, (0, 0))
 
-middle = pg.transform.scale(middle_screen_png, size)
-middle_surface = pg.Surface(size, pg.SRCALPHA)
-middle_surface.blit(middle, (0, 0))
+intermediate_menu = pg.transform.scale(intermediate_menu_png, size)
+intermediate_menu_surface = pg.Surface(size, pg.SRCALPHA)
+intermediate_menu_surface.blit(intermediate_menu, (0, 0))
 
-#creating surface for button
+#creating surface for main button
 
 exitt = pg.transform.scale(exit_png, (281/1024*size_hight,93/576*size_width))
 exit_surface = pg.Surface((281/1024*size_hight,93/576*size_width), pg.SRCALPHA)
@@ -90,13 +91,11 @@ magma_down = pg.transform.scale(magma_down_png, (215/1024*size_hight,215/576*siz
 magma_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
 magma_button_surface.blit(magma_down, (0,0))
 
+#creating a button for an arrow
+arrow_down = pg.transform.scale(arrow_down_png, (61/1024*size_hight,46/576*size_width))
+arrow_button_surface = pg.Surface((61/1024*size_hight,46/576*size_width), pg.SRCALPHA)
+arrow_button_surface.blit(arrow_down, (0,0))
 '''
-=======
-# Level textures
-lv1_light = pg.image.load(os.path.join("lv1_light.png"))
-
-'''screen = pg.display.set_mode(screen_size)
->>>>>>> 33486ba68f7b9847c3d721117d7bf98dbc5399fd
 bg_texture = pg.transform.scale(bg_texture, size)
 level_texture = pg.transform.scale(level_texture, size)
 bg_surface = pg.Surface(size, pg.SRCALPHA)
@@ -104,54 +103,3 @@ bg_surface.blit(bg_texture, (0, 0))
 labirint_surface = pg.Surface(size, pg.SRCALPHA)
 labirint_surface.blit(level_texture, (0, 0))
 labirint_mask = pg.mask.from_surface(labirint_surface)'''
-<<<<<<< HEAD
-=======
-
-
-class Menu:
-    '''
-    Function that draws main Menu with options of choose the level and starting the game
-    '''
-
-    def __init__(self, screen):
-        self.script = 1
-        self.screen = screen
-        # self.x = x
-
-    # def check_on(self, event):
-    # if (event.pos[1]-new_ball.y), (event.pos[0]-new_ball.x)
-
-    def draw(self):
-        if self.script == 1:
-            home = pg.transform.scale(home_screen, size)
-            home_surface = pg.Surface(size)
-            home_surface.blit(home, (0, 0))
-            self.screen.blit(home_surface, (0, 0))
-
-
-class Cursor:
-    def __init__(self, screen, x=0, y=0):
-        self.screen = screen
-        self.y = y
-        self.x = x
-
-    def cursor_change_pos(self, event):
-        self.x, self.y = event.pos[0], event.pos[1]
-
-    def draw_cursor(self, r=10, Crimson=[220, 20, 60], BLACK=(0, 0, 0)):
-        center = np.array([self.x, self.y])
-        pg.draw.circle(self.screen, Crimson, center, r, round(r / 5))
-        pg.draw.circle(self.screen, BLACK, center, 2)
-
-        p1, p2 = [np.array([r / 2, 0]) + center, np.array([1.5 * r, 0]) + center]
-        pg.draw.line(self.screen, Crimson, p1, p2, 3)
-
-        c1, c2 = np.array([-r / 2, 0]) + center, np.array([-1.5 * r, 0]) + center
-        pg.draw.line(self.screen, Crimson, c1, c2, 3)
-
-        b1, b2 = np.array([0, r / 2]) + center, np.array([0, 1.5 * r]) + center
-        pg.draw.line(self.screen, Crimson, b1, b2, 3)
-
-        d1, d2 = np.array([0, -r / 2]) + center, np.array([0, -1.5 * r]) + center
-        pg.draw.line(self.screen, Crimson, d1, d2, 3)
->>>>>>> 33486ba68f7b9847c3d721117d7bf98dbc5399fd
