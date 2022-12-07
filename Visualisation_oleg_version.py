@@ -5,9 +5,11 @@ from random import choice, randint
 from game_menu import *
 from game_colors import *
 from global_values import *
+from game_texture_oleg import *
+from game_levels import *
 
 size=[size_hight,size_width]
-
+balls_surfaces=[red_ball_surface,disco_ball_surface,grey_ball_surface,dark_ball_surface,striped_ball_surface,magma_ball_surface]
 screen = pg.display.set_mode(size)
 clock = pg.time.Clock()
 
@@ -38,11 +40,16 @@ while running:
         elif event.type == pg.MOUSEMOTION:
             curs.cursor_change_pos(event)
 
-    menu.main_screen_draw()
-    menu.draw_bottons()
-    menu.draw_bottons_balls()
-    curs.draw_cursor()
+    if menu.menu_live:
+        menu.main_screen_draw()
+        menu.draw_bottons()
+        menu.draw_bottons_balls()
+    else:
+        level_1([size_hight, size_width], [60, 60], disco_ball_png, balls_surfaces[menu.ball_index-1])
 
+
+
+    curs.draw_cursor()
     #pg.font.init()
     #pg.display.update()
     pg.display.flip()

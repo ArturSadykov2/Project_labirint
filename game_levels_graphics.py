@@ -2,7 +2,7 @@ import pygame as pg
 import math
 from random import choice, randint
 from game_texture_Artur import *
-from Objects import Ball
+from game_objects import Ball
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 screensize = [1600, 900]

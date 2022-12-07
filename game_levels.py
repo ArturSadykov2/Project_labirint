@@ -8,13 +8,13 @@ from game_objects import Ball
 """Вызывается из меню, сама вызывает функции отрисовки и расчета физики"""
 
 
-def level_1(screensize, ball_size, ball_texture):
+def level_1(screensize, ball_size, ball_texture, surf):
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     bg_surface = pg.Surface(screensize, pg.SRCALPHA)
     level_1_surface = pg.Surface(screensize, pg.SRCALPHA)
-    ball_surface = pg.Surface(screensize, pg.SRCALPHA)
-    set_level_textures(screensize, ball_size, lv1_light, mid_screen, ball_texture, level_1_surface, bg_surface, ball_surface)
+    ball_surface = surf
+    set_level_textures(screensize, ball_size, lv1_light, home_screen_png, ball_texture, level_1_surface, bg_surface, ball_surface)
     ball_mask = pg.mask.from_surface(ball_surface)
     level_mask = pg.mask.from_surface(level_1_surface)
     running = True
@@ -34,5 +34,5 @@ def level_1(screensize, ball_size, ball_texture):
     pg.quit()
 
 
-level_1([1392, 783], [60, 60], disco_ball_png)
+#level_1([1392, 783], [60, 60], disco_ball_png)
 

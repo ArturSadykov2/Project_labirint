@@ -13,8 +13,10 @@ class Menu:
     Function that draws main Menu with options of choose the level and starting the game
     '''
     def __init__(self,screen):
+        self.ball_index=1
         self.home_surface = 1
         self.start_of_set = 0
+        self.menu_live = 1
         self.screen = screen
         self.exit_on=False
         self.exit_off=False
@@ -43,16 +45,22 @@ class Menu:
     def check_on_settings(self,event):
         if (0<=event.pos[0]-721/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width<=215/576*size_width):
             self.dark_button=True
+            self.ball_index=4
         elif (0<=event.pos[0]-74/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width<=215/576*size_width):
             self.disco_button=True
+            self.ball_index=2
         elif (0<=event.pos[0]-74/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width<=215/576*size_width):
             self.grey_button=True
+            self.ball_index=3
         elif (0<=event.pos[0]-399/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width<=215/576*size_width):
             self.red_button=True
+            self.ball_index=1
         elif (0<=event.pos[0]-399/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width<=215/576*size_width):
             self.striped_button=True
+            self.ball_index=5
         elif (0<=event.pos[0]-721/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width<=215/576*size_width):
             self.magma_button=True
+            self.ball_index=6
         elif (0<=event.pos[0]<=61/1024*size_hight) and (0<=event.pos[1]<=46/576*size_width):
             self.arrow_button=True
         
@@ -63,6 +71,7 @@ class Menu:
             self.exit_on=False
         elif self.go:
             self.go=False
+            self.menu_live=0
         elif self.settings:
             self.settings=False
             self.start_of_set=1
