@@ -1,7 +1,8 @@
 import pygame as pg
 import math
 from random import choice, randint
-from game_texture import *
+from game_texture_Artur import *
+from game_texture_oleg import *
 from Graphics import *
 from Events import *
 from Objects import Ball
