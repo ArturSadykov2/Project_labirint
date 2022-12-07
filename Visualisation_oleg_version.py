@@ -38,13 +38,19 @@ while running:
             print(event.pos[0],event.pos[1])
             if menu.home_surface:
                 menu.check_on(event)
+            if menu.start_of_set:
+                menu.check_on_settings(event)
         elif event.type == pg.MOUSEBUTTONUP:
-            menu.check_off(event)
+            if menu.home_surface:
+                menu.check_off()
+            if menu.start_of_set:
+                menu.check_off_settings()
         elif event.type == pg.MOUSEMOTION:
             curs.cursor_change_pos(event)
 
     menu.main_screen_draw()
     menu.draw_bottons()
+    menu.draw_bottons_balls()
     curs.draw_cursor()
 
     #pg.font.init()

@@ -65,6 +65,30 @@ nextlvl_surface.blit(nextlvl, (0,0))
 
 #creating buttons for selecting balls
 
+dark_down = pg.transform.scale(dark_down_png, (215/1024*size_hight,215/576*size_width))
+dark_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
+dark_button_surface.blit(dark_down, (0,0))
+
+disco_down = pg.transform.scale(disco_down_png, (215/1024*size_hight,215/576*size_width))
+disco_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
+disco_button_surface.blit(disco_down, (0,0))
+
+grey_down = pg.transform.scale(grey_down_png, (215/1024*size_hight,215/576*size_width))
+grey_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
+grey_button_surface.blit(grey_down, (0,0))
+
+red_down = pg.transform.scale(red_down_png, (215/1024*size_hight,215/576*size_width))
+red_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
+red_button_surface.blit(red_down, (0,0))
+
+striped_down = pg.transform.scale(striped_down_png, (215/1024*size_hight,215/576*size_width))
+striped_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
+striped_button_surface.blit(striped_down, (0,0))
+
+magma_down = pg.transform.scale(magma_down_png, (215/1024*size_hight,215/576*size_width))
+magma_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
+magma_button_surface.blit(magma_down, (0,0))
+
 '''
 bg_texture = pg.transform.scale(bg_texture, size)
 level_texture = pg.transform.scale(level_texture, size)

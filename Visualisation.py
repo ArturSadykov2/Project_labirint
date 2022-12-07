@@ -44,8 +44,8 @@ while running:
         elif event.type == pg.MOUSEMOTION:
             curs.cursor_change_pos(event)
 
-    #screen.blit(bg_surface, (0, 0))
-    #screen.blit(labirint_surface, (0, 0))
+    screen.blit(bg_surface, (0, 0))
+    screen.blit(labirint_surface, (0, 0))
     #screen.blit(home_surface, (100, 100))
     menu.draw()
     curs.draw_cursor()
