@@ -2,10 +2,9 @@ import pygame as pg
 import math
 from random import choice, randint
 
-
 bg_surface = pg.Surface((640, 480), pg.SRCALPHA)
 pg.draw.lines(
-    bg_surface, (30, 90, 200), 1,
+    bg_surface, (30, 90, 200), True,
     ((60, 130), (300, 50), (600, 200), (400, 400), (150, 300)),
     12)
 triangle_surface = pg.Surface((60, 60), pg.SRCALPHA)
