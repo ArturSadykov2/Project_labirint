@@ -95,11 +95,3 @@ magma_button_surface.blit(magma_down, (0,0))
 arrow_down = pg.transform.scale(arrow_down_png, (61/1024*size_hight,46/576*size_width))
 arrow_button_surface = pg.Surface((61/1024*size_hight,46/576*size_width), pg.SRCALPHA)
 arrow_button_surface.blit(arrow_down, (0,0))
-'''
-bg_texture = pg.transform.scale(bg_texture, size)
-level_texture = pg.transform.scale(level_texture, size)
-bg_surface = pg.Surface(size, pg.SRCALPHA)
-bg_surface.blit(bg_texture, (0, 0))
-labirint_surface = pg.Surface(size, pg.SRCALPHA)
-labirint_surface.blit(level_texture, (0, 0))
-labirint_mask = pg.mask.from_surface(labirint_surface)'''
