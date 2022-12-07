@@ -2,7 +2,7 @@ import pygame as pg
 import numpy as np
 import os
 from random import choice, randint
-from game_texture import *
+from game_menu import *
 from game_colors import *
 from global_values import *
 
@@ -32,22 +32,19 @@ while running:
     clock.tick(60)
 
     for event in pg.event.get():
-        if event.type == pg.QUIT or not menu.script:
+        if event.type == pg.QUIT or menu.exit_off:
             running = False
-        if event.type == pg.KEYDOWN:
-            if event.key == pg.K_UP:
-                running = False
-        #elif event.type == pg.MOUSEBUTTONDOWN:
-            #menu.check_on(event)
-        #elif event.type == pg.MOUSEBUTTONUP:
-            #menu.check_off(event)
+        elif event.type == pg.MOUSEBUTTONDOWN:
+            print(event.pos[0],event.pos[1])
+            if menu.home_surface:
+                menu.check_on(event)
+        elif event.type == pg.MOUSEBUTTONUP:
+            menu.check_off(event)
         elif event.type == pg.MOUSEMOTION:
             curs.cursor_change_pos(event)
 
-    #screen.blit(bg_surface, (0, 0))
-    #screen.blit(labirint_surface, (0, 0))
-    #screen.blit(home_surface, (100, 100))
-    menu.draw()
+    menu.main_screen_draw()
+    menu.draw_bottons()
     curs.draw_cursor()
 
     #pg.font.init()
