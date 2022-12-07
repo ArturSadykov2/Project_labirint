@@ -13,15 +13,15 @@ class Ball:
         self.vy = 0
 
     def ball_boost(self):
-        if pg.key.get_pressed()[pg.K_DOWN]:
+        if pg.key.get_pressed()[pg.K_s] or pg.key.get_pressed()[pg.K_DOWN]:
             self.ay = 1
-        elif pg.key.get_pressed()[pg.K_UP]:
+        elif pg.key.get_pressed()[pg.K_w] or pg.key.get_pressed()[pg.K_UP]:
             self.ay = -1
         else:
             self.ay = 0
-        if pg.key.get_pressed()[pg.K_LEFT]:
+        if pg.key.get_pressed()[pg.K_a] or pg.key.get_pressed()[pg.K_LEFT]:
             self.ax = -1
-        elif pg.key.get_pressed()[pg.K_RIGHT]:
+        elif pg.key.get_pressed()[pg.K_d] or pg.key.get_pressed()[pg.K_RIGHT]:
             self.ax = 1
         else:
             self.ax = 0
