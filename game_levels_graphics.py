@@ -65,6 +65,6 @@ def masks(level_mask, ball_mask, trap_mask):
     offset_y = ball_rect.y - level_1_rect.y
     overlap = level_mask.overlap(ball_mask, (offset_x, offset_y))
     # overlap = ball_mask.overlap(level_mask, (0, 0))
-    overlap2 = trap_mask.overlap(ball_mask, (5, 0))
+    overlap = trap_mask.overlap(ball_mask, [0, 0])
     print(overlap)
 
