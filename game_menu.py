@@ -176,7 +176,7 @@ class Cursor:
     def cursor_change_pos(self, event):
         self.x,self.y=event.pos[0],event.pos[1]
 
-    def draw_cursor(self, r = 10, Crimson=[220, 20, 60], BLACK=(0,0,0)):
+    def draw_cursor(self):
         if self.click:
             self.screen.blit(cursor_down_button_surface, (self.x,self.y))
         else:
