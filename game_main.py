@@ -58,7 +58,7 @@ def main():
             menu.draw_bottons()
             menu.draw_bottons_balls()
         elif menu.level_1:
-            level_1([size_hight, size_width], [60, 60], balls_surfaces[menu.ball_index-1])
+            level_1([size_hight, size_width], balls_surfaces[menu.ball_index-1])
 
 
 

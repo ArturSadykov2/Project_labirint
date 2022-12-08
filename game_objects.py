@@ -3,7 +3,7 @@ from game_texture_oleg import *
 
 
 class Ball:
-    def __init__(self, ball_texture):
+    def __init__(self):
         self.x = 100
         self.y = 100
         self.ax = 0
