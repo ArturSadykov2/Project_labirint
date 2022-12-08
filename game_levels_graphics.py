@@ -20,8 +20,8 @@ def set_level_textures(screensize, ball_size, lv1_light, mid_screen,
 
 
 def draw_level(screen, level_1_surface, level_1_dang, bg_surface, ball):
-    ax = int(ball.ax * 10)
-    ay = int(ball.ay * 10)
+    ax = int(ball.ax * 30)
+    ay = int(ball.ay * 30)
     screen.blit(bg_surface, (0 - ax, 0 - ay))
 
     if (ax != 0) and (ay == 0):
@@ -54,12 +54,17 @@ def draw_level(screen, level_1_surface, level_1_dang, bg_surface, ball):
     screen.blit(level_1_dang, (0 - ax, 0 - ay))
 
 
-
 def draw_ball(screen, ball_surface, ball):
     screen.blit(ball_surface, (ball.x, ball.y))
 
 
-def masks(level_mask, ball_mask):
-    overlap = level_mask.overlap(ball_mask, (5, 0))
-    if overlap:
-        print('The two masks overlap!', overlap)
+def masks(level_mask, ball_mask, trap_mask):
+    level_1_rect = level_mask.get_rect(center=(size_hight//2, size_width//2))
+    ball_rect = ball_mask.get_rect(center=(0, 0))
+    offset_x = ball_rect.x - level_1_rect.x
+    offset_y = ball_rect.y - level_1_rect.y
+    overlap = level_mask.overlap(ball_mask, (offset_x, offset_y))
+    # overlap = ball_mask.overlap(level_mask, (0, 0))
+    overlap2 = trap_mask.overlap(ball_mask, (5, 0))
+    print(overlap)
+
