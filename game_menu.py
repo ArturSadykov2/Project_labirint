@@ -118,6 +118,10 @@ class Menu:
 
 
     def draw_bottons(self):
+        '''
+        Draws button
+        :param message: animation of pressing buttons
+        '''
         if self.exit_on:
             self.screen.blit(exit_surface, (131/1024*size_hight, 153/576*size_width))
         elif self.go:
@@ -130,6 +134,10 @@ class Menu:
             self.screen.blit(go_back_surface, (292/1024*size_hight, 332/576*size_width))
     
     def draw_bottons_balls(self):
+        '''
+        Draws button in the settings menu
+        :param message: animation of pressing buttons
+        '''
         if self.dark_button:
             self.screen.blit(dark_button_surface, (721/1024*size_hight, 50/576*size_width))
         elif self.disco_button:
@@ -146,6 +154,9 @@ class Menu:
             self.screen.blit(arrow_button_surface, (0,0))
 
     def main_screen_draw(self):
+        '''
+        Drawing background windows of the main menu modes
+        '''
         if self.start_of_set:
             self.screen.blit(menu_of_set_surface, (0,0))
         elif self.home_surface:
@@ -158,6 +169,7 @@ class Menu:
 class Cursor:
     def __init__(self, screen, x = 0, y = 0):
         self.screen = screen
+        self.click=False
         self.y = y
         self.x = x
 
@@ -165,18 +177,7 @@ class Cursor:
         self.x,self.y=event.pos[0],event.pos[1]
 
     def draw_cursor(self, r = 10, Crimson=[220, 20, 60], BLACK=(0,0,0)):
-        center=np.array([self.x,self.y])
-        pg.draw.circle(self.screen, Crimson, center, r, round(r/5))
-        pg.draw.circle(self.screen, BLACK, center, 2)
-
-        p1,p2=np.array([r/2,0])+center, np.array([1.5*r,0])+center
-        pg.draw.line(self.screen, Crimson, p1, p2, 3)
-
-        c1,c2=np.array([-r/2,0])+center, np.array([-1.5*r,0])+center
-        pg.draw.line(self.screen, Crimson, c1, c2, 3)
-
-        b1,b2=np.array([0,r/2])+center, np.array([0,1.5*r])+center
-        pg.draw.line(self.screen, Crimson, b1, b2, 3)
-
-        d1,d2=np.array([0,-r/2])+center, np.array([0,-1.5*r])+center
-        pg.draw.line(self.screen, Crimson, d1, d2, 3)
+        if self.click:
+            self.screen.blit(cursor_down_button_surface, (self.x,self.y))
+        else:
+            self.screen.blit(cursor_up_button_surface, (self.x,self.y))

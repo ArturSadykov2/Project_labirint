@@ -38,6 +38,9 @@ magma_down_png = pg.image.load(os.path.join("image", "magma_down.png"))
 
 arrow_down_png = pg.image.load(os.path.join("image", "arrow_down.png"))
 
+cursor_up_png = pg.image.load(os.path.join("image", "cursor_up.png"))
+cursor_down_png = pg.image.load(os.path.join("image", "cursor_down.png"))
+
 #creating surfaces for objects 
 
 #creating main sirfaace
@@ -102,9 +105,18 @@ magma_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.S
 magma_button_surface.blit(magma_down, (0,0))
 
 #creating a button for an arrow
+
 arrow_down = pg.transform.scale(arrow_down_png, (61/1024*size_hight,46/576*size_width))
 arrow_button_surface = pg.Surface((61/1024*size_hight,46/576*size_width), pg.SRCALPHA)
 arrow_button_surface.blit(arrow_down, (0,0))
+
+cursor_up = pg.transform.scale(cursor_up_png, (cursor_size/1024*size_hight,cursor_size/576*size_width))
+cursor_up_button_surface = pg.Surface((cursor_size/1024*size_hight,cursor_size/576*size_width), pg.SRCALPHA)
+cursor_up_button_surface.blit(cursor_up, (0,0))
+
+cursor_down = pg.transform.scale(cursor_down_png, (cursor_size/1024*size_hight,cursor_size/576*size_width))
+cursor_down_button_surface = pg.Surface((cursor_size/1024*size_hight,cursor_size/576*size_width), pg.SRCALPHA)
+cursor_down_button_surface.blit(cursor_down, (0,0))
 
 #creating surface for balls
 
