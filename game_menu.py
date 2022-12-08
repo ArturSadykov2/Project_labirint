@@ -38,39 +38,39 @@ class Menu:
         self.level_4=0
 
     def check_on(self, event):
-        if (0<=event.pos[0]-131/1024*size_hight<=281/1024*size_hight) and (0<=event.pos[1]-153/576*size_width<=92/576*size_width):
+        if (0<=event.pos[0]-131/1024*size_hight+cursor_size/2<=281/1024*size_hight) and (0<=event.pos[1]-153/576*size_width+cursor_size/2<=92/576*size_width):
             self.exit_on=True
-        elif (0<=event.pos[0]-671/1024*size_hight<=206/1024*size_hight) and (0<=event.pos[1]-153/576*size_width<=107/576*size_width):
+        elif (0<=event.pos[0]-671/1024*size_hight+cursor_size/2<=206/1024*size_hight) and (0<=event.pos[1]-153/576*size_width+cursor_size/2<=107/576*size_width):
             self.go=True
-        elif (0<=event.pos[0]-272/1024*size_hight<=320/1024*size_hight) and (0<=event.pos[1]-394/576*size_width<=106/576*size_width):
+        elif (0<=event.pos[0]-272/1024*size_hight+cursor_size/2<=320/1024*size_hight) and (0<=event.pos[1]-394/576*size_width+cursor_size/2<=106/576*size_width):
             self.settings=True
 
     def check_on_settings(self,event):
-        if (0<=event.pos[0]-721/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width<=215/576*size_width):
+        if (0<=event.pos[0]-721/1024*size_hight+cursor_size/2<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width+cursor_size/2<=215/576*size_width):
             self.dark_button=True
             self.ball_index=4
-        elif (0<=event.pos[0]-74/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width<=215/576*size_width):
+        elif (0<=event.pos[0]-74/1024*size_hight+cursor_size/2<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width+cursor_size/2<=215/576*size_width):
             self.disco_button=True
             self.ball_index=2
-        elif (0<=event.pos[0]-74/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width<=215/576*size_width):
+        elif (0<=event.pos[0]-74/1024*size_hight+cursor_size/2<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width+cursor_size/2<=215/576*size_width):
             self.grey_button=True
             self.ball_index=3
-        elif (0<=event.pos[0]-399/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width<=215/576*size_width):
+        elif (0<=event.pos[0]-399/1024*size_hight+cursor_size/2<=215/1024*size_hight) and (0<=event.pos[1]-50/576*size_width+cursor_size/2<=215/576*size_width):
             self.red_button=True
             self.ball_index=1
-        elif (0<=event.pos[0]-399/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width<=215/576*size_width):
+        elif (0<=event.pos[0]-399/1024*size_hight+cursor_size/2<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width+cursor_size/2<=215/576*size_width):
             self.striped_button=True
             self.ball_index=5
-        elif (0<=event.pos[0]-721/1024*size_hight<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width<=215/576*size_width):
+        elif (0<=event.pos[0]-721/1024*size_hight+cursor_size/2<=215/1024*size_hight) and (0<=event.pos[1]-320/576*size_width+cursor_size/2<=215/576*size_width):
             self.magma_button=True
             self.ball_index=6
         elif (0<=event.pos[0]<=61/1024*size_hight) and (0<=event.pos[1]<=46/576*size_width):
             self.arrow_button=True
 
     def check_on_intermediate(self,event):
-        if (0<=event.pos[0]-292/1024*size_hight<=440/1024*size_hight) and (0<=event.pos[1]-332/576*size_width<=140/576*size_width):
+        if (0<=event.pos[0]-292/1024*size_hight+cursor_size/2<=440/1024*size_hight) and (0<=event.pos[1]-332/576*size_width+cursor_size/2<=140/576*size_width):
             self.go_back=True
-        if (0<=event.pos[0]-292/1024*size_hight<=440/1024*size_hight) and (0<=event.pos[1]-128/576*size_width<=140/576*size_width):
+        if (0<=event.pos[0]-292/1024*size_hight+cursor_size/2<=440/1024*size_hight) and (0<=event.pos[1]-128/576*size_width+cursor_size/2<=140/576*size_width):
             self.nextlvl=True
         
 
