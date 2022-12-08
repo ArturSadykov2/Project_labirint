@@ -14,7 +14,7 @@ def level_1(screensize, surf):
     ball_surface = surf
     ball_mask = pg.mask.from_surface(ball_surface)
     level_mask = pg.mask.from_surface(level_1_surf)
-    trap_mask = pg.mask.from_surface(level_1_surf)
+    trap_mask = pg.mask.from_surface(level_1_traps)
     running = True
     ball = Ball()
     ball.__init__()
@@ -24,7 +24,7 @@ def level_1(screensize, surf):
             if event.type == pg.QUIT:
                 running = False
         Ball.ball_move(ball)
-        masks(level_mask, ball_mask, trap_mask)
+        Ball.masks(ball, level_mask, ball_mask, trap_mask)
         draw_level(screen, level_1_surf, level_1_traps, bg_surface, ball)
         draw_ball(screen, ball_surface, ball)
         pg.display.flip()
