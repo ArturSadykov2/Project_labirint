@@ -27,7 +27,7 @@ def level_1(screensize, surf):
                 running = False
         Ball.ball_move(ball)
         masks(level_mask, ball_mask)
-        draw_level(screen, level_1_surf, bg_surface, ball)
+        draw_level(screen, level_1_surf, level_1_dang, bg_surface, ball)
         draw_ball(screen, ball_surface, ball)
         pg.display.flip()
         clock.tick(60)
