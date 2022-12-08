@@ -21,7 +21,7 @@ def main():
     clock = pg.time.Clock()
 
     menu=Menu(screen)
-    curs=Cursor(screen)
+    cursor=Cursor(screen)
 
     running = True
     pg.mouse.set_visible(False)
@@ -35,6 +35,7 @@ def main():
                 running = False
             elif event.type == pg.MOUSEBUTTONDOWN:
                 print(event.pos[0],event.pos[1])
+                cursor.click=True
                 if menu.home_surface:
                     menu.check_on(event)
                 elif menu.start_of_set:
@@ -42,6 +43,7 @@ def main():
                 elif menu.intermediate_menu:
                     menu.check_on_intermediate(event)
             elif event.type == pg.MOUSEBUTTONUP:
+                cursor.click=False
                 if menu.home_surface:
                     menu.check_off()
                 elif menu.start_of_set:
@@ -49,7 +51,7 @@ def main():
                 elif menu.intermediate_menu:
                     menu.check_off_intermediate()
             elif event.type == pg.MOUSEMOTION:
-                curs.cursor_change_pos(event)
+                cursor.cursor_change_pos(event)
 
         if menu.menu_live:
             menu.main_screen_draw()
@@ -60,7 +62,7 @@ def main():
 
 
 
-        curs.draw_cursor()
+        cursor.draw_cursor()
         #pg.font.init()
         #pg.display.update()
         pg.display.flip()
