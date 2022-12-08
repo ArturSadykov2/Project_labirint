@@ -3,7 +3,7 @@ import os
 from game_texture_oleg import *
 
 lv1_light = pg.image.load(os.path.join("levels_image", "lv1_light.png"))
-
+lv1_traps = pg.image.load(os.path.join("levels_image", "lv1_lovyshka.png"))
 
 texture_wood_png = pg.transform.scale(texture_wood_png, size)
 bg_surface = pg.Surface(size, pg.SRCALPHA)
@@ -13,6 +13,6 @@ lv1_light = pg.transform.scale(lv1_light, size)
 level_1_surf = pg.Surface(size, pg.SRCALPHA)
 level_1_surf.blit(lv1_light, (0, 0))
 
-home = pg.transform.scale(home_screen_png, size)
-home_surface = pg.Surface(size, pg.SRCALPHA)
-home_surface.blit(home, (0, 0))
+lv1_traps = pg.transform.scale(lv1_traps, size)
+level_1_traps = pg.Surface(size, pg.SRCALPHA)
+level_1_traps.blit(lv1_traps, (0, 0))
