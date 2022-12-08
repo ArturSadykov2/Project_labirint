@@ -61,3 +61,9 @@ class Ball:
             self.vy = 0
             self.ax = 0
             self.ay = 0
+
+    def finish(self, ball_mask, finish_mask):
+        overlap_finish = finish_mask.overlap(ball_mask, (self.x + self.vx - 0, self.y + self.vy - 0))
+        if overlap_finish:
+            running = False
+        return running
