@@ -6,7 +6,6 @@ class Ball:
     def __init__(self, ball_texture):
         self.x = 100
         self.y = 100
-        self.texture = ball_texture
         self.ax = 0
         self.ay = 0
         self.vx = 0

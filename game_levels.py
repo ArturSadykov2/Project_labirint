@@ -14,12 +14,12 @@ def level_1(screensize, ball_size, surf):
     bg_surface = pg.Surface(screensize, pg.SRCALPHA)
     level_1_surface = pg.Surface(screensize, pg.SRCALPHA)
     ball_surface = surf
-    set_level_textures(screensize, ball_size, lv1_light, texture_wood_2_png, ball_texture, level_1_surface, bg_surface, ball_surface)
+    set_level_textures(screensize, ball_size, lv1_light, texture_wood_2_png, level_1_surface, bg_surface, ball_surface)
     ball_mask = pg.mask.from_surface(ball_surface)
     level_mask = pg.mask.from_surface(level_1_surface)
     running = True
-    ball = Ball(ball_texture)
-    ball.__init__(ball_texture)
+    ball = Ball()
+    ball.__init__()
     while running:
         Ball.ball_boost(ball)
         for event in pg.event.get():
