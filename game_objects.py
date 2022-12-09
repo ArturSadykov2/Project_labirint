@@ -30,32 +30,24 @@ class Ball:
         self.vx += self.ax
         self.vy += self.ay
         if self.vx != 0:
-            if abs(0.1*abs(self.vx)/self.vx) >= abs(self.vx):
+            if abs(0.2*abs(self.vx)/self.vx) >= abs(self.vx):
                 self.vx = 0
             else:
                 self.vx -= (0.1*abs(self.vx)/self.vx)
         if self.vy != 0:
-            if abs(0.1*abs(self.vy)/self.vy) >= abs(self.vy):
+            if abs(0.2*abs(self.vy)/self.vy) >= abs(self.vy):
                 self.vy = 0
             else:
                 self.vy -= (0.1*abs(self.vy)/self.vy)
 
-    def collusion(self, level_mask, ball_mask, trap_mask):
-        overlap_walls_level = level_mask.overlap(ball_mask, (self.x+self.vx-0, self.y+self.vy-0))
-        overlap_walls_ball = ball_mask.overlap(level_mask, (0 - self.x-self.vx, 0 - self.y-self.vy))
+    def collusion(self, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask):
+        overlap_walls_x = level_mask.overlap(ball_x_mask, (self.x+self.vx-0, self.y+self.vy-0))
+        overlap_walls_y = level_mask.overlap(ball_y_mask, (self.x+self.vx-0, self.y+self.vy-0))
         overlap_traps = trap_mask.overlap(ball_mask, (self.x-0, self.y-0))
-        print(overlap_walls_ball, overlap_walls_level)
-        if overlap_walls_level:
-            # self.vx = -self.vx//2
-            # self.vy = -self.vy//2
-            if (overlap_walls_ball[0] <= 3) and self.vx <= 0:
-                self.vx = -self.vx
-            elif (overlap_walls_ball[0] >= 63) and self.vx >= 0:
-                self.vx = -self.vx
-            if (overlap_walls_ball[1] <= 3) and self.vy >= 0:
-                self.vy = -self.vy
-            elif (overlap_walls_ball[1] >= 63) and self.vy <= 0:
-                self.vy = -self.vy
+        if overlap_walls_x:
+            self.vx = -self.vx
+        if overlap_walls_y:
+            self.vy = -self.vy
         self.x += self.vx
         self.y += self.vy
         if overlap_traps:
@@ -72,5 +64,5 @@ class Ball:
             running = False
             obj.menu_live = 1
             obj.intermediate_menu = 1
-            obj.level_1=1
+            obj.level_1 = 1
         return running
