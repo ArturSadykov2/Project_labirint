@@ -8,29 +8,27 @@ from game_objects import Ball
 """Вызывается из меню, сама вызывает функции отрисовки и расчета физики"""
 
 
-def level_1(screensize, surf, obj):
+def level(screensize, surf, walls, traps, x, y):
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = surf
     ball_mask = pg.mask.from_surface(ball_surface)
-    level_mask = pg.mask.from_surface(level_1_surf)
-    trap_mask = pg.mask.from_surface(level_1_traps)
+    level_mask = pg.mask.from_surface(walls)
+    trap_mask = pg.mask.from_surface(traps)
+    ball_x_mask = pg.mask.from_surface(ball_x_surf)
+    ball_y_mask = pg.mask.from_surface(ball_y_surf)
     running = True
-    ball = Ball()
-    ball.__init__()
+    ball = Ball(x, y)
+    ball.__init__(x, y)
     while running:
         Ball.ball_boost(ball)
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running = False
         Ball.ball_move(ball)
-        Ball.collusion(ball, level_mask, ball_mask, trap_mask)
-        draw_level(screen, level_1_surf, level_1_traps, bg_surface, ball)
+        Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask)
+        draw_level(screen, walls, traps, bg_surface, ball)
         draw_ball(screen, ball_surface, ball)
         pg.display.flip()
         clock.tick(60)
     pg.quit()
-
-
-#level_1([1392, 783], [60, 60], disco_ball_png)
-
