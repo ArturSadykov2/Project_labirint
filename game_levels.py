@@ -13,13 +13,15 @@ def level_1(screensize, surf):
     clock = pg.time.Clock()
     ball_surface = surf
     ball_mask = pg.mask.from_surface(ball_surface)
-    level_mask = pg.mask.from_surface(level_1_surf)
-    trap_mask = pg.mask.from_surface(level_1_traps)
+    level_mask = pg.mask.from_surface(lv1_walls_surf)
+    trap_mask = pg.mask.from_surface(lv1_traps_surf)
     ball_x_mask = pg.mask.from_surface(ball_x_surf)
     ball_y_mask = pg.mask.from_surface(ball_y_surf)
     running = True
-    ball = Ball()
-    ball.__init__()
+    x = 100
+    y = 100
+    ball = Ball(x, y)
+    ball.__init__(x, y)
     while running:
         Ball.ball_boost(ball)
         for event in pg.event.get():
@@ -27,7 +29,7 @@ def level_1(screensize, surf):
                 running = False
         Ball.ball_move(ball)
         Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask)
-        draw_level(screen, level_1_surf, level_1_traps, bg_surface, ball)
+        draw_level(screen, lv1_walls_surf, lv1_traps_surf, bg_surface, ball)
         draw_ball(screen, ball_surface, ball)
         pg.display.flip()
         clock.tick(60)

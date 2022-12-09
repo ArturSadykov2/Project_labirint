@@ -3,9 +3,9 @@ from game_texture_oleg import *
 
 
 class Ball:
-    def __init__(self):
-        self.x = 100
-        self.y = 500
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
         self.ax = 0
         self.ay = 0
         self.vx = 0
