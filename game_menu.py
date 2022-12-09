@@ -114,7 +114,21 @@ class Menu:
         elif self.nextlvl:
             self.nextlvl=False
             self.menu_live = 0
-            #move_to_next_lvl(self)
+            if self.level_1:
+                self.level_2=1
+                self.level_1=0
+            elif self.level_2:
+                self.level_3=1
+                self.level_2=0
+            elif self.level_3:
+                self.level_4=1
+                self.level_3=0
+            elif self.level_4:
+                self.level_5=1
+                self.level_4=0
+
+            
+
 
 
     def draw_bottons(self):

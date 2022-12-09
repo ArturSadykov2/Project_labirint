@@ -72,5 +72,5 @@ class Ball:
             running = False
             obj.menu_live = 1
             obj.intermediate_menu = 1
-            obj.level_1=0
+            obj.level_1=1
         return running
