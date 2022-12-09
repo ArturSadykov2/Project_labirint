@@ -25,8 +25,8 @@ y4 = size_hight//2
 # finish coordinates
 xf1 = 80
 yf1 = 700
-xf2 = 1300
-yf2 = 700
+xf2 = 1050
+yf2 = 650
 xf3 = 1300
 yf3 = 700
 xf4 = 1300
