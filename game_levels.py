@@ -8,7 +8,7 @@ from game_objects import Ball
 """Вызывается из меню, сама вызывает функции отрисовки и расчета физики"""
 
 
-def level(screensize, surf, walls, traps):
+def level(screensize, surf, walls, traps, x, y):
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = surf
@@ -18,8 +18,6 @@ def level(screensize, surf, walls, traps):
     ball_x_mask = pg.mask.from_surface(ball_x_surf)
     ball_y_mask = pg.mask.from_surface(ball_y_surf)
     running = True
-    x = 100
-    y = 100
     ball = Ball(x, y)
     ball.__init__(x, y)
     while running:
