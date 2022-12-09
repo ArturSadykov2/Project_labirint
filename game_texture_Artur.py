@@ -28,6 +28,11 @@ ball_y = pg.transform.scale(ball_y, [size_ball, size_ball])
 ball_y_surf = pg.Surface([size_ball, size_ball], pg.SRCALPHA)
 ball_y_surf.blit(ball_y, (0, 0))
 
+finish_texture = pg.image.load(os.path.join("levels_image", "final_hole.png"))
+finish_texture = pg.transform.scale(finish_texture, [finish_size, finish_size])
+finish_surf = pg.Surface([finish_size, finish_size], pg.SRCALPHA)
+finish_surf.blit(finish_texture, (0, 0))
+
 lv2_walls = pg.image.load(os.path.join("levels_image", "lv2_walls_gun.png"))
 lv2_walls = pg.transform.scale(lv2_walls, size)
 lv2_walls_surf = pg.Surface(size, pg.SRCALPHA)

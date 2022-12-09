@@ -12,7 +12,7 @@ FPS = 60
 #set screen size
 size=[size_hight,size_width]
 
-# star coordinates
+# start coordinates
 x1 = 80
 x2 = 100
 y1 = 100
@@ -22,11 +22,21 @@ y3 = 100
 x4 = 150
 y4 = size_hight//2
 
+# finish coordinates
+xf1 = 1200
+yf1 = 600
+xf2 = 1300
+yf2 = 700
+xf3 = 1300
+yf3 = 700
+xf4 = 1300
+yf4 = 700
+
 # level texture massive
-level_texture = [[lv1_walls_surf, lv1_traps_surf, x1, y1],
-                 [lv2_walls_surf, lv2_traps_surf, x2, y2],
-                 [lv3_walls_surf, lv3_traps_surf, x3, y3],
-                 [lv4_walls_surf, lv4_traps_surf, x4, y4]]
+level_texture = [[lv1_walls_surf, lv1_traps_surf, x1, y1, xf1, yf1],
+                 [lv2_walls_surf, lv2_traps_surf, x2, y2, xf2, yf2],
+                 [lv3_walls_surf, lv3_traps_surf, x3, y3, xf3, yf3],
+                 [lv4_walls_surf, lv4_traps_surf, x4, y4, xf4, yf4]]
 def main():
     '''
     Function that draws main Menu with options of choose the level and starting the game
@@ -74,16 +84,28 @@ def main():
             menu.draw_bottons_balls()
         elif menu.level_1:
             level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
-                  level_texture[0][0], level_texture[0][1], level_texture[0][2], level_texture[0][3])
+                  level_texture[0][0], level_texture[0][1],
+                  level_texture[0][2], level_texture[0][3],
+                  level_texture[0][4], level_texture[0][5],
+                  menu)
         elif menu.level_2:
             level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
-                  level_texture[1][0], level_texture[1][1], level_texture[1][2], level_texture[1][3])
+                  level_texture[1][0], level_texture[1][1],
+                  level_texture[1][2], level_texture[1][3],
+                  level_texture[1][4], level_texture[1][5],
+                  menu)
         elif menu.level_3:
             level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
-                  level_texture[2][0], level_texture[2][1], level_texture[2][2], level_texture[2][3])
+                  level_texture[2][0], level_texture[2][1],
+                  level_texture[2][2], level_texture[2][3],
+                  level_texture[2][4], level_texture[2][5],
+                  menu)
         elif menu.level_4:
             level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
-                  level_texture[3][0], level_texture[3][1], level_texture[3][2], level_texture[3][3])
+                  level_texture[3][0], level_texture[3][1],
+                  level_texture[3][2], level_texture[3][3],
+                  level_texture[3][4], level_texture[3][5],
+                  menu)
 
 
 
