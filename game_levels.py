@@ -8,7 +8,7 @@ from game_objects import Ball
 """Вызывается из меню, сама вызывает функции отрисовки и расчета физики"""
 
 
-def level_1(screensize, surf):
+def level_1(screensize, surf, obj):
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = surf
