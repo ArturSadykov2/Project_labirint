@@ -19,8 +19,8 @@ x2 = 100
 y2 = 100
 x3 = 200
 y3 = 100
-x4 = 150
-y4 = size_hight//2
+x4 = 100
+y4 = size_width//2
 
 # finish coordinates
 xf1 = 80
@@ -29,8 +29,8 @@ xf2 = 1050
 yf2 = 650
 xf3 = 1300
 yf3 = 700
-xf4 = 1300
-yf4 = 700
+xf4 = 100
+yf4 = size_width//2
 
 # level texture massive
 level_texture = [[lv1_walls_surf, lv1_traps_surf, x1, y1, xf1, yf1],
