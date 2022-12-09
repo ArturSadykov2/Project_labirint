@@ -40,17 +40,21 @@ class Ball:
             else:
                 self.vy -= (0.1*abs(self.vy)/self.vy)
 
-    def masks(self, level_mask, ball_mask, trap_mask):
+    def collusion(self, level_mask, ball_mask, trap_mask):
         overlap_walls_level = level_mask.overlap(ball_mask, (self.x+self.vx-0, self.y+self.vy-0))
         overlap_walls_ball = ball_mask.overlap(level_mask, (0 - self.x-self.vx, 0 - self.y-self.vy))
         overlap_traps = trap_mask.overlap(ball_mask, (self.x-0, self.y-0))
         print(overlap_walls_ball, overlap_walls_level)
         if overlap_walls_level:
-            #self.vx = -self.vx//2
-            #self.vy = -self.vy//2
-            if (overlap_walls_ball[0] <= 3) or (overlap_walls_ball[0] >= 63):
+            # self.vx = -self.vx//2
+            # self.vy = -self.vy//2
+            if (overlap_walls_ball[0] <= 3) and self.vx <= 0:
                 self.vx = -self.vx
-            if (overlap_walls_ball[1] <= 3) or (overlap_walls_ball[1] >= 63):
+            elif (overlap_walls_ball[0] >= 63) and self.vx >= 0:
+                self.vx = -self.vx
+            if (overlap_walls_ball[1] <= 3) and self.vy >= 0:
+                self.vy = -self.vy
+            elif (overlap_walls_ball[1] >= 63) and self.vy <= 0:
                 self.vy = -self.vy
         self.x += self.vx
         self.y += self.vy

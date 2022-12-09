@@ -24,7 +24,7 @@ def level_1(screensize, surf):
             if event.type == pg.QUIT:
                 running = False
         Ball.ball_move(ball)
-        Ball.masks(ball, level_mask, ball_mask, trap_mask)
+        Ball.collusion(ball, level_mask, ball_mask, trap_mask)
         draw_level(screen, level_1_surf, level_1_traps, bg_surface, ball)
         draw_ball(screen, ball_surface, ball)
         pg.display.flip()
