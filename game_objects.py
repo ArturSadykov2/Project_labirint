@@ -46,12 +46,12 @@ class Ball:
         overlap_traps = trap_mask.overlap(ball_mask, (self.x-0, self.y-0))
         print(overlap_walls_ball, overlap_walls_level)
         if overlap_walls_level:
-            self.vx = -self.vx
-            self.vy = -self.vy
-            #if (overlap_walls_ball[0] <= 3) or (overlap_walls_ball[0] >= 63):
-                #self.vx = -self.vx
-            #if (overlap_walls_ball[1] <= 3) or (overlap_walls_ball[1] >= 63):
-                #self.vy = -self.vy
+            #self.vx = -self.vx//2
+            #self.vy = -self.vy//2
+            if (overlap_walls_ball[0] <= 3) or (overlap_walls_ball[0] >= 63):
+                self.vx = -self.vx
+            if (overlap_walls_ball[1] <= 3) or (overlap_walls_ball[1] >= 63):
+                self.vy = -self.vy
         self.x += self.vx
         self.y += self.vy
         if overlap_traps:
