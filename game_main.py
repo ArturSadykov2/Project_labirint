@@ -14,8 +14,8 @@ size=[size_hight,size_width]
 
 # start coordinates
 x1 = 80
-x2 = 100
 y1 = 100
+x2 = 100
 y2 = 100
 x3 = 200
 y3 = 100
