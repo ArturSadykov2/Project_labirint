@@ -13,7 +13,6 @@ class Menu:
     '''
     Function that draws main Menu with options of choose the level and starting the game
     '''
-
     def __init__(self, screen):
         self.ball_index = 1
         self.menu_live = 1
