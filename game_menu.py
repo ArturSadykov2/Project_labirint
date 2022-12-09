@@ -81,6 +81,7 @@ class Menu:
         elif self.go:
             self.go=False
             self.menu_live=0
+            self.home_surface = 0
         elif self.settings:
             self.settings=False
             self.start_of_set=1
@@ -167,7 +168,7 @@ class Menu:
         elif self.arrow_button:
             self.screen.blit(arrow_button_surface, (0,0))
 
-    def main_screen_draw(self):
+    def screen_draw(self):
         '''
         Drawing background windows of the main menu modes
         '''

@@ -79,7 +79,7 @@ def main():
                 cursor.cursor_change_pos(event)
 
         if menu.menu_live:
-            menu.main_screen_draw()
+            menu.screen_draw()
             menu.draw_bottons()
             menu.draw_bottons_balls()
         elif menu.level_1:
