@@ -5,7 +5,7 @@ from game_texture_oleg import *
 class Ball:
     def __init__(self):
         self.x = 100
-        self.y = 100
+        self.y = 500
         self.ax = 0
         self.ay = 0
         self.vx = 0
@@ -27,8 +27,10 @@ class Ball:
             self.ax = 0
 
     def ball_move(self):
-        self.vx += self.ax
-        self.vy += self.ay
+        if abs(self.vx) <= 10:
+            self.vx += self.ax
+        if abs(self.vy) <= 10:
+            self.vy += self.ay
         if self.vx != 0:
             if abs(0.2*abs(self.vx)/self.vx) >= abs(self.vx):
                 self.vx = 0
@@ -60,7 +62,7 @@ class Ball:
 
     def finish(self, ball_mask, finish_mask_1, obj):
         overlap_finish = finish_mask_1.overlap(ball_mask, (self.x + self.vx - 0, self.y + self.vy - 0))
-        if overlap_finish_1:
+        if overlap_finish:
             running = False
             obj.menu_live = 1
             obj.intermediate_menu = 1
