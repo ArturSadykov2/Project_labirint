@@ -27,10 +27,10 @@ def level(screensize, surf, walls, traps, x, y, x_finish, y_finish, menu):
             if event.type == pg.QUIT:
                 running = False
         Ball.ball_move(ball)
-        Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask)
+        Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x, y)
         draw_level(screen, walls, traps, bg_surface, ball, finish_surf, x_finish, y_finish)
         draw_ball(screen, ball_surface, ball)
-        ball.finish(ball_mask, finish_mask, menu, x_finish, y_finish, running)
+        running = ball.finish(ball_mask, finish_mask, menu, x_finish, y_finish, running)
         pg.display.flip()
         clock.tick(60)
-    pg.quit()
+        print(running)

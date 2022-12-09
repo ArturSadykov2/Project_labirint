@@ -42,7 +42,7 @@ class Ball:
             else:
                 self.vy -= (0.1*abs(self.vy)/self.vy)
 
-    def collusion(self, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask):
+    def collusion(self, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x, y):
         overlap_walls_x = level_mask.overlap(ball_x_mask, (self.x+self.vx-0, self.y+self.vy-0))
         overlap_walls_y = level_mask.overlap(ball_y_mask, (self.x+self.vx-0, self.y+self.vy-0))
         overlap_traps = trap_mask.overlap(ball_mask, (self.x-0, self.y-0))
@@ -53,15 +53,15 @@ class Ball:
         self.x += self.vx
         self.y += self.vy
         if overlap_traps:
-            self.x = 100
-            self.y = 100
+            self.x = x
+            self.y = y
             self.vx = 0
             self.vy = 0
             self.ax = 0
             self.ay = 0
 
     def finish(self, ball_mask, finish_mask, obj, x_finish, y_finish, running):
-        overlap_finish = finish_mask.overlap(ball_mask, (self.x + self.vx - x_finish, self.y + self.vy - y_finish))
+        overlap_finish = finish_mask.overlap(ball_mask, (x_finish - self.x + self.vx, y_finish - self.y + self.vy))
         if overlap_finish:
             running = False
             obj.menu_live = 1

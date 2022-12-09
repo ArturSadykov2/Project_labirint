@@ -14,7 +14,7 @@ size=[size_hight,size_width]
 
 # start coordinates
 x1 = 80
-y1 = 100
+y1 = 500
 x2 = 100
 y2 = 100
 x3 = 200
@@ -23,8 +23,8 @@ x4 = 150
 y4 = size_hight//2
 
 # finish coordinates
-xf1 = 1200
-yf1 = 600
+xf1 = 80
+yf1 = 700
 xf2 = 1300
 yf2 = 700
 xf3 = 1300
