@@ -12,6 +12,11 @@ FPS = 60
 #set screen size
 size=[size_hight,size_width]
 
+# level texture massive
+level_texture = [[lv1_walls_surf, lv1_traps_surf],
+                 [lv2_walls_surf, lv2_traps_surf],
+                 [lv3_walls_surf, lv3_traps_surf],
+                 [lv4_walls_surf, lv4_traps_surf]]
 def main():
     '''
     Function that draws main Menu with options of choose the level and starting the game
@@ -58,7 +63,18 @@ def main():
             menu.draw_bottons()
             menu.draw_bottons_balls()
         elif menu.level_1:
-            level_1([size_hight, size_width], balls_surfaces[menu.ball_index-1])
+            level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
+                  level_texture[0][0], level_texture[0][1])
+        elif menu.level_2:
+            level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
+                  level_texture[1][0], level_texture[1][1])
+        elif menu.level_3:
+            level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
+                  level_texture[2][0], level_texture[2][1])
+        elif menu.level_4:
+            level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
+                  level_texture[3][0], level_texture[3][1])
+
 
 
 

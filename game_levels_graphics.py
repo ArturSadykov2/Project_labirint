@@ -3,9 +3,6 @@ import math
 from random import choice, randint
 from game_texture_Artur import *
 from game_objects import Ball
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-screensize = [1600, 900]
 
 
 def set_level_textures(screensize, ball_size, lv1_light, mid_screen,
