@@ -2,8 +2,9 @@ import pygame as pg
 import os
 from game_texture_oleg import *
 
-lv1_light = pg.image.load(os.path.join("levels_image", "lv1_light.png"))
-lv1_traps = pg.image.load(os.path.join("levels_image", "lv1_lovyshka.png"))
+lv1_light = pg.image.load(os.path.join("levels_image", "lv1_rewalls.png"))
+lv1_dark = pg.image.load(os.path.join("levels_image", "lv1_dark.png"))
+lv1_traps = pg.image.load(os.path.join("levels_image", "lv1_lovyshki_1.png"))
 ball_x = pg.image.load(os.path.join("image", "red_ball_x.png"))
 ball_y = pg.image.load(os.path.join("image", "red_ball_y.png"))
 
@@ -15,6 +16,10 @@ bg_surface.blit(texture_wood_png, (0, 0))
 lv1_light = pg.transform.scale(lv1_light, size)
 lv1_walls_surf = pg.Surface(size, pg.SRCALPHA)
 lv1_walls_surf.blit(lv1_light, (0, 0))
+
+lv1_dark = pg.transform.scale(lv1_dark, size)
+lv1_sp_surf = pg.Surface(size, pg.SRCALPHA)
+lv1_sp_surf.blit(lv1_dark, (0, 0))
 
 lv1_traps = pg.transform.scale(lv1_traps, size)
 lv1_traps_surf = pg.Surface(size, pg.SRCALPHA)
