@@ -22,7 +22,6 @@ def level(screensize, ball_surf, walls, traps, lv_dark, x, y, x_finish, y_finish
     ball = Ball(x, y)
     ball.__init__(x, y)
     while running:
-        print(0)
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running = False
