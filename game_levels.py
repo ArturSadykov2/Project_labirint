@@ -4,7 +4,7 @@ from random import choice, randint
 from game_texture_Artur import *
 from game_texture_oleg import *
 from game_levels_graphics import *
-from game_objects import Ball
+from game_objects_ball import Ball
 """Вызывается из меню, сама вызывает функции отрисовки и расчета физики"""
 
 

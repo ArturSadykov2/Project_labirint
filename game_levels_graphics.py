@@ -2,7 +2,7 @@ import pygame as pg
 import math
 from random import choice, randint
 from game_texture_Artur import *
-from game_objects import Ball
+from game_objects_ball import Ball
 
 
 def draw_level(screen, level_1_surface, level_1_dang, bg_surface, ball, finish, x_finish, y_finish, lv_dark):
@@ -11,7 +11,7 @@ def draw_level(screen, level_1_surface, level_1_dang, bg_surface, ball, finish, 
     screen.blit(bg_surface, (0 - ax, 0 - ay))
 
     if (ax != 0) and (ay == 0):
-        while ax != 1:
+        while ax != 0:
             screen.blit(lv_dark, (-ax, 0))
             if ax <= 0:
                 ax += 1
