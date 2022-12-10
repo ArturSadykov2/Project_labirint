@@ -34,9 +34,9 @@ yf4 = size_width//2
 
 # level texture massive
 level_texture = [[lv1_walls_surf, lv1_traps_surf, lv1_dark_surf, x1, y1, xf1, yf1],
-                 [lv2_walls_surf, lv2_traps_surf, x2, y2, xf2, yf2],
-                 [lv3_walls_surf, lv3_traps_surf, x3, y3, xf3, yf3],
-                 [lv4_walls_surf, lv4_traps_surf, x4, y4, xf4, yf4]]
+                 [lv2_walls_surf, lv2_traps_surf, lv2_dark_surf, x2, y2, xf2, yf2],
+                 [lv3_walls_surf, lv3_traps_surf, lv3_dark_surf, x3, y3, xf3, yf3],
+                 [lv4_walls_surf, lv4_traps_surf, lv4_dark_surf, x4, y4, xf4, yf4]]
 def main():
     '''
     Function that draws main Menu with options of choose the level and starting the game
@@ -93,19 +93,19 @@ def main():
                   level_texture[1][0], level_texture[1][1],
                   level_texture[1][2], level_texture[1][3],
                   level_texture[1][4], level_texture[1][5],
-                  menu)
+                  level_texture[1][6], menu)
         elif menu.level_3:
             level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
                   level_texture[2][0], level_texture[2][1],
                   level_texture[2][2], level_texture[2][3],
                   level_texture[2][4], level_texture[2][5],
-                  menu)
+                  level_texture[2][6], menu)
         elif menu.level_4:
             level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
                   level_texture[3][0], level_texture[3][1],
                   level_texture[3][2], level_texture[3][3],
                   level_texture[3][4], level_texture[3][5],
-                  menu)
+                  level_texture[3][6], menu)
 
 
 
