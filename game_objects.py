@@ -12,7 +12,7 @@ class Ball:
         self.vy = 0
 
     def ball_boost(self):
-        a = 1
+        a = 0.33
         if pg.key.get_pressed()[pg.K_s] or pg.key.get_pressed()[pg.K_DOWN]:
             self.ay = a
         elif pg.key.get_pressed()[pg.K_w] or pg.key.get_pressed()[pg.K_UP]:

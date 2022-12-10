@@ -33,7 +33,7 @@ xf4 = 100
 yf4 = size_width//2
 
 # level texture massive
-level_texture = [[lv1_walls_surf, lv1_traps_surf, x1, y1, xf1, yf1],
+level_texture = [[lv1_walls_surf, lv1_traps_surf, lv1_dark_surf, x1, y1, xf1, yf1],
                  [lv2_walls_surf, lv2_traps_surf, x2, y2, xf2, yf2],
                  [lv3_walls_surf, lv3_traps_surf, x3, y3, xf3, yf3],
                  [lv4_walls_surf, lv4_traps_surf, x4, y4, xf4, yf4]]
@@ -87,7 +87,7 @@ def main():
                   level_texture[0][0], level_texture[0][1],
                   level_texture[0][2], level_texture[0][3],
                   level_texture[0][4], level_texture[0][5],
-                  menu)
+                  level_texture[0][6], menu)
         elif menu.level_2:
             level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
                   level_texture[1][0], level_texture[1][1],

@@ -23,8 +23,8 @@ lv1_walls_surf = pg.Surface(size, pg.SRCALPHA)
 lv1_walls_surf.blit(lv1_light, (0, 0))
 
 lv1_dark = pg.transform.scale(lv1_dark, size)
-lv1_sp_surf = pg.Surface(size, pg.SRCALPHA)
-lv1_sp_surf.blit(lv1_dark, (0, 0))
+lv1_dark_surf = pg.Surface(size, pg.SRCALPHA)
+lv1_dark_surf.blit(lv1_dark, (0, 0))
 
 lv1_traps = pg.transform.scale(lv1_traps, size)
 lv1_traps_surf = pg.Surface(size, pg.SRCALPHA)
