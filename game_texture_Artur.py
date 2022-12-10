@@ -3,7 +3,7 @@ import os
 from game_texture_oleg import *
 
 lv1_light = pg.image.load(os.path.join("levels_image", "lv1_rewalls.png"))
-lv1_dark = pg.image.load(os.path.join("levels_image", "lv1_dark.png"))
+lv1_dark = pg.image.load(os.path.join("levels_image", "lv1_dark_2.png"))
 lv1_traps = pg.image.load(os.path.join("levels_image", "lv1_lovyshki_1.png"))
 ball_x = pg.image.load(os.path.join("image", "red_ball_x.png"))
 ball_y = pg.image.load(os.path.join("image", "red_ball_y.png"))
