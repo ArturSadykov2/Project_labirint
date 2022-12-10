@@ -8,10 +8,15 @@ lv1_traps = pg.image.load(os.path.join("levels_image", "lv1_lovyshki_1.png"))
 ball_x = pg.image.load(os.path.join("image", "red_ball_x.png"))
 ball_y = pg.image.load(os.path.join("image", "red_ball_y.png"))
 
-
+texture_wood_png = pg.image.load(os.path.join("levels_image", "texture_wood.jpg"))
 texture_wood_png = pg.transform.scale(texture_wood_png, size)
-bg_surface = pg.Surface(size, pg.SRCALPHA)
-bg_surface.blit(texture_wood_png, (0, 0))
+bg_wood_surface = pg.Surface(size, pg.SRCALPHA)
+bg_wood_surface.blit(texture_wood_png, (0, 0))
+
+texture_red_png = pg.image.load(os.path.join("levels_image", "red_background.jpg"))
+texture_red_png = pg.transform.scale(texture_red_png, size)
+bg_red_surface = pg.Surface(size, pg.SRCALPHA)
+bg_red_surface.blit(texture_red_png, (0, 0))
 
 lv1_light = pg.transform.scale(lv1_light, size)
 lv1_walls_surf = pg.Surface(size, pg.SRCALPHA)

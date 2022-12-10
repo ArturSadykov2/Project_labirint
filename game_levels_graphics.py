@@ -6,8 +6,8 @@ from game_objects import Ball
 
 
 def draw_level(screen, level_1_surface, level_1_dang, bg_surface, ball, finish, x_finish, y_finish):
-    ax = 10
-    ay = 10
+    ax = int(ball.ax * 30)
+    ay = int(ball.ay * 30)
     screen.blit(bg_surface, (0 - ax, 0 - ay))
 
     if (ax != 0) and (ay == 0):

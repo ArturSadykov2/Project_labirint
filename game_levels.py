@@ -21,16 +21,22 @@ def level(screensize, surf, walls, traps, x, y, x_finish, y_finish, menu):
     running = True
     ball = Ball(x, y)
     ball.__init__(x, y)
+    #a = 1
     while running:
-        Ball.ball_boost(ball)
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                running = False
+        print(0)
+        ball.ball_boost()
+        print(1)
         Ball.ball_move(ball)
+        print(2)
         Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x, y)
-        draw_level(screen, walls, traps, bg_surface, ball, finish_surf, x_finish, y_finish)
+        print(3)
+        draw_level(screen, walls, traps, bg_wood_surface, ball, finish_surf, x_finish, y_finish)
+        print(4)
         draw_ball(screen, ball_surface, ball)
+        print(5)
         running = ball.finish(ball_mask, finish_mask, menu, x_finish, y_finish, running)
+        print(6)
         pg.display.flip()
+        print(7)
         clock.tick(60)
-        print(running)
+        print(8)
