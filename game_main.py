@@ -16,31 +16,6 @@ FPS = 60
 #set screen size
 size=[size_hight,size_width]
 
-# start coordinates
-x1 = 80
-y1 = 500
-x2 = 500
-y2 = 300
-x3 = 200
-y3 = 100
-x4 = 100
-y4 = size_width//2
-
-# finish coordinates
-xf1 = 80
-yf1 = 600
-xf2 = 1050
-yf2 = 650
-xf3 = 1300
-yf3 = 700
-xf4 = 100
-yf4 = size_width//2
-
-# level texture massive
-level_texture = [[lv1_walls_surf, lv1_traps_surf, lv1_dark_surf, x1, y1, xf1, yf1],
-                 [lv2_walls_surf, lv2_traps_surf, lv2_dark_surf, x2, y2, xf2, yf2],
-                 [lv3_walls_surf, lv3_traps_surf, lv3_dark_surf, x3, y3, xf3, yf3],
-                 [lv4_walls_surf, lv4_traps_surf, lv4_dark_surf, x4, y4, xf4, yf4]]
 def main():
     '''
     Function that draws main Menu with options of choose the level and starting the game
