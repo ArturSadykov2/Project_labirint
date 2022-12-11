@@ -10,22 +10,24 @@ from game_level_2 import level_2
 from game_level_3 import level_3
 from game_level_4 import level_4
 
-#set fps
+# set fps
 FPS = 60
 
-#set screen size
-size=[size_hight,size_width]
+# set screen size
+size = [size_hight, size_width]
+
 
 def main():
-    '''
+    """
     Function that draws main Menu with options of choose the level and starting the game
-    '''
-    balls_surfaces=[red_ball_surface,disco_ball_surface,grey_ball_surface,dark_ball_surface,striped_ball_surface,magma_ball_surface]
+    """
+    balls_surfaces = [red_ball_surface, disco_ball_surface, grey_ball_surface, dark_ball_surface, striped_ball_surface,
+                      magma_ball_surface]
     screen = pg.display.set_mode(size)
     clock = pg.time.Clock()
 
-    menu=Menu(screen)
-    cursor=Cursor(screen)
+    menu = Menu(screen)
+    cursor = Cursor(screen)
 
     running = True
     pg.mouse.set_visible(False)
@@ -38,8 +40,8 @@ def main():
             if event.type == pg.QUIT or menu.exit_off:
                 running = False
             elif event.type == pg.MOUSEBUTTONDOWN:
-                print(event.pos[0],event.pos[1])
-                cursor.click=True
+                print(event.pos[0], event.pos[1])
+                cursor.click = True
                 if menu.home_surface:
                     menu.check_on(event)
                 elif menu.start_of_set:
@@ -47,7 +49,7 @@ def main():
                 elif menu.intermediate_menu:
                     menu.check_on_intermediate(event)
             elif event.type == pg.MOUSEBUTTONUP:
-                cursor.click=False
+                cursor.click = False
                 if menu.home_surface:
                     menu.check_off()
                 elif menu.start_of_set:
@@ -62,23 +64,21 @@ def main():
             menu.draw_bottons()
             menu.draw_bottons_balls()
         elif menu.level_1:
-            level_1([size_hight, size_width], balls_surfaces[menu.ball_index-1], menu)
+            level_1([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu)
         elif menu.level_2:
-            level_2([size_hight, size_width], balls_surfaces[menu.ball_index-1], menu)
+            level_2([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu)
         elif menu.level_3:
-            level_3([size_hight, size_width], balls_surfaces[menu.ball_index-1], menu)
+            level_3([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu)
         elif menu.level_4:
-            level_4([size_hight, size_width], balls_surfaces[menu.ball_index-1], menu)
-
-
-
+            level_4([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu)
 
         cursor.draw_cursor()
-        #pg.font.init()
-        #pg.display.update()
+        # pg.font.init()
+        # pg.display.update()
         pg.display.flip()
-        
+
     pg.quit()
+
 
 if __name__ == "__main__":
     main()
