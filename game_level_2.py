@@ -34,10 +34,10 @@ def level_2(screensize, ball_surf, menu):
         ball.ball_boost()
         Ball.ball_move(ball)
         k += 1
-        if k >= 90:
+        if k >= 120:
             k = 0
             bullets.append(Bullet(500, 80, 0, 2))
-        if bullets != []:
+        if bullets:
             for i in range(len(bullets)):
                 b = bullets[i]
                 b.move()
@@ -47,9 +47,10 @@ def level_2(screensize, ball_surf, menu):
                     break
                 if kill_ball:
                     bullets = []
+                    break
         Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x2, y2)
         draw_level(screen, lv2_walls_surf, lv2_traps_surf, bg_wood_surface, ball, finish_surf, xf2, yf2, lv2_dark_surf)
-        if bullets != []:
+        if bullets:
             for b in bullets:
                 b.draw(screen)
         draw_ball(screen, ball_surface, ball)

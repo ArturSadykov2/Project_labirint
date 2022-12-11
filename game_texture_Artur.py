@@ -42,7 +42,7 @@ finish_texture = pg.transform.scale(finish_texture, [finish_width, finish_hight]
 finish_surf = pg.Surface([finish_width, finish_hight], pg.SRCALPHA)
 finish_surf.blit(finish_texture, (0, 0))
 
-lv2_walls = pg.image.load(os.path.join("levels_image", "lv2_walls_gun.png"))
+lv2_walls = pg.image.load(os.path.join("levels_image", "lv2_bw.png"))
 lv2_walls = pg.transform.scale(lv2_walls, size)
 lv2_walls_surf = pg.Surface(size, pg.SRCALPHA)
 lv2_walls_surf.blit(lv2_walls, (0, 0))
@@ -55,7 +55,7 @@ lv2_dark = pg.transform.scale(lv2_dark, size)
 lv2_dark_surf = pg.Surface(size, pg.SRCALPHA)
 lv2_dark_surf.blit(lv2_dark, (0, 0))
 
-lv3_walls = pg.image.load(os.path.join("levels_image", "lv3_walls.png"))
+lv3_walls = pg.image.load(os.path.join("levels_image", "lv3_light.png"))
 lv3_walls = pg.transform.scale(lv3_walls, size)
 lv3_walls_surf = pg.Surface(size, pg.SRCALPHA)
 lv3_walls_surf.blit(lv3_walls, (0, 0))

@@ -5,7 +5,7 @@ from game_texture_Artur import *
 from game_objects_ball import Ball
 
 
-def draw_level(screen, level_1_surface, level_1_dang, bg_surface, ball, finish, x_finish, y_finish, lv_dark):
+def draw_level(screen, lv_surface, lv_traps, bg_surface, ball, finish, x_finish, y_finish, lv_dark):
     ax = int(ball.ax * 30)
     ay = int(ball.ay * 30)
     screen.blit(bg_surface, (0 - ax, 0 - ay))
@@ -35,9 +35,8 @@ def draw_level(screen, level_1_surface, level_1_dang, bg_surface, ball, finish, 
                 ay += 1
             else:
                 ay -= 1
-    #screen.blit(level_1_surface, (0, 0))
-    screen.blit(lv_dark, (0, 0))
-    screen.blit(level_1_dang, (0 - ax, 0 - ay))
+    screen.blit(lv_surface, (0, 0))
+    screen.blit(lv_traps, (0 - ax, 0 - ay))
     screen.blit(finish, (x_finish, y_finish))
 
 
