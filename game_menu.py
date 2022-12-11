@@ -34,9 +34,9 @@ class Menu:
         self.magma_button = False
         self.arrow_button = False
         self.level_1 = 0
-        self.level_2 = 0
+        self.level_2 = 1
         self.level_3 = 0
-        self.level_4 = 1
+        self.level_4 = 0
 
     def check_on(self, event):
         if (0 <= event.pos[0] - 131 / 1024 * size_hight + cursor_size / 2 <= 281 / 1024 * size_hight) and (

@@ -4,6 +4,7 @@ from game_texture_oleg import *
 from game_levels_graphics import draw_ball, draw_level
 from game_objects_ball import Ball
 from game_object_gun import Bullet
+from game_object_disk import Disk
 
 
 def level_2(screensize, ball_surf, menu):
@@ -26,6 +27,8 @@ def level_2(screensize, ball_surf, menu):
     running = True
     ball = Ball(x2, y2)
     ball.__init__(x2, y2)
+    floor_disk = Disk(500, 500, 0.5, 0, disk_floor_surf, disk_floor_mask)
+    wall_disk = Disk(500, 500, 0.5, 0, disk_walls_surf, disk_wall_mask)
     while running:
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -52,6 +55,7 @@ def level_2(screensize, ball_surf, menu):
         if bullets:
             for b in bullets:
                 b.draw(screen)
+        floor_disk.draw(screen)
         draw_ball(screen, ball_surface, ball)
         running = ball.finish(ball_mask, finish_mask, menu, xf2, yf2, running)
         pg.display.flip()
