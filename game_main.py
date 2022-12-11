@@ -6,6 +6,9 @@ from global_values import *
 from game_texture_oleg import *
 from game_levels import *
 from game_level_1 import level_1
+from game_level_2 import level_2
+from game_level_3 import level_3
+from game_level_4 import level_4
 
 #set fps
 FPS = 60
@@ -86,23 +89,11 @@ def main():
         elif menu.level_1:
             level_1([size_hight, size_width], balls_surfaces[menu.ball_index-1], menu)
         elif menu.level_2:
-            level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
-                  level_texture[1][0], level_texture[1][1],
-                  level_texture[1][2], level_texture[1][3],
-                  level_texture[1][4], level_texture[1][5],
-                  level_texture[1][6], menu)
+            level_2([size_hight, size_width], balls_surfaces[menu.ball_index-1], menu)
         elif menu.level_3:
-            level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
-                  level_texture[2][0], level_texture[2][1],
-                  level_texture[2][2], level_texture[2][3],
-                  level_texture[2][4], level_texture[2][5],
-                  level_texture[2][6], menu)
+            level_3([size_hight, size_width], balls_surfaces[menu.ball_index-1], menu)
         elif menu.level_4:
-            level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
-                  level_texture[3][0], level_texture[3][1],
-                  level_texture[3][2], level_texture[3][3],
-                  level_texture[3][4], level_texture[3][5],
-                  level_texture[3][6], menu)
+            level_4([size_hight, size_width], balls_surfaces[menu.ball_index-1], menu)
 
 
 
