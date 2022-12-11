@@ -1,5 +1,6 @@
 import pygame as pg
 from game_texture_Artur import *
+import numpy as np
 
 
 class Disk:
@@ -28,6 +29,12 @@ class Disk:
         overlap_y = mask.overlap(ball_y_mask, (ball.x + ball.vx - rot_rect[0], ball.y + ball.vy - rot_rect[1]))
         r = ((self.x - (ball.x + ball.vx))**2 + (self.y - (ball.y + ball.vy))**2)**0.5
         if overlap_x:
-            ball.vx = -ball.vx #- self.w * ((ball.x + ball.vx) - self.x)
+            if ball.vx == 0:
+                ball.vx = - self.w * ((ball.x + ball.vx) - self.x)/np.pi
+            else:
+                ball.vx = -ball.vx
         if overlap_y:
-            ball.vy = -ball.vy #- self.w * ((ball.y + ball.vy) - self.y)
+            if ball.vy == 0:
+                ball.vy = - self.w * ((ball.y + ball.vy) - self.y)/np.pi
+            else:
+                ball.vy = -ball.vy
