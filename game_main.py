@@ -5,6 +5,7 @@ from game_colors import *
 from global_values import *
 from game_texture_oleg import *
 from game_levels import *
+from game_level_1 import level_1
 
 #set fps
 FPS = 60
@@ -83,11 +84,7 @@ def main():
             menu.draw_bottons()
             menu.draw_bottons_balls()
         elif menu.level_1:
-            level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
-                  level_texture[0][0], level_texture[0][1],
-                  level_texture[0][2], level_texture[0][3],
-                  level_texture[0][4], level_texture[0][5],
-                  level_texture[0][6], menu)
+            level_1([size_hight, size_width], balls_surfaces[menu.ball_index-1], menu)
         elif menu.level_2:
             level([size_hight, size_width], balls_surfaces[menu.ball_index-1],
                   level_texture[1][0], level_texture[1][1],
