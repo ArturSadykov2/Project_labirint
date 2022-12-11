@@ -20,7 +20,7 @@ def main():
     """
     Function that draws main Menu with options of choose the level and starting the game
     """
-    balls_surfaces = [red_ball_surface, disco_ball_surface, grey_ball_surface, dark_ball_surface, striped_ball_surface,
+    balls_surfaces = [red_ball_surface, grey_ball_surface, disco_ball_surface, dark_ball_surface, striped_ball_surface,
                       magma_ball_surface]
     screen = pg.display.set_mode(size)
     clock = pg.time.Clock()

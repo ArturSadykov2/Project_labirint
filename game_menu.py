@@ -57,11 +57,11 @@ class Menu:
         elif (0 <= event.pos[0] - 74 / 1024 * size_hight + cursor_size / 2 <= 215 / 1024 * size_hight) and (
                 0 <= event.pos[1] - 320 / 576 * size_width + cursor_size / 2 <= 215 / 576 * size_width):
             self.disco_button = True
-            self.ball_index = 2
+            self.ball_index = 3
         elif (0 <= event.pos[0] - 74 / 1024 * size_hight + cursor_size / 2 <= 215 / 1024 * size_hight) and (
                 0 <= event.pos[1] - 50 / 576 * size_width + cursor_size / 2 <= 215 / 576 * size_width):
             self.grey_button = True
-            self.ball_index = 3
+            self.ball_index = 2
         elif (0 <= event.pos[0] - 399 / 1024 * size_hight + cursor_size / 2 <= 215 / 1024 * size_hight) and (
                 0 <= event.pos[1] - 50 / 576 * size_width + cursor_size / 2 <= 215 / 576 * size_width):
             self.red_button = True
