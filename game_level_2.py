@@ -27,14 +27,16 @@ def level_2(screensize, ball_surf, menu):
     running = True
     ball = Ball(x2, y2)
     ball.__init__(x2, y2)
-    floor_disk = Disk(500, 500, 0.5, 0, disk_floor_surf, disk_floor_mask)
-    wall_disk = Disk(500, 500, 0.5, 0, disk_walls_surf, disk_wall_mask)
+    floor_disk = Disk(550, 450, 0.5, 0, disk_floor_surf)
+    wall_disk = Disk(550, 450, 0.5, 0, disk_walls_surf)
     while running:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running = False
         ball.ball_boost()
         Ball.ball_move(ball)
+        floor_disk.move()
+        wall_disk.move()
         k += 1
         if k >= delay:
             k = 0
@@ -51,11 +53,12 @@ def level_2(screensize, ball_surf, menu):
                     bullets = []
                     break
         Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x2, y2)
+        wall_disk.collusion(ball, ball_x_mask, ball_y_mask)
         draw_level(screen, lv2_walls_surf, lv2_traps_surf, bg_wood_surface, ball, finish_surf, xf2, yf2, lv2_dark_surf)
+        floor_disk.draw(screen)
         if bullets:
             for b in bullets:
                 b.draw(screen)
-        floor_disk.draw(screen)
         draw_ball(screen, ball_surface, ball)
         running = ball.finish(ball_mask, finish_mask, menu, xf2, yf2, running)
         pg.display.flip()
