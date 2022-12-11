@@ -2,9 +2,7 @@ import pygame as pg
 import os
 from game_texture_oleg import *
 
-
-
-
+bullet_mask = pg.mask.from_surface(dark_ball_surface)
 ball_x = pg.image.load(os.path.join("image", "red_ball_x.png"))
 ball_y = pg.image.load(os.path.join("image", "red_ball_y.png"))
 
