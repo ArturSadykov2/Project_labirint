@@ -65,11 +65,11 @@ def main():
         elif menu.level_1:
             level_1([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu)
         elif menu.level_2:
-            level_2([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu)
+            level_2([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces)
         elif menu.level_3:
-            level_3([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu)
+            level_3([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces)
         elif menu.level_4:
-            level_4([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu)
+            level_4([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces)
 
         cursor.draw_cursor()
         # pg.font.init()

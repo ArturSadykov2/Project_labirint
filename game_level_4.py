@@ -8,19 +8,19 @@ from game_objects_ball import Ball
 from game_object_gun import Bullet
 
 
-def level_4(screensize, ball_surf, menu):
+def level_4(screensize, ball_surf, menu, balls_surfaces):
     x4 = 100
     y4 = 360
     xf4 = 1200
     yf4 = 360
     bullets = []
-    delay = 240
+    delay = 30
     k = 0
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = ball_surf
     ball_mask = pg.mask.from_surface(ball_surface)
-    level_mask = pg.mask.from_surface(lv4_walls_surf)
+    level_mask = pg.mask.from_surface(lv4_walls_surf_g)
     trap_mask = pg.mask.from_surface(lv4_traps_surf)
     ball_x_mask = pg.mask.from_surface(ball_x_surf)
     ball_y_mask = pg.mask.from_surface(ball_y_surf)
@@ -37,10 +37,10 @@ def level_4(screensize, ball_surf, menu):
         k += 1
         if k >= delay:
             k = 0
-            bullets.append(Bullet(150, 100, 0.785398, 2))
-            bullets.append(Bullet(640, 100, 0.785398, 2))
-            bullets.append(Bullet(150, 620, -0.785398, 2))
-            bullets.append(Bullet(640, 620, -0.785398, 2))
+            bullets.append(Bullet(150, 100, 0.785398, 2, balls_surfaces))
+            bullets.append(Bullet(640, 100, 0.785398, 2, balls_surfaces))
+            bullets.append(Bullet(150, 620, -0.785398, 2, balls_surfaces))
+            bullets.append(Bullet(640, 620, -0.785398, 2, balls_surfaces))
         if bullets:
             for i in range(len(bullets)):
                 b = bullets[i]
