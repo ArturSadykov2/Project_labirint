@@ -5,6 +5,7 @@ from game_texture_Artur import *
 from game_texture_oleg import *
 from game_levels_graphics import *
 from game_objects_ball import Ball
+from game_object_gun import Bullet
 
 
 def level_4(screensize, ball_surf, menu):

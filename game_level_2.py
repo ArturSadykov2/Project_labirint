@@ -15,6 +15,7 @@ def level_2(screensize, ball_surf, menu):
     yf2 = 650
     bullets = []
     k = 0
+    delay = 120
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = ball_surf
@@ -34,7 +35,7 @@ def level_2(screensize, ball_surf, menu):
         ball.ball_boost()
         Ball.ball_move(ball)
         k += 1
-        if k >= 120:
+        if k >= delay:
             k = 0
             bullets.append(Bullet(500, 80, 0, 2))
         if bullets:
