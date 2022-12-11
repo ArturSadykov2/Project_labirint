@@ -4,7 +4,6 @@ from game_menu import *
 from game_colors import *
 from global_values import *
 from game_texture_oleg import *
-from game_levels import *
 from game_level_1 import level_1
 from game_level_2 import level_2
 from game_level_3 import level_3
