@@ -10,9 +10,9 @@ from game_object_gun import Bullet
 
 def level_3(screensize, ball_surf, menu):
     x3 = 1250
-    y3 = 60
-    xf3 = 370
-    yf3 = 350
+    y3 = 75
+    xf3 = 970
+    yf3 = 420
     bullets = []
     delay = 120
     k = 0
