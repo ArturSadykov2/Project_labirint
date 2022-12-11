@@ -46,23 +46,25 @@ class Ball:
             else:
                 self.vy += 0.1
 
-    def collusion(self, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x, y):
+    def collusion(self, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x, y, bullet_mask, bullets):
         overlap_walls_x = level_mask.overlap(ball_x_mask, (self.x+self.vx-0, self.y+self.vy-0))
         overlap_walls_y = level_mask.overlap(ball_y_mask, (self.x+self.vx-0, self.y+self.vy-0))
         overlap_traps = trap_mask.overlap(ball_mask, (self.x-0, self.y-0))
+        overlap_bullet = bullet_mask.overlap(ball_mask, (self.x-0, self.y-0))
         if overlap_walls_x:
             self.vx = -self.vx
         if overlap_walls_y:
             self.vy = -self.vy
         self.x += self.vx
         self.y += self.vy
-        if overlap_traps:
-            self.x = x
-            self.y = y
-            self.vx = 0
-            self.vy = 0
-            self.ax = 0
-            self.ay = 0
+        for b in bullets:
+            if overlap_traps or b.:
+                self.x = x
+                self.y = y
+                self.vx = 0
+                self.vy = 0
+                self.ax = 0
+                self.ay = 0
 
     def finish(self, ball_mask, finish_mask, obj, x_finish, y_finish, running):
         overlap_finish = finish_mask.overlap(ball_mask, (x_finish - self.x + self.vx, y_finish - self.y + self.vy))

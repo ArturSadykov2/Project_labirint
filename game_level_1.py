@@ -5,8 +5,6 @@ from game_texture_Artur import *
 from game_texture_oleg import *
 from game_levels_graphics import *
 from game_objects_ball import Ball
-from game_object_gun import Bullet
-"""Вызывается из меню, сама вызывает функции отрисовки и расчета физики"""
 
 
 def level(screensize, ball_surf, walls, traps, lv_dark, x, y, x_finish, y_finish, menu):
@@ -23,24 +21,15 @@ def level(screensize, ball_surf, walls, traps, lv_dark, x, y, x_finish, y_finish
     running = True
     ball = Ball(x, y)
     ball.__init__(x, y)
-    bullets = []
-    k = 0
     while running:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running = False
         ball.ball_boost()
         Ball.ball_move(ball)
-        if k < 300:
-            k += 1
-        else:
-            bullet = Bullet(400, 100)
-            bullets.append(bullet)
         Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x, y, bullet_mask)
         draw_level(screen, walls, traps, bg_wood_surface, ball, finish_surf, x_finish, y_finish, lv_dark)
         draw_ball(screen, ball_surface, ball)
-        for b in bullets:
-            b.draw(screen)
         running = ball.finish(ball_mask, finish_mask, menu, x_finish, y_finish, running)
         pg.display.flip()
         clock.tick(60)

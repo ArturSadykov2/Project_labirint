@@ -8,21 +8,17 @@ from game_objects_ball import Ball
 BLACK = (0, 0, 0)
 
 
-class Target:
+class Bullet:
     """Класс, отрисовывающий мишень в случайной точке"""
-    def __init__(self, gun):
+    def __init__(self, x, y):
         self.points = 0
-        self.x = gun.x
-        self.y = gun.y
-        self.r = 20
+        self.x = x  # gun.x
+        self.y = y  # gun.y
         self.color = BLACK
         self.v = 1
-        self.angle = gun.angle
-
-    def hit(self, ball):
-        """Попадание шарика в цель."""
-
+        self.angle = 0  # gun.angle
+        self.surf = dark_ball_surface
 
     def draw(self, screen):
         """Функия, отрисовывающая мишень в сгенерированных координатах"""
-        pg.draw.circle(screen, self.color, (self.x, self.y), self.r)
+        screen.blit(self.surf, (self.x, self.y))
