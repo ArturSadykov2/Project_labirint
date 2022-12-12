@@ -29,6 +29,7 @@ exit_png = pg.image.load(os.path.join("image", "exit_down.png"))
 nextlvl_png = pg.image.load(os.path.join("image", "nextlvl_down.png"))
 settings_png = pg.image.load(os.path.join("image", "settings_down.png"))
 go_back_png = pg.image.load(os.path.join("image", "go_back_down.png"))
+continue_png = pg.image.load(os.path.join("image", "continue_down.png"))
 
 dark_down_png = pg.image.load(os.path.join("image", "dark_down.png"))
 disco_down_png = pg.image.load(os.path.join("image", "disco_down.png"))
@@ -84,6 +85,10 @@ nextlvl_surface.blit(nextlvl, (0,0))
 go_back = pg.transform.scale(go_back_png, (440/1024*size_hight,140/576*size_width))
 go_back_surface = pg.Surface((440/1024*size_hight,140/576*size_width), pg.SRCALPHA)
 go_back_surface.blit(go_back, (0,0))
+
+continuee = pg.transform.scale(continue_png, (440/1024*size_hight,140/576*size_width))
+continue_surface = pg.Surface((440/1024*size_hight,140/576*size_width), pg.SRCALPHA)
+continue_surface.blit(continuee, (0,0))
 
 #creating buttons for selecting balls
 

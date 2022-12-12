@@ -81,21 +81,16 @@ class Menu:
             self.arrow_button = True
   
 
-    def check_on_intermediate(self, event):
+    def check_on_game_windows(self, event):
         if (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
                 0 <= event.pos[1] - 332 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width):
             self.go_back = True
-        if (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 128 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width):
+        elif (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
+                0 <= event.pos[1] - 128 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width) and self.intermediate_menu:
             self.nextlvl = True
-
-    def check_on_pause(self, event):
-        if (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 332 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width):
-            self.go_back = True
-        if (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 128 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width):
-            self.continee = True
+        elif (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
+                0 <= event.pos[1] - 128 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width) and self.pause_menu:
+            self.continuee = True
 
     def check_off(self):
         if self.exit_on:
@@ -109,8 +104,6 @@ class Menu:
             self.settings = False
             self.start_of_set = 1
             self.home_surface = 0
-        elif self.nextlvl:
-            self.nextlvl = False
 
     def check_off_settings(self):
         if self.arrow_button:
@@ -130,7 +123,7 @@ class Menu:
         elif self.magma_button:
             self.magma_button = False
 
-    def check_off_intermediate(self):
+    def check_off_game_windows(self):
         if self.go_back:
             self.go_back = False
             self.home_surface = 1
@@ -152,7 +145,9 @@ class Menu:
                 self.level_5 = 1
                 self.level_4 = 0
         elif self.continuee:
-            pass
+            self.continuee = False
+            self.pause_menu = 0
+            self.menu_live = 0
 
     def draw_bottons(self):
         '''
@@ -169,6 +164,8 @@ class Menu:
             self.screen.blit(settings_surface, (272 / 1024 * size_hight, 394 / 576 * size_width))
         elif self.go_back:
             self.screen.blit(go_back_surface, (292 / 1024 * size_hight, 332 / 576 * size_width))
+        elif self.continuee:
+            self.screen.blit(continue_surface, (292 / 1024 * size_hight, 128 / 576 * size_width))
 
     def draw_bottons_balls(self):
         '''

@@ -32,7 +32,7 @@ def level_1(screensize, ball_surf, menu):
                 if event.key == pg.K_SPACE and not menu.menu_live:
                     menu.menu_live = 1
                     menu.pause_menu = 1
-                    menu.home_surface = 0
+                    running = False
         ball.ball_boost()
         Ball.ball_move(ball)
         Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x1, y1)

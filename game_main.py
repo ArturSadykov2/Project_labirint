@@ -45,16 +45,16 @@ def main():
                     menu.check_on(event)
                 elif menu.start_of_set:
                     menu.check_on_settings(event)
-                elif menu.intermediate_menu:
-                    menu.check_on_intermediate(event)
+                elif menu.intermediate_menu or menu.pause_menu:
+                    menu.check_on_game_windows(event)
             elif event.type == pg.MOUSEBUTTONUP:
                 cursor.click = False
                 if menu.home_surface:
                     menu.check_off()
                 elif menu.start_of_set:
                     menu.check_off_settings()
-                elif menu.intermediate_menu:
-                    menu.check_off_intermediate()
+                elif menu.intermediate_menu or menu.pause_menu:
+                    menu.check_off_game_windows()
             elif event.type == pg.MOUSEMOTION:
                 cursor.cursor_change_pos(event)
 
@@ -72,7 +72,9 @@ def main():
         elif menu.level_4:
             level_4([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces)
 
-        cursor.draw_cursor()
+        if menu.menu_live:
+            cursor.draw_cursor()
+        
         pg.display.flip()
 
     pg.quit()
