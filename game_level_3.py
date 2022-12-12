@@ -32,6 +32,11 @@ def level_3(screensize, ball_surf, menu):
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running = False
+            elif event.type == pg.KEYDOWN:
+                if event.key == pg.K_SPACE and not menu.menu_live:
+                    menu.menu_live = 1
+                    menu.pause_menu = 1
+                    running = False
         ball.ball_boost()
         Ball.ball_move(ball)
         k += 1
