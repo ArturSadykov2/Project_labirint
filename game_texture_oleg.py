@@ -9,6 +9,7 @@ size=[size_hight,size_width]
 home_screen_png = pg.image.load(os.path.join("image","main_backgroubd.png"))
 settings_screen_png = pg.image.load(os.path.join("image", "menu_ball.png"))
 intermediate_menu_png = pg.image.load(os.path.join("image", "intermediate_menu.png"))
+pause_menu_png = pg.image.load(os.path.join("image", "pause_menu.png"))
 
 #loading background textures
 texture_wood_png = pg.image.load(os.path.join("levels_image","texture_wood.jpg"))
@@ -43,7 +44,8 @@ cursor_down_png = pg.image.load(os.path.join("image", "cursor_down.png"))
 
 #creating surfaces for objects 
 
-#creating main sirfaace
+#creating main surface
+
 home = pg.transform.scale(home_screen_png, size)
 home_surface = pg.Surface(size, pg.SRCALPHA)
 home_surface.blit(home, (0, 0))
@@ -55,6 +57,11 @@ menu_of_set_surface.blit(menu_of_set, (0, 0))
 intermediate_menu = pg.transform.scale(intermediate_menu_png, size)
 intermediate_menu_surface = pg.Surface(size, pg.SRCALPHA)
 intermediate_menu_surface.blit(intermediate_menu, (0, 0))
+
+pause_menu = pg.transform.scale(pause_menu_png, size)
+pause_menu_surface = pg.Surface(size, pg.SRCALPHA)
+pause_menu_surface.blit(pause_menu, (0, 0))
+
 
 #creating surface for main button
 

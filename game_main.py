@@ -58,6 +58,7 @@ def main():
             elif event.type == pg.MOUSEMOTION:
                 cursor.cursor_change_pos(event)
 
+
         if menu.menu_live:
             menu.screen_draw()
             menu.draw_bottons()
@@ -72,8 +73,6 @@ def main():
             level_4([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces)
 
         cursor.draw_cursor()
-        # pg.font.init()
-        # pg.display.update()
         pg.display.flip()
 
     pg.quit()

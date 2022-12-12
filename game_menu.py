@@ -20,12 +20,14 @@ class Menu:
         self.home_surface = 1
         self.start_of_set = 0
         self.intermediate_menu = 0
+        self.pause_menu=0
         self.exit_on = False
         self.exit_off = False
         self.go = False
         self.settings = False
         self.nextlvl = False
         self.go_back = False
+        self.continuee = False
         self.dark_button = False
         self.disco_button = False
         self.grey_button = False
@@ -48,6 +50,7 @@ class Menu:
         elif (0 <= event.pos[0] - 272 / 1024 * size_hight + cursor_size / 2 <= 320 / 1024 * size_hight) and (
                 0 <= event.pos[1] - 394 / 576 * size_width + cursor_size / 2 <= 106 / 576 * size_width):
             self.settings = True
+        
 
     def check_on_settings(self, event):
         if (0 <= event.pos[0] - 721 / 1024 * size_hight + cursor_size / 2 <= 215 / 1024 * size_hight) and (
@@ -76,6 +79,7 @@ class Menu:
             self.ball_index = 6
         elif (0 <= event.pos[0] <= 61 / 1024 * size_hight) and (0 <= event.pos[1] <= 46 / 576 * size_width):
             self.arrow_button = True
+  
 
     def check_on_intermediate(self, event):
         if (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
@@ -84,6 +88,14 @@ class Menu:
         if (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
                 0 <= event.pos[1] - 128 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width):
             self.nextlvl = True
+
+    def check_on_pause(self, event):
+        if (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
+                0 <= event.pos[1] - 332 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width):
+            self.go_back = True
+        if (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
+                0 <= event.pos[1] - 128 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width):
+            self.continee = True
 
     def check_off(self):
         if self.exit_on:
@@ -123,6 +135,7 @@ class Menu:
             self.go_back = False
             self.home_surface = 1
             self.intermediate_menu = 0
+            self.pause_menu = 0
         elif self.nextlvl:
             self.nextlvl = False
             self.menu_live = 0
@@ -138,6 +151,8 @@ class Menu:
             elif self.level_4:
                 self.level_5 = 1
                 self.level_4 = 0
+        elif self.continuee:
+            pass
 
     def draw_bottons(self):
         '''
@@ -185,6 +200,8 @@ class Menu:
             self.screen.blit(home_surface, (0, 0))
         elif self.intermediate_menu:
             self.screen.blit(intermediate_menu_surface, (0, 0))
+        elif self.pause_menu:
+            self.screen.blit(pause_menu_surface, (0, 0))
 
 
 class Cursor:
