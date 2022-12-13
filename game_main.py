@@ -39,7 +39,6 @@ def main():
             if event.type == pg.QUIT or menu.exit_off:
                 running = False
             elif event.type == pg.MOUSEBUTTONDOWN:
-                print(event.pos[0], event.pos[1])
                 cursor.click = True
                 if menu.home_surface:
                     menu.check_on(event)
@@ -55,6 +54,14 @@ def main():
                     menu.check_off_settings()
                 elif menu.intermediate_menu or menu.pause_menu:
                     menu.check_off_game_windows()
+            elif event.type == pg.KEYDOWN:
+                if event.key == pg.K_SPACE and menu.pause_menu:
+                    menu.continuee = True
+            elif event.type == pg.KEYUP:
+                if event.key == pg.K_SPACE and menu.pause_menu and menu.continuee:
+                    menu.continuee = False
+                    menu.pause_menu = 0
+                    menu.menu_live = 0
             elif event.type == pg.MOUSEMOTION:
                 cursor.cursor_change_pos(event)
 
