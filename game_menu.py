@@ -3,17 +3,18 @@ import numpy as np
 from global_values import *
 from game_texture_oleg import *
 from game_texture_Artur import *
-import os
 
 pg.init()
-size = [size_hight, size_width]
-
 
 class Menu:
     '''
-    Function that draws main Menu with options of choose the level and starting the game
+    Сlass Menu is used for setting up and starting the game, as well as drawing the menu
     '''
     def __init__(self, screen):
+        '''
+        Sets the basic parameters of menu
+        :param screen: current drawing screen
+        '''
         self.ball_index = 1
         self.menu_live = 1
         self.screen = screen
@@ -41,6 +42,11 @@ class Menu:
         self.level_4 = 0
 
     def check_on(self, event):
+        '''
+        registers the keystroke and changes the menu options depending on the keys pressed
+        :param event: an iterable object with the coordinates of the point where the key was pressed
+        :return: nothing
+        '''
         if (0 <= event.pos[0] - 131 / 1024 * size_hight + cursor_size / 2 <= 281 / 1024 * size_hight) and (
                 0 <= event.pos[1] - 153 / 576 * size_width + cursor_size / 2 <= 92 / 576 * size_width):
             self.exit_on = True
@@ -53,6 +59,12 @@ class Menu:
         
 
     def check_on_settings(self, event):
+        '''
+        registers the keystroke and changes the menu options depending
+        on the keys pressed in the settings menu
+        :param event: an iterable object with the coordinates of the point where the key was pressed
+        :return: nothing
+        '''
         if (0 <= event.pos[0] - 721 / 1024 * size_hight + cursor_size / 2 <= 215 / 1024 * size_hight) and (
                 0 <= event.pos[1] - 50 / 576 * size_width + cursor_size / 2 <= 215 / 576 * size_width):
             self.dark_button = True
@@ -82,6 +94,12 @@ class Menu:
   
 
     def check_on_game_windows(self, event):
+        '''
+        registers the keystroke and changes the menu options depending on the keys pressed
+        in the menu modes after the start of the game
+        :param event: an iterable object with the coordinates of the point where the key was pressed
+        :return: nothing 
+        '''
         if (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
                 0 <= event.pos[1] - 332 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width):
             self.go_back = True
@@ -93,6 +111,10 @@ class Menu:
             self.continuee = True
 
     def check_off(self):
+        '''
+        Changes the menu options depending on the released keys
+        :return: nothing
+        '''
         if self.exit_on:
             self.exit_off = True
             self.exit_on = False
@@ -106,6 +128,10 @@ class Menu:
             self.home_surface = 0
 
     def check_off_settings(self):
+        '''
+        Changes the menu options depending on the released keys in the settings menu
+        :return: nothing
+        '''
         if self.arrow_button:
             self.arrow_button = False
             self.start_of_set = 0
@@ -124,6 +150,11 @@ class Menu:
             self.magma_button = False
 
     def check_off_game_windows(self):
+        '''
+        Changes the menu options depending on the released keys
+        in the menu modes after the start of the game
+        :return: nothing
+        '''
         if self.go_back:
             self.go_back = False
             self.home_surface = 1
@@ -151,8 +182,8 @@ class Menu:
 
     def draw_bottons(self):
         '''
-        Draws button
-        :param message: animation of pressing buttons
+        Draws animation of pressing buttons
+        :return: nothing
         '''
         if self.exit_on:
             self.screen.blit(exit_surface, (131 / 1024 * size_hight, 153 / 576 * size_width))
@@ -169,8 +200,8 @@ class Menu:
 
     def draw_bottons_balls(self):
         '''
-        Draws button in the settings menu
-        :param message: animation of pressing buttons
+        Draws animation of pressing buttons when selecting balls in the settings menu
+        :return: nothing
         '''
         if self.dark_button:
             self.screen.blit(dark_button_surface, (721 / 1024 * size_hight, 50 / 576 * size_width))
@@ -189,7 +220,8 @@ class Menu:
 
     def screen_draw(self):
         '''
-        Drawing background windows of the main menu modes
+        Draws the background for the main menu modes
+        :return: nothing
         '''
         if self.start_of_set:
             self.screen.blit(menu_of_set_surface, (0, 0))
@@ -202,16 +234,32 @@ class Menu:
 
 
 class Cursor:
+    '''
+    Class Cursor is used to change the appearance of the cursor
+    '''
     def __init__(self, screen, x=0, y=0):
+        '''
+        Sets the basic parameters of cursor
+        :param screen: current drawing screen
+        '''
         self.screen = screen
         self.click = False
         self.y = y
         self.x = x
 
     def cursor_change_pos(self, event):
+        '''
+        Changes the cursor coordinates to the actual ones when moving
+        :param event: an iterable object with the coordinates of the current cursor position
+        :return: nothing
+        '''
         self.x, self.y = event.pos[0], event.pos[1]
 
     def draw_cursor(self):
+        '''
+        Draws the cursor image
+        :return: nothing
+        '''
         if self.click:
             self.screen.blit(cursor_down_button_surface, (self.x, self.y))
         else:

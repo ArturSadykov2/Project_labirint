@@ -2,9 +2,6 @@ import pygame as pg
 from global_values import *
 import os
 
-pg.init()
-size=[size_hight,size_width]
-
 # load main game textures
 home_screen_png = pg.image.load(os.path.join("image","main_backgroubd.png"))
 settings_screen_png = pg.image.load(os.path.join("image", "menu_ball.png"))
