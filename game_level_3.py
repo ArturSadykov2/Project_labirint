@@ -8,14 +8,14 @@ from game_objects_ball import Ball
 from game_object_gun import Bullet
 
 
-def level_3(screensize, ball_surf, menu):
+def level_3(screensize, ball_surf, menu, balls_surfaces):
     x3 = 1250
     y3 = 75
     xf3 = 970
     yf3 = 420
     bullets = []
-    delay = 120
-    k = 0
+    delay = 240
+    k = 240
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = ball_surf
@@ -42,8 +42,8 @@ def level_3(screensize, ball_surf, menu):
         k += 1
         if k >= delay:
             k = 0
-            bullets.append(Bullet(100, 300, 1.57, 2))
-            bullets.append(Bullet(1250, 500, -1.57, 2))
+            bullets.append(Bullet(75, 140, 1.57, 2, balls_surfaces))
+            bullets.append(Bullet(1245, 570, -1.57, 2, balls_surfaces))
         if bullets:
             for i in range(len(bullets)):
                 b = bullets[i]

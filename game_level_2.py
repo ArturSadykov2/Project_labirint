@@ -5,16 +5,17 @@ from game_levels_graphics import draw_ball, draw_level
 from game_objects_ball import Ball
 from game_object_gun import Bullet
 from game_object_disk import Disk
+from random import randint
 
 
-def level_2(screensize, ball_surf, menu):
-    x2 = 600
-    y2 = 280
+def level_2(screensize, ball_surf, menu, balls_surfaces):
+    x2 = 100
+    y2 = 80
     xf2 = 1050
     yf2 = 650
     bullets = []
-    k = 0
-    delay = 120
+    k = 180
+    delay = 180
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = ball_surf
@@ -24,6 +25,7 @@ def level_2(screensize, ball_surf, menu):
     ball_x_mask = pg.mask.from_surface(ball_x_surf)
     ball_y_mask = pg.mask.from_surface(ball_y_surf)
     finish_mask = pg.mask.from_surface(finish_surf)
+    bullet_mask = pg.mask.from_surface(lv2_dark_surf)
     running = True
     ball = Ball(x2, y2)
     ball.__init__(x2, y2)
@@ -45,12 +47,12 @@ def level_2(screensize, ball_surf, menu):
         k += 1
         if k >= delay:
             k = 0
-            bullets.append(Bullet(500, 80, 0, 2))
+            bullets.append(Bullet(400, 80, 0, 2, balls_surfaces))
         if bullets:
             for i in range(len(bullets)):
                 b = bullets[i]
                 b.move()
-                kill, kill_ball = b.collusion(level_mask, ball, x2, y2, ball_mask)
+                kill, kill_ball = b.collusion(bullet_mask, ball, x2, y2, ball_mask)
                 if kill:
                     del bullets[i]
                     break

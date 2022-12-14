@@ -14,8 +14,8 @@ def level_4(screensize, ball_surf, menu, balls_surfaces):
     xf4 = 1200
     yf4 = 360
     bullets = []
-    delay = 30
-    k = 0
+    delay = 600
+    k = delay
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = ball_surf

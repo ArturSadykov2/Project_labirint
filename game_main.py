@@ -65,7 +65,6 @@ def main():
             elif event.type == pg.MOUSEMOTION:
                 cursor.cursor_change_pos(event)
 
-
         if menu.menu_live:
             menu.screen_draw()
             menu.draw_bottons()
