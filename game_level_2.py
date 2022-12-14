@@ -1,7 +1,7 @@
 import pygame as pg
 from game_texture_Artur import *
 from game_texture_oleg import *
-from game_levels_graphics import draw_ball, draw_level
+from game_levels_graphics import draw_ball, draw_level, Wall
 from game_objects_ball import Ball
 from game_object_gun import Bullet
 from game_object_disk import Disk
@@ -31,6 +31,8 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
     ball.__init__(x2, y2)
     floor_disk = Disk(550, 450, 0.5, 0, disk_floor_surf)
     wall_disk = Disk(550, 450, 0.5, 0, disk_walls_surf)
+    wall = Wall()
+    wall.__init__()
     while running:
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -61,7 +63,8 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
                     break
         Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x2, y2)
         wall_disk.collusion(ball, ball_x_mask, ball_y_mask)
-        draw_level(screen, lv2_walls_surf, lv2_traps_surf, bg_wood_surface, ball, finish_surf, xf2, yf2, lv2_dark_surf)
+        draw_level(screen, lv2_walls_surf, lv2_traps_surf, bg_wood_surface,
+                   ball, finish_surf, xf2, yf2, lv2_dark_surf, wall)
         floor_disk.draw(screen)
         if bullets:
             for b in bullets:

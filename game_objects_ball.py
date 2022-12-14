@@ -12,7 +12,7 @@ class Ball:
         self.vy = 0
 
     def ball_boost(self):
-        a = 0.33
+        a = 20 * dt
         if pg.key.get_pressed()[pg.K_s] or pg.key.get_pressed()[pg.K_DOWN]:
             self.ay = a
         elif pg.key.get_pressed()[pg.K_w] or pg.key.get_pressed()[pg.K_UP]:
@@ -27,24 +27,24 @@ class Ball:
             self.ax = 0
 
     def ball_move(self):
-        if abs(self.vx) <= 10:
+        if abs(self.vx) <= 600 * dt:
             self.vx += self.ax
-        if abs(self.vy) <= 10:
+        if abs(self.vy) <= 600 * dt:
             self.vy += self.ay
         if self.vx != 0:
             if 0.1 >= abs(self.vx):
                 self.vx = 0
             elif self.vx >= 0:
-                self.vx -= 0.1
+                self.vx -= 6 * dt
             else:
-                self.vx += 0.1
+                self.vx += 6 * dt
         if self.vy != 0:
             if 0.1 >= abs(self.vy):
                 self.vy = 0
             elif self.vy >= 0:
-                self.vy -= 0.1
+                self.vy -= 6 * dt
             else:
-                self.vy += 0.1
+                self.vy += 6 * dt
 
     def collusion(self, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x, y):
         overlap_walls_x = level_mask.overlap(ball_x_mask, (self.x+self.vx-0, self.y+self.vy-0))

@@ -5,10 +5,24 @@ from game_texture_Artur import *
 from game_objects_ball import Ball
 
 
-def draw_level(screen, lv_surface, lv_traps, bg_surface, ball, finish, x_finish, y_finish, lv_dark):
-    ax = int(ball.ax * 30)
-    ay = int(ball.ay * 30)
-    screen.blit(bg_surface, (0 - ax, 0 - ay))
+class Wall:
+    def __init__(self):
+        self.ax = 0
+        self.ay = 0
+
+
+def draw_level(screen, lv_surface, lv_traps, bg_surface, ball, finish, x_finish, y_finish, lv_dark, wall):
+    if wall.ax < int(ball.ax * 30):
+        wall.ax += 1
+    if wall.ax > int(ball.ax * 30):
+        wall.ax -= 1
+    if wall.ay < int(ball.ay * 30):
+        wall.ay += 1
+    if wall.ay > int(ball.ay * 30):
+        wall.ay -= 1
+    screen.blit(bg_surface, (0 - wall.ax, 0 - wall.ay))
+    ax = wall.ax
+    ay = wall.ay
 
     if (ax != 0) and (ay == 0):
         while ax != 0:

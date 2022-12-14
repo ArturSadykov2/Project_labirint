@@ -3,7 +3,7 @@ import math
 from random import choice, randint
 from game_texture_Artur import *
 from game_texture_oleg import *
-from game_levels_graphics import *
+from game_levels_graphics import draw_ball, draw_level, Wall
 from game_objects_ball import Ball
 
 
@@ -24,6 +24,8 @@ def level_1(screensize, ball_surf, menu):
     running = True
     ball = Ball(x1, y1)
     ball.__init__(x1, y1)
+    wall = Wall()
+    wall.__init__()
     while running:
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -36,7 +38,8 @@ def level_1(screensize, ball_surf, menu):
         ball.ball_boost()
         Ball.ball_move(ball)
         Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x1, y1)
-        draw_level(screen, lv1_walls_surf, lv1_traps_surf, bg_wood_surface, ball, finish_surf, xf1, yf1, lv1_dark_surf)
+        draw_level(screen, lv1_walls_surf, lv1_traps_surf, bg_wood_surface,
+                   ball, finish_surf, xf1, yf1, lv1_dark_surf, wall)
         draw_ball(screen, ball_surface, ball)
         running = ball.finish(ball_mask, finish_mask, menu, xf1, yf1, running)
         pg.display.flip()

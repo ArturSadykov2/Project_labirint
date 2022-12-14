@@ -3,7 +3,7 @@ import math
 from random import choice, randint
 from game_texture_Artur import *
 from game_texture_oleg import *
-from game_levels_graphics import *
+from game_levels_graphics import draw_ball, draw_level, Wall
 from game_objects_ball import Ball
 from game_object_gun import Bullet
 
@@ -28,6 +28,8 @@ def level_3(screensize, ball_surf, menu, balls_surfaces):
     running = True
     ball = Ball(x3, y3)
     ball.__init__(x3, y3)
+    wall = Wall()
+    wall.__init__()
     while running:
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -56,7 +58,8 @@ def level_3(screensize, ball_surf, menu, balls_surfaces):
                     bullets = []
                     break
         Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x3, y3)
-        draw_level(screen, lv3_walls_surf, lv3_traps_surf, bg_wood_surface, ball, finish_surf, xf3, yf3, lv3_dark_surf)
+        draw_level(screen, lv3_walls_surf, lv3_traps_surf, bg_wood_surface,
+                   ball, finish_surf, xf3, yf3, lv3_dark_surf, wall)
         if bullets:
             for b in bullets:
                 b.draw(screen)
