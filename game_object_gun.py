@@ -6,14 +6,15 @@ from game_texture_oleg import *
 from game_levels_graphics import *
 from game_objects_ball import Ball
 
+
 class Bullet:
     """Класс, отрисовывающий снаряд"""
-    def __init__(self, x, y, angle, v, balls_surfaces):
+    def __init__(self, x, y, angle, v, balls_surfaces, dt):
         self.points = 0
         self.x = x  # gun.x
         self.y = y  # gun.y
-        self.vx = v * math.cos(angle)
-        self.vy = v * math.sin(angle)
+        self.vx = v * math.cos(angle) * dt
+        self.vy = v * math.sin(angle) * dt
         self.angle = angle  # gun.angle
         self.surf = balls_surfaces[randint(2, 5)]
         self.mask = bullet_mask

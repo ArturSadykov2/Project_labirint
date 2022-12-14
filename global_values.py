@@ -6,4 +6,3 @@ cursor_size=100/1024*size_hight
 finish_hight = 50/1024*size_hight
 finish_width = 100/1024*size_hight
 disk_size = [480/1024*size_hight, 480/1024*size_hight]
-dt = 1/60

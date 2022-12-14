@@ -16,14 +16,13 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
     bullets = []
     k = 180
     delay = 180
+    FPS = 60
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = ball_surf
     ball_mask = pg.mask.from_surface(ball_surface)
     level_mask = pg.mask.from_surface(lv2_walls_surf)
     trap_mask = pg.mask.from_surface(lv2_traps_surf)
-    ball_x_mask = pg.mask.from_surface(ball_x_surf)
-    ball_y_mask = pg.mask.from_surface(ball_y_surf)
     finish_mask = pg.mask.from_surface(finish_surf)
     bullet_mask = pg.mask.from_surface(lv2_dark_surf)
     running = True
@@ -34,6 +33,10 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
     wall = Wall()
     wall.__init__()
     while running:
+        #if FPS != 0:
+            #dt = 1 / FPS
+        #else:
+        dt = 1/60
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running = False
@@ -42,14 +45,14 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
                     menu.menu_live = 1
                     menu.pause_menu = 1
                     running = False
-        ball.ball_boost()
-        Ball.ball_move(ball)
+        ball.ball_boost(dt)
+        Ball.ball_move(ball, dt)
         floor_disk.move()
         wall_disk.move()
         k += 1
         if k >= delay:
             k = 0
-            bullets.append(Bullet(400, 80, 0, 2, balls_surfaces))
+            bullets.append(Bullet(400, 80, 0, 120, balls_surfaces, dt))
         if bullets:
             for i in range(len(bullets)):
                 b = bullets[i]
@@ -61,8 +64,8 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
                 if kill_ball:
                     bullets = []
                     break
-        Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x2, y2)
-        wall_disk.collusion(ball, ball_x_mask, ball_y_mask)
+        Ball.collusion(ball, level_mask, ball_mask, trap_mask, x2, y2)
+        wall_disk.collusion(ball, ball_mask)
         draw_level(screen, lv2_walls_surf, lv2_traps_surf, bg_wood_surface,
                    ball, finish_surf, xf2, yf2, lv2_dark_surf, wall)
         floor_disk.draw(screen)
@@ -73,3 +76,5 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
         running = ball.finish(ball_mask, finish_mask, menu, xf2, yf2, running)
         pg.display.flip()
         clock.tick(60)
+        FPS = clock.get_fps()
+        print(FPS)

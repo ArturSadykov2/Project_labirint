@@ -4,8 +4,6 @@ from game_texture_oleg import *
 from global_values import *
 
 bullet_mask = pg.mask.from_surface(dark_ball_surface)
-ball_x = pg.image.load(os.path.join("image", "red_ball_x.png"))
-ball_y = pg.image.load(os.path.join("image", "red_ball_y.png"))
 
 karusel_floor = pg.image.load(os.path.join("levels_image", "karysel3.png"))
 karusel_floor = pg.transform.scale(karusel_floor, disk_size)
@@ -33,7 +31,7 @@ lv1_light = pg.transform.scale(lv1_light, size)
 lv1_walls_surf = pg.Surface(size, pg.SRCALPHA)
 lv1_walls_surf.blit(lv1_light, (0, 0))
 
-lv1_dark = pg.image.load(os.path.join("levels_image", "level_1", "lv1_dark_2.png"))
+lv1_dark = pg.image.load(os.path.join("levels_image", "level_1", "lv1_dark_walls.png"))
 lv1_dark = pg.transform.scale(lv1_dark, size)
 lv1_dark_surf = pg.Surface(size, pg.SRCALPHA)
 lv1_dark_surf.blit(lv1_dark, (0, 0))
@@ -42,14 +40,6 @@ lv1_traps = pg.image.load(os.path.join("levels_image", "level_1", "lv1_lovyshka.
 lv1_traps = pg.transform.scale(lv1_traps, size)
 lv1_traps_surf = pg.Surface(size, pg.SRCALPHA)
 lv1_traps_surf.blit(lv1_traps, (0, 0))
-
-ball_x = pg.transform.scale(ball_x, [size_ball, size_ball])
-ball_x_surf = pg.Surface([size_ball, size_ball], pg.SRCALPHA)
-ball_x_surf.blit(ball_x, (0, 0))
-
-ball_y = pg.transform.scale(ball_y, [size_ball, size_ball])
-ball_y_surf = pg.Surface([size_ball, size_ball], pg.SRCALPHA)
-ball_y_surf.blit(ball_y, (0, 0))
 
 finish_texture = pg.image.load(os.path.join("levels_image", "final_hole.png"))
 finish_texture = pg.transform.scale(finish_texture, [finish_width, finish_hight])
@@ -68,7 +58,7 @@ lv2_dark = pg.image.load(os.path.join("levels_image", "level_2", "lv2_without_gu
 lv2_dark = pg.transform.scale(lv2_dark, size)
 lv2_dark_surf = pg.Surface(size, pg.SRCALPHA)
 lv2_dark_surf.blit(lv2_dark, (0, 0))
-
+"""
 lv3_walls = pg.image.load(os.path.join("levels_image", "level_3", "lv3_light.png"))
 lv3_walls = pg.transform.scale(lv3_walls, size)
 lv3_walls_surf = pg.Surface(size, pg.SRCALPHA)
@@ -81,7 +71,7 @@ lv3_dark = pg.image.load(os.path.join("levels_image", "level_3", "lv3_without_gu
 lv3_dark = pg.transform.scale(lv3_dark, size)
 lv3_dark_surf = pg.Surface(size, pg.SRCALPHA)
 lv3_dark_surf.blit(lv3_dark, (0, 0))
-
+"""
 lv4_walls_g = pg.image.load(os.path.join("levels_image", "level_4", "lv4_without_guns.png"))
 lv4_walls_g = pg.transform.scale(lv4_walls_g, size)
 lv4_walls_surf_g = pg.Surface(size, pg.SRCALPHA)

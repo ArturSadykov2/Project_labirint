@@ -22,8 +22,6 @@ def level_3(screensize, ball_surf, menu, balls_surfaces):
     ball_mask = pg.mask.from_surface(ball_surface)
     level_mask = pg.mask.from_surface(lv3_dark)
     trap_mask = pg.mask.from_surface(lv3_traps_surf)
-    ball_x_mask = pg.mask.from_surface(ball_x_surf)
-    ball_y_mask = pg.mask.from_surface(ball_y_surf)
     finish_mask = pg.mask.from_surface(finish_surf)
     running = True
     ball = Ball(x3, y3)
@@ -57,7 +55,7 @@ def level_3(screensize, ball_surf, menu, balls_surfaces):
                 if kill_ball:
                     bullets = []
                     break
-        Ball.collusion(ball, level_mask, ball_mask, trap_mask, ball_x_mask, ball_y_mask, x3, y3)
+        Ball.collusion(ball, level_mask, ball_mask, trap_mask, x3, y3)
         draw_level(screen, lv3_walls_surf, lv3_traps_surf, bg_wood_surface,
                    ball, finish_surf, xf3, yf3, lv3_dark_surf, wall)
         if bullets:
@@ -67,3 +65,4 @@ def level_3(screensize, ball_surf, menu, balls_surfaces):
         running = ball.finish(ball_mask, finish_mask, menu, xf3, yf3, running)
         pg.display.flip()
         clock.tick(60)
+        print(clock.get_fps())
