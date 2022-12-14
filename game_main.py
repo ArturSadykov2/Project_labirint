@@ -12,10 +12,6 @@ from game_level_4 import level_4
 # set fps
 FPS = 60
 
-# set screen size
-size = [size_hight, size_width]
-
-
 def main():
     """
     Function that draws main Menu with options of choose the level and starting the game

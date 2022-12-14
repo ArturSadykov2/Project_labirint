@@ -2,7 +2,6 @@ import pygame as pg
 from game_texture_oleg import *
 from global_values import *
 
-
 class Ball:
     def __init__(self, x, y):
         self.x = x
