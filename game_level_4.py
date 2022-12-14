@@ -6,11 +6,12 @@ from game_texture_oleg import *
 from game_levels_graphics import draw_ball, draw_level, Wall
 from game_objects_ball import Ball
 from game_object_gun import Bullet
+from global_values import *
 
 
 def level_4(screensize, ball_surf, menu, balls_surfaces):
-    x4 = 100
-    y4 = 360
+    x4 = coord_of_start[3][0]
+    y4 = coord_of_start[3][1]
     xf4 = 1200
     yf4 = 360
     bullets = []
@@ -36,6 +37,8 @@ def level_4(screensize, ball_surf, menu, balls_surfaces):
                 if event.key == pg.K_SPACE and not menu.menu_live:
                     menu.menu_live = 1
                     menu.pause_menu = 1
+                    coord_of_start[3][0]=ball.x
+                    coord_of_start[3][1]=ball.y
                     running = False
         ball.ball_boost()
         Ball.ball_move(ball)

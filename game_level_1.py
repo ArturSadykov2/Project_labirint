@@ -5,11 +5,12 @@ from game_texture_Artur import *
 from game_texture_oleg import *
 from game_levels_graphics import draw_ball, draw_level, Wall
 from game_objects_ball import Ball
+from global_values import *
 
 
 def level_1(screensize, ball_surf, menu):
-    x1 = 90
-    y1 = 80
+    x1 = coord_of_start[0][0]
+    y1 = coord_of_start[0][1]
     xf1 = 1200
     yf1 = 630
     screen = pg.display.set_mode(screensize)
@@ -32,6 +33,8 @@ def level_1(screensize, ball_surf, menu):
                 if event.key == pg.K_SPACE and not menu.menu_live:
                     menu.menu_live = 1
                     menu.pause_menu = 1
+                    coord_of_start[0][0]=ball.x
+                    coord_of_start[0][1]=ball.y
                     running = False
         ball.ball_boost()
         Ball.ball_move(ball)

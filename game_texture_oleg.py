@@ -63,60 +63,60 @@ pause_menu_surface.blit(pause_menu, (0, 0))
 
 #creating surface for main button
 
-exitt = pg.transform.scale(exit_png, (281/1024*size_hight,93/576*size_width))
-exit_surface = pg.Surface((281/1024*size_hight,93/576*size_width), pg.SRCALPHA)
+exitt = pg.transform.scale(exit_png, (281* scale_x,93* scale_y))
+exit_surface = pg.Surface((281* scale_x,93* scale_y), pg.SRCALPHA)
 exit_surface.blit(exitt, (0,0))
 
-go = pg.transform.scale(go_png, (208/1024*size_hight,108/576*size_width))
-go_surface = pg.Surface((208/1024*size_hight,108/576*size_width), pg.SRCALPHA)
+go = pg.transform.scale(go_png, (208* scale_x,108* scale_y))
+go_surface = pg.Surface((208* scale_x,108* scale_y), pg.SRCALPHA)
 go_surface.blit(go, (0,0))
 
-settings = pg.transform.scale(settings_png, (320/1024*size_hight,107/576*size_width))
-settings_surface = pg.Surface((320/1024*size_hight,107/576*size_width), pg.SRCALPHA)
+settings = pg.transform.scale(settings_png, (320* scale_x,107* scale_y))
+settings_surface = pg.Surface((320* scale_x,107* scale_y), pg.SRCALPHA)
 settings_surface.blit(settings, (0,0))
 
-nextlvl = pg.transform.scale(nextlvl_png, (440/1024*size_hight,140/576*size_width))
-nextlvl_surface = pg.Surface((440/1024*size_hight,140/576*size_width), pg.SRCALPHA)
+nextlvl = pg.transform.scale(nextlvl_png, (440* scale_x,140* scale_y))
+nextlvl_surface = pg.Surface((440* scale_x,140* scale_y), pg.SRCALPHA)
 nextlvl_surface.blit(nextlvl, (0,0))
 
-go_back = pg.transform.scale(go_back_png, (440/1024*size_hight,140/576*size_width))
-go_back_surface = pg.Surface((440/1024*size_hight,140/576*size_width), pg.SRCALPHA)
+go_back = pg.transform.scale(go_back_png, (440* scale_x,140* scale_y))
+go_back_surface = pg.Surface((440* scale_x,140* scale_y), pg.SRCALPHA)
 go_back_surface.blit(go_back, (0,0))
 
-continuee = pg.transform.scale(continue_png, (440/1024*size_hight,140/576*size_width))
-continue_surface = pg.Surface((440/1024*size_hight,140/576*size_width), pg.SRCALPHA)
+continuee = pg.transform.scale(continue_png, (440* scale_x,140* scale_y))
+continue_surface = pg.Surface((440* scale_x,140* scale_y), pg.SRCALPHA)
 continue_surface.blit(continuee, (0,0))
 
 #creating buttons for selecting balls
 
-dark_down = pg.transform.scale(dark_down_png, (215/1024*size_hight,215/576*size_width))
-dark_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
+dark_down = pg.transform.scale(dark_down_png, (215* scale_x,215* scale_y))
+dark_button_surface = pg.Surface((215* scale_x,215* scale_y), pg.SRCALPHA)
 dark_button_surface.blit(dark_down, (0,0))
 
-disco_down = pg.transform.scale(disco_down_png, (215/1024*size_hight,215/576*size_width))
-disco_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
+disco_down = pg.transform.scale(disco_down_png, (215* scale_x,215* scale_y))
+disco_button_surface = pg.Surface((215* scale_x,215* scale_y), pg.SRCALPHA)
 disco_button_surface.blit(disco_down, (0,0))
 
-grey_down = pg.transform.scale(grey_down_png, (215/1024*size_hight,215/576*size_width))
-grey_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
+grey_down = pg.transform.scale(grey_down_png, (215* scale_x,215* scale_y))
+grey_button_surface = pg.Surface((215* scale_x,215* scale_y), pg.SRCALPHA)
 grey_button_surface.blit(grey_down, (0,0))
 
-red_down = pg.transform.scale(red_down_png, (215/1024*size_hight,215/576*size_width))
-red_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
+red_down = pg.transform.scale(red_down_png, (215* scale_x,215* scale_y))
+red_button_surface = pg.Surface((215* scale_x,215* scale_y), pg.SRCALPHA)
 red_button_surface.blit(red_down, (0,0))
 
-striped_down = pg.transform.scale(striped_down_png, (215/1024*size_hight,215/576*size_width))
-striped_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
+striped_down = pg.transform.scale(striped_down_png, (215* scale_x,215* scale_y))
+striped_button_surface = pg.Surface((215* scale_x,215* scale_y), pg.SRCALPHA)
 striped_button_surface.blit(striped_down, (0,0))
 
-magma_down = pg.transform.scale(magma_down_png, (215/1024*size_hight,215/576*size_width))
-magma_button_surface = pg.Surface((215/1024*size_hight,215/576*size_width), pg.SRCALPHA)
+magma_down = pg.transform.scale(magma_down_png, (215* scale_x,215* scale_y))
+magma_button_surface = pg.Surface((215* scale_x,215* scale_y), pg.SRCALPHA)
 magma_button_surface.blit(magma_down, (0,0))
 
 #creating a button for an arrow
 
-arrow_down = pg.transform.scale(arrow_down_png, (61/1024*size_hight,46/576*size_width))
-arrow_button_surface = pg.Surface((61/1024*size_hight,46/576*size_width), pg.SRCALPHA)
+arrow_down = pg.transform.scale(arrow_down_png, (61* scale_x,46* scale_y))
+arrow_button_surface = pg.Surface((61* scale_x,46* scale_y), pg.SRCALPHA)
 arrow_button_surface.blit(arrow_down, (0,0))
 
 cursor_up = pg.transform.scale(cursor_up_png, (cursor_size,cursor_size))
@@ -129,26 +129,26 @@ cursor_down_button_surface.blit(cursor_down, (0,0))
 
 #creating surface for balls
 
-dark_ball = pg.transform.scale(dark_ball_png, (size_ball,size_ball))
-dark_ball_surface = pg.Surface((size_ball,size_ball), pg.SRCALPHA)
+dark_ball = pg.transform.scale(dark_ball_png, size_ball)
+dark_ball_surface = pg.Surface(size_ball, pg.SRCALPHA)
 dark_ball_surface.blit(dark_ball, (0,0))
 
-disco_ball = pg.transform.scale(disco_ball_png, (size_ball,size_ball))
-disco_ball_surface = pg.Surface((size_ball,size_ball), pg.SRCALPHA)
+disco_ball = pg.transform.scale(disco_ball_png, size_ball)
+disco_ball_surface = pg.Surface(size_ball, pg.SRCALPHA)
 disco_ball_surface.blit(disco_ball, (0,0))
 
-grey_ball = pg.transform.scale(grey_ball_png, (size_ball,size_ball))
-grey_ball_surface = pg.Surface((size_ball,size_ball), pg.SRCALPHA)
+grey_ball = pg.transform.scale(grey_ball_png, size_ball)
+grey_ball_surface = pg.Surface(size_ball, pg.SRCALPHA)
 grey_ball_surface.blit(grey_ball, (0,0))
 
-red_ball = pg.transform.scale(red_ball_png, (size_ball,size_ball))
-red_ball_surface = pg.Surface((size_ball,size_ball), pg.SRCALPHA)
+red_ball = pg.transform.scale(red_ball_png, size_ball)
+red_ball_surface = pg.Surface(size_ball, pg.SRCALPHA)
 red_ball_surface.blit(red_ball, (0,0))
 
-striped_ball = pg.transform.scale(striped_ball_png, (size_ball,size_ball))
-striped_ball_surface = pg.Surface((size_ball,size_ball), pg.SRCALPHA)
+striped_ball = pg.transform.scale(striped_ball_png, size_ball)
+striped_ball_surface = pg.Surface(size_ball, pg.SRCALPHA)
 striped_ball_surface.blit(striped_ball, (0,0))
 
-magma_ball = pg.transform.scale(magma_ball_png, (size_ball,size_ball))
-magma_ball_surface = pg.Surface((size_ball,size_ball), pg.SRCALPHA)
+magma_ball = pg.transform.scale(magma_ball_png, size_ball)
+magma_ball_surface = pg.Surface(size_ball, pg.SRCALPHA)
 magma_ball_surface.blit(magma_ball, (0,0))

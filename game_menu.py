@@ -37,9 +37,9 @@ class Menu:
         self.magma_button = False
         self.arrow_button = False
         self.level_1 = 0
-        self.level_2 = 1
+        self.level_2 = 0
         self.level_3 = 0
-        self.level_4 = 0
+        self.level_4 = 1
 
     def check_on(self, event):
         '''
@@ -47,14 +47,14 @@ class Menu:
         :param event: an iterable object with the coordinates of the point where the key was pressed
         :return: nothing
         '''
-        if (0 <= event.pos[0] - 131 / 1024 * size_hight + cursor_size / 2 <= 281 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 153 / 576 * size_width + cursor_size / 2 <= 92 / 576 * size_width):
+        if (0 <= event.pos[0] - 131 * scale_x + cursor_size / 2 <= 281 * scale_x) and (
+                0 <= event.pos[1] - 153 * scale_y + cursor_size / 2 <= 92 * scale_y):
             self.exit_on = True
-        elif (0 <= event.pos[0] - 671 / 1024 * size_hight + cursor_size / 2 <= 206 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 153 / 576 * size_width + cursor_size / 2 <= 107 / 576 * size_width):
+        elif (0 <= event.pos[0] - 671 * scale_x + cursor_size / 2 <= 206 * scale_x) and (
+                0 <= event.pos[1] - 153 * scale_y + cursor_size / 2 <= 107 * scale_y):
             self.go = True
-        elif (0 <= event.pos[0] - 272 / 1024 * size_hight + cursor_size / 2 <= 320 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 394 / 576 * size_width + cursor_size / 2 <= 106 / 576 * size_width):
+        elif (0 <= event.pos[0] - 272 * scale_x + cursor_size / 2 <= 320 * scale_x) and (
+                0 <= event.pos[1] - 394 * scale_y + cursor_size / 2 <= 106 * scale_y):
             self.settings = True
         
 
@@ -65,31 +65,31 @@ class Menu:
         :param event: an iterable object with the coordinates of the point where the key was pressed
         :return: nothing
         '''
-        if (0 <= event.pos[0] - 721 / 1024 * size_hight + cursor_size / 2 <= 215 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 50 / 576 * size_width + cursor_size / 2 <= 215 / 576 * size_width):
+        if (0 <= event.pos[0] - 721 * scale_x + cursor_size / 2 <= 215 * scale_x) and (
+                0 <= event.pos[1] - 50 * scale_y + cursor_size / 2 <= 215 * scale_y):
             self.dark_button = True
             self.ball_index = 4
-        elif (0 <= event.pos[0] - 74 / 1024 * size_hight + cursor_size / 2 <= 215 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 320 / 576 * size_width + cursor_size / 2 <= 215 / 576 * size_width):
+        elif (0 <= event.pos[0] - 74 * scale_x + cursor_size / 2 <= 215 * scale_x) and (
+                0 <= event.pos[1] - 320 * scale_y + cursor_size / 2 <= 215 * scale_y):
             self.disco_button = True
             self.ball_index = 3
-        elif (0 <= event.pos[0] - 74 / 1024 * size_hight + cursor_size / 2 <= 215 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 50 / 576 * size_width + cursor_size / 2 <= 215 / 576 * size_width):
+        elif (0 <= event.pos[0] - 74 * scale_x + cursor_size / 2 <= 215 * scale_x) and (
+                0 <= event.pos[1] - 50 * scale_y + cursor_size / 2 <= 215 * scale_y):
             self.grey_button = True
             self.ball_index = 2
-        elif (0 <= event.pos[0] - 399 / 1024 * size_hight + cursor_size / 2 <= 215 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 50 / 576 * size_width + cursor_size / 2 <= 215 / 576 * size_width):
+        elif (0 <= event.pos[0] - 399 * scale_x + cursor_size / 2 <= 215 * scale_x) and (
+                0 <= event.pos[1] - 50 * scale_y + cursor_size / 2 <= 215 * scale_y):
             self.red_button = True
             self.ball_index = 1
-        elif (0 <= event.pos[0] - 399 / 1024 * size_hight + cursor_size / 2 <= 215 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 320 / 576 * size_width + cursor_size / 2 <= 215 / 576 * size_width):
+        elif (0 <= event.pos[0] - 399 * scale_x + cursor_size / 2 <= 215 * scale_x) and (
+                0 <= event.pos[1] - 320 * scale_y + cursor_size / 2 <= 215 * scale_y):
             self.striped_button = True
             self.ball_index = 5
-        elif (0 <= event.pos[0] - 721 / 1024 * size_hight + cursor_size / 2 <= 215 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 320 / 576 * size_width + cursor_size / 2 <= 215 / 576 * size_width):
+        elif (0 <= event.pos[0] - 721 * scale_x + cursor_size / 2 <= 215 * scale_x) and (
+                0 <= event.pos[1] - 320 * scale_y + cursor_size / 2 <= 215 * scale_y):
             self.magma_button = True
             self.ball_index = 6
-        elif (0 <= event.pos[0] <= 61 / 1024 * size_hight) and (0 <= event.pos[1] <= 46 / 576 * size_width):
+        elif (0 <= event.pos[0] <= 61 * scale_x) and (0 <= event.pos[1] <= 46 * scale_y):
             self.arrow_button = True
   
 
@@ -100,14 +100,14 @@ class Menu:
         :param event: an iterable object with the coordinates of the point where the key was pressed
         :return: nothing 
         '''
-        if (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 332 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width):
+        if (0 <= event.pos[0] - 292 * scale_x + cursor_size / 2 <= 440 * scale_x) and (
+                0 <= event.pos[1] - 332 * scale_y + cursor_size / 2 <= 140 * scale_y):
             self.go_back = True
-        elif (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 128 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width) and self.intermediate_menu:
+        elif (0 <= event.pos[0] - 292 * scale_x + cursor_size / 2 <= 440 * scale_x) and (
+                0 <= event.pos[1] - 128 * scale_y + cursor_size / 2 <= 140 * scale_y) and self.intermediate_menu:
             self.nextlvl = True
-        elif (0 <= event.pos[0] - 292 / 1024 * size_hight + cursor_size / 2 <= 440 / 1024 * size_hight) and (
-                0 <= event.pos[1] - 128 / 576 * size_width + cursor_size / 2 <= 140 / 576 * size_width) and self.pause_menu:
+        elif (0 <= event.pos[0] - 292 * scale_x + cursor_size / 2 <= 440 * scale_x) and (
+                0 <= event.pos[1] - 128 * scale_y + cursor_size / 2 <= 140 * scale_y) and self.pause_menu:
             self.continuee = True
 
     def check_off(self):
@@ -172,9 +172,6 @@ class Menu:
             elif self.level_3:
                 self.level_4 = 1
                 self.level_3 = 0
-            elif self.level_4:
-                self.level_5 = 1
-                self.level_4 = 0
         elif self.continuee:
             self.continuee = False
             self.pause_menu = 0
@@ -186,17 +183,17 @@ class Menu:
         :return: nothing
         '''
         if self.exit_on:
-            self.screen.blit(exit_surface, (131 / 1024 * size_hight, 153 / 576 * size_width))
+            self.screen.blit(exit_surface, (131 * scale_x, 153 * scale_y))
         elif self.go:
-            self.screen.blit(go_surface, (672 / 1024 * size_hight, 153 / 576 * size_width))
+            self.screen.blit(go_surface, (672 * scale_x, 153 * scale_y))
         elif self.nextlvl:
-            self.screen.blit(nextlvl_surface, (292 / 1024 * size_hight, 128 / 576 * size_width))
+            self.screen.blit(nextlvl_surface, (292 * scale_x, 128 * scale_y))
         elif self.settings:
-            self.screen.blit(settings_surface, (272 / 1024 * size_hight, 394 / 576 * size_width))
+            self.screen.blit(settings_surface, (272 * scale_x, 394 * scale_y))
         elif self.go_back:
-            self.screen.blit(go_back_surface, (292 / 1024 * size_hight, 332 / 576 * size_width))
+            self.screen.blit(go_back_surface, (292 * scale_x, 332 * scale_y))
         elif self.continuee:
-            self.screen.blit(continue_surface, (292 / 1024 * size_hight, 128 / 576 * size_width))
+            self.screen.blit(continue_surface, (292 * scale_x, 128 * scale_y))
 
     def draw_bottons_balls(self):
         '''
@@ -204,17 +201,17 @@ class Menu:
         :return: nothing
         '''
         if self.dark_button:
-            self.screen.blit(dark_button_surface, (721 / 1024 * size_hight, 50 / 576 * size_width))
+            self.screen.blit(dark_button_surface, (721 * scale_x, 50 * scale_y))
         elif self.disco_button:
-            self.screen.blit(disco_button_surface, (74 / 1024 * size_hight, 320 / 576 * size_width))
+            self.screen.blit(disco_button_surface, (74 * scale_x, 320 * scale_y))
         elif self.grey_button:
-            self.screen.blit(grey_button_surface, (74 / 1024 * size_hight, 50 / 576 * size_width))
+            self.screen.blit(grey_button_surface, (74 * scale_x, 50 * scale_y))
         elif self.red_button:
-            self.screen.blit(red_button_surface, (399 / 1024 * size_hight, 50 / 576 * size_width))
+            self.screen.blit(red_button_surface, (399 * scale_x, 50 * scale_y))
         elif self.striped_button:
-            self.screen.blit(striped_button_surface, (399 / 1024 * size_hight, 320 / 576 * size_width))
+            self.screen.blit(striped_button_surface, (399 * scale_x, 320 * scale_y))
         elif self.magma_button:
-            self.screen.blit(magma_button_surface, (721 / 1024 * size_hight, 320 / 576 * size_width))
+            self.screen.blit(magma_button_surface, (721 * scale_x, 320 * scale_y))
         elif self.arrow_button:
             self.screen.blit(arrow_button_surface, (0, 0))
 

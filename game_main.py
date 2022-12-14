@@ -2,7 +2,7 @@ import pygame as pg
 import numpy as np
 from game_menu import *
 from game_colors import *
-# from global_values import *
+from global_values import *
 from game_texture_oleg import *
 from game_level_1 import level_1
 from game_level_2 import level_2

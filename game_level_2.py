@@ -6,11 +6,12 @@ from game_objects_ball import Ball
 from game_object_gun import Bullet
 from game_object_disk import Disk
 from random import randint
+from global_values import *
 
 
 def level_2(screensize, ball_surf, menu, balls_surfaces):
-    x2 = 100
-    y2 = 80
+    x2 = coord_of_start[1][0]
+    y2 = coord_of_start[1][1]
     xf2 = 1050
     yf2 = 650
     bullets = []
@@ -45,6 +46,8 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
                 if event.key == pg.K_SPACE and not menu.menu_live:
                     menu.menu_live = 1
                     menu.pause_menu = 1
+                    coord_of_start[1][0]=ball.x
+                    coord_of_start[1][1]=ball.y
                     running = False
         ball.ball_boost(dt)
         Ball.ball_move(ball, dt)

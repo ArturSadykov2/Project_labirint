@@ -1,5 +1,6 @@
 import pygame as pg
 from game_texture_oleg import *
+from global_values import *
 
 
 class Ball:
@@ -70,4 +71,14 @@ class Ball:
             running = False
             obj.menu_live = 1
             obj.intermediate_menu = 1
+            if obj.level_1:
+                coord_of_start[0]=[90,80]
+            elif obj.level_2:
+                coord_of_start[1]=[100,80]
+            elif obj.level_3:
+                coord_of_start[2]=[1250,75]
+            elif obj.level_4:
+                coord_of_start[3]=[100,360]
+                obj.intermediate_menu = 0
+                obj.home_surface = 1
         return running
