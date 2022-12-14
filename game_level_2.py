@@ -21,7 +21,8 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
     clock = pg.time.Clock()
     ball_surface = ball_surf
     ball_mask = pg.mask.from_surface(ball_surface)
-    level_mask = pg.mask.from_surface(lv2_walls_surf)
+    bullet_level_mask = pg.mask.from_surface(lv2_dark_surf)
+    ball_level_mask = pg.mask.from_surface(lv2_walls_surf)
     trap_mask = pg.mask.from_surface(lv2_traps_surf)
     finish_mask = pg.mask.from_surface(finish_surf)
     bullet_mask = pg.mask.from_surface(lv2_dark_surf)
@@ -33,10 +34,10 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
     wall = Wall()
     wall.__init__()
     while running:
-        #if FPS != 0:
-            #dt = 1 / FPS
-        #else:
-        dt = 1/60
+        if FPS != 0:
+            dt = 1 / FPS
+        else:
+            dt = 1/60
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running = False
@@ -56,15 +57,15 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
         if bullets:
             for i in range(len(bullets)):
                 b = bullets[i]
-                b.move()
-                kill, kill_ball = b.collusion(bullet_mask, ball, x2, y2, ball_mask)
+                b.move(dt)
+                kill, kill_ball = b.collusion(bullet_level_mask, ball, x2, y2, ball_mask, dt)
                 if kill:
                     del bullets[i]
                     break
                 if kill_ball:
                     bullets = []
                     break
-        Ball.collusion(ball, level_mask, ball_mask, trap_mask, x2, y2)
+        Ball.collusion(ball, ball_level_mask, ball_mask, trap_mask, x2, y2)
         wall_disk.collusion(ball, ball_mask)
         draw_level(screen, lv2_walls_surf, lv2_traps_surf, bg_wood_surface,
                    ball, finish_surf, xf2, yf2, lv2_dark_surf, wall)
@@ -77,4 +78,4 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
         pg.display.flip()
         clock.tick(60)
         FPS = clock.get_fps()
-        print(FPS)
+        print(FPS, dt)

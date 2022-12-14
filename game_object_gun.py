@@ -13,8 +13,8 @@ class Bullet:
         self.points = 0
         self.x = x  # gun.x
         self.y = y  # gun.y
-        self.vx = v * math.cos(angle) * dt
-        self.vy = v * math.sin(angle) * dt
+        self.vx = v * math.cos(angle)
+        self.vy = v * math.sin(angle)
         self.angle = angle  # gun.angle
         self.surf = balls_surfaces[randint(2, 5)]
         self.mask = bullet_mask
@@ -23,14 +23,15 @@ class Bullet:
         """Функия, отрисовывающая мишень в сгенерированных координатах"""
         screen.blit(self.surf, (self.x, self.y))
 
-    def move(self):
-        self.x += self.vx
-        self.y += self.vy
+    def move(self, dt):
+        self.x += self.vx * dt
+        self.y += self.vy * dt
 
-    def collusion(self, wall_mask, ball, x, y, ball_mask):
-        overlap_wall = wall_mask.overlap(self.mask, (self.x+self.vx-0, self.y+self.vy-0))
+    def collusion(self, wall_mask, ball, x, y, ball_mask, dt):
+        overlap_wall = wall_mask.overlap(self.mask, (self.x+self.vx * dt-0, self.y+self.vy * dt-0))
         overlap_ball = ball_mask.overlap(self.mask,
-                                         (self.x + self.vx - ball.x - ball.vx, self.y + self.vy - ball.y - ball.vy))
+                                         (self.x + self.vx * dt - ball.x - ball.vx,
+                                          self.y + self.vy * dt - ball.y - ball.vy))
         kill_ball = False
         kill = False
         if overlap_ball:
