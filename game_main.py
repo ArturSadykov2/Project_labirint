@@ -10,16 +10,21 @@ from game_level_3 import level_3
 from game_level_4 import level_4
 
 pg.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512, devicename=None)
-pg.init()
+pg.init()    
 
 # set fps
 FPS = 60
+
+flPause = False
 
 def main():
     """
     Function that draws main Menu with options of choose the level and starting the game
     """ 
-    vjm_play = vile_jewish_music.play(-1)
+    vjm_play = vile_jewish_sound.play(-1)
+    rs_play=rolling_sound.play(-1)
+    rs_play.pause()
+    vol = 1
 
     balls_surfaces = [red_ball_surface, grey_ball_surface, disco_ball_surface, dark_ball_surface, striped_ball_surface,
                       magma_ball_surface]
@@ -65,26 +70,42 @@ def main():
                     menu.menu_live = 0
             elif event.type == pg.MOUSEMOTION:
                 cursor.cursor_change_pos(event)
+            elif event.type == pg.KEYDOWN:
+                if event.key == pg.K_SPACE:
+                    flPause = not flPause
+                    if flPause:
+                        vjm_play.pause()
+                    else:
+                        vjm_play.unpause()
+                elif event.key == pg.K_LEFT:
+                    vol -= 0.1
+                    vile_jewish_sound.set_volume(vol)
+                    print( vile_jewish_sound.get_volume() )
+                elif event.key == pg.K_RIGHT:
+                    vol += 0.1
+                    vile_jewish_sound.set_volume(vol)
+                    print( vile_jewish_sound.get_volume() )
 
         if menu.menu_live:
+            menu.play_music(vjm_play)
             menu.screen_draw()
             menu.draw_bottons()
             menu.draw_bottons_balls()
         elif menu.level_1:
             vjm_play.pause()
-            level_1([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu)
+            level_1([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu , rs_play)
             vjm_play.unpause()
         elif menu.level_2:
             vjm_play.pause()
-            level_2([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces)
+            level_2([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces, rs_play)
             vjm_play.unpause()
         elif menu.level_3:
             vjm_play.pause()
-            level_3([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces)
+            level_3([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces, rs_play)
             vjm_play.unpause()
         elif menu.level_4:
             vjm_play.pause()
-            level_4([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces)
+            level_4([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces, rs_play)
             vjm_play.unpause()
 
         if menu.menu_live:

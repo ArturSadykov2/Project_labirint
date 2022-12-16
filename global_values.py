@@ -13,8 +13,10 @@ size = np.array([size_hight, size_width])
 
 # set start coordinate
 coord_of_start = np.array([[90,80],[100,80],[1250,75],[100,360]])
+coord_of_finish = np.array([[1200,630],[1050,650],[970,420],[1200,360]])
 
-vile_jewish_music=pg.mixer.Sound("music/vile_jewish_music.wav")
+# set musics
+vile_jewish_sound=pg.mixer.Sound("music/vile_jewish_music.wav")
 rolling_sound=pg.mixer.Sound("music/rolling_sound.wav")
 bounce_sound=pg.mixer.Sound("music/bounce_sound.wav")
 

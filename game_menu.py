@@ -229,6 +229,13 @@ class Menu:
         elif self.pause_menu:
             self.screen.blit(pause_menu_surface, (0, 0))
 
+    def play_music(self, channel):
+        if self.intermediate_menu:
+            channel.pause()
+        elif self.pause_menu:
+            channel.pause()
+        else:
+            channel.unpause()
 
 class Cursor:
     '''

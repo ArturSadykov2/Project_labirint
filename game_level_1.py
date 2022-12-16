@@ -8,11 +8,9 @@ from game_objects_ball import Ball
 from global_values import *
 
 
-def level_1(screensize, ball_surf, menu):
-    x1 = coord_of_start[0][0]
-    y1 = coord_of_start[0][1]
-    xf1 = 1200
-    yf1 = 630
+def level_1(screensize, ball_surf, menu, channel):
+    x1,y1 = coord_of_start[0]
+    xf1, yf1 = coord_of_finish[0]
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = ball_surf
@@ -37,6 +35,7 @@ def level_1(screensize, ball_surf, menu):
                     coord_of_start[0][1]=ball.y
                     running = False
         ball.ball_boost()
+        ball.play_music(channel, bounce_sound)
         Ball.ball_move(ball)
         Ball.collusion(ball, level_mask, ball_mask, trap_mask, x1, y1)
         draw_level(screen, lv1_walls_surf, lv1_traps_surf, bg_wood_surface,

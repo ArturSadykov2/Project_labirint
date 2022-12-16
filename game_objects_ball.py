@@ -11,6 +11,7 @@ class Ball:
         self.vx = 0
         self.vy = 0
         self.hit = False
+        self.move = False
 
     def ball_boost(self, dt):
         a = 0.33
@@ -27,16 +28,14 @@ class Ball:
         else:
             self.ax = 0
         
-    def play_music(self, sound1, sound2):
-        if self.vx or self.vy :
-            sound1.unpause()
+    def play_music(self, channel, sound):
+        if self.vx or self.vy:
+            channel.unpause()
         else:
-            sound1.pause()
+            channel.pause()
         if self.hit:
-            sound2.unpause()
+            sound.play()
             self.hit=False
-        else:
-            sound2.pause()
 
     def ball_move(self, dt):
         if abs(self.vx) <= 600 * dt:

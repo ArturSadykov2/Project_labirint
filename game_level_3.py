@@ -9,11 +9,9 @@ from game_object_gun import Bullet
 from global_values import *
 
 
-def level_3(screensize, ball_surf, menu, balls_surfaces):
-    x3 = coord_of_start[2][0]
-    y3 = coord_of_start[2][1]
-    xf3 = 970
-    yf3 = 420
+def level_3(screensize, ball_surf, menu, balls_surfaces, channel):
+    x3,y3 = coord_of_start[2]
+    xf3,yf3 = coord_of_finish[2]
     bullets = []
     delay = 240
     k = 240
@@ -41,6 +39,7 @@ def level_3(screensize, ball_surf, menu, balls_surfaces):
                     coord_of_start[2][1]=ball.y
                     running = False
         ball.ball_boost()
+        ball.play_music(channel, bounce_sound)
         Ball.ball_move(ball)
         k += 1
         if k >= delay:

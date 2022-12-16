@@ -8,16 +8,12 @@ from game_object_disk import Disk
 from random import randint
 from global_values import *
 
+pg.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512, devicename=None)
+pg.init()
 
-def level_2(screensize, ball_surf, menu, balls_surfaces):
-    rs=rolling_sound.play(-1)
-    bs=bounce_sound.play(-1)
-    bs.pause()
-    rs.pause()
-    x2 = coord_of_start[1][0]
-    y2 = coord_of_start[1][1]
-    xf2 = 1050
-    yf2 = 650
+def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
+    x2,y2 = coord_of_start[1]
+    xf2,yf2 = coord_of_finish[1]
     bullets = []
     k = 180
     delay = 180
@@ -53,9 +49,8 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
                     coord_of_start[1][0]=ball.x
                     coord_of_start[1][1]=ball.y
                     running = False
-        ##fact
         ball.ball_boost(dt)
-        ball.play_music(rs, bs)
+        ball.play_music(channel, bounce_sound)
         Ball.ball_move(ball, dt)
         floor_disk.move()
         wall_disk.move()
