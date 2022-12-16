@@ -9,13 +9,18 @@ from game_level_2 import level_2
 from game_level_3 import level_3
 from game_level_4 import level_4
 
+pg.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512, devicename=None)
+pg.init()
+
 # set fps
 FPS = 60
 
 def main():
     """
     Function that draws main Menu with options of choose the level and starting the game
-    """
+    """ 
+    vjm_play = vile_jewish_music.play(-1)
+
     balls_surfaces = [red_ball_surface, grey_ball_surface, disco_ball_surface, dark_ball_surface, striped_ball_surface,
                       magma_ball_surface]
     screen = pg.display.set_mode(size)
@@ -66,13 +71,21 @@ def main():
             menu.draw_bottons()
             menu.draw_bottons_balls()
         elif menu.level_1:
+            vjm_play.pause()
             level_1([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu)
+            vjm_play.unpause()
         elif menu.level_2:
+            vjm_play.pause()
             level_2([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces)
+            vjm_play.unpause()
         elif menu.level_3:
+            vjm_play.pause()
             level_3([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces)
+            vjm_play.unpause()
         elif menu.level_4:
+            vjm_play.pause()
             level_4([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces)
+            vjm_play.unpause()
 
         if menu.menu_live:
             cursor.draw_cursor()

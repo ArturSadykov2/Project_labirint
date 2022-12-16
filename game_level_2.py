@@ -10,6 +10,10 @@ from global_values import *
 
 
 def level_2(screensize, ball_surf, menu, balls_surfaces):
+    rs=rolling_sound.play(-1)
+    bs=bounce_sound.play(-1)
+    bs.pause()
+    rs.pause()
     x2 = coord_of_start[1][0]
     y2 = coord_of_start[1][1]
     xf2 = 1050
@@ -49,7 +53,9 @@ def level_2(screensize, ball_surf, menu, balls_surfaces):
                     coord_of_start[1][0]=ball.x
                     coord_of_start[1][1]=ball.y
                     running = False
+        ##fact
         ball.ball_boost(dt)
+        ball.play_music(rs, bs)
         Ball.ball_move(ball, dt)
         floor_disk.move()
         wall_disk.move()

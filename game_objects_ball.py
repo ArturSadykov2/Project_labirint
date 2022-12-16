@@ -10,6 +10,7 @@ class Ball:
         self.ay = 0
         self.vx = 0
         self.vy = 0
+        self.hit = False
 
     def ball_boost(self, dt):
         a = 0.33
@@ -25,6 +26,17 @@ class Ball:
             self.ax = a
         else:
             self.ax = 0
+        
+    def play_music(self, sound1, sound2):
+        if self.vx or self.vy :
+            sound1.unpause()
+        else:
+            sound1.pause()
+        if self.hit:
+            sound2.unpause()
+            self.hit=False
+        else:
+            sound2.pause()
 
     def ball_move(self, dt):
         if abs(self.vx) <= 600 * dt:
@@ -52,7 +64,9 @@ class Ball:
         overlap_traps = trap_mask.overlap(ball_mask, (self.x+self.vx-0, self.y+self.vy-0))
         if overlap_walls_x:
             self.vx = -self.vx
+            self.hit = True
         if overlap_walls_y:
+            self.hit = True
             self.vy = -self.vy
         self.x += self.vx
         self.y += self.vy
