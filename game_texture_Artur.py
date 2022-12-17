@@ -26,17 +26,17 @@ texture_red_png = pg.transform.scale(texture_red_png, size)
 bg_red_surface = pg.Surface(size, pg.SRCALPHA)
 bg_red_surface.blit(texture_red_png, (0, 0))
 
-lv1_light = pg.image.load(os.path.join("levels_image", "level_1", "lv1_walls_1.png"))
+lv1_light = pg.image.load(os.path.join("levels_image", "level_1", "lv1_super_light.png"))
 lv1_light = pg.transform.scale(lv1_light, size)
 lv1_walls_surf = pg.Surface(size, pg.SRCALPHA)
 lv1_walls_surf.blit(lv1_light, (0, 0))
 
-lv1_dark = pg.image.load(os.path.join("levels_image", "level_1", "lv1_dark_walls.png"))
+lv1_dark = pg.image.load(os.path.join("levels_image", "level_1", "lv1_super_dark.png"))
 lv1_dark = pg.transform.scale(lv1_dark, size)
 lv1_dark_surf = pg.Surface(size, pg.SRCALPHA)
 lv1_dark_surf.blit(lv1_dark, (0, 0))
 
-lv1_traps = pg.image.load(os.path.join("levels_image", "level_1", "lv1_lovyshka.png"))
+lv1_traps = pg.image.load(os.path.join("levels_image", "level_1", "lv1_lovushka_2.png"))
 lv1_traps = pg.transform.scale(lv1_traps, size)
 lv1_traps_surf = pg.Surface(size, pg.SRCALPHA)
 lv1_traps_surf.blit(lv1_traps, (0, 0))
@@ -58,7 +58,7 @@ lv2_dark = pg.image.load(os.path.join("levels_image", "level_2", "lv2_without_gu
 lv2_dark = pg.transform.scale(lv2_dark, size)
 lv2_dark_surf = pg.Surface(size, pg.SRCALPHA)
 lv2_dark_surf.blit(lv2_dark, (0, 0))
-"""
+
 lv3_walls = pg.image.load(os.path.join("levels_image", "level_3", "lv3_light.png"))
 lv3_walls = pg.transform.scale(lv3_walls, size)
 lv3_walls_surf = pg.Surface(size, pg.SRCALPHA)
@@ -71,7 +71,7 @@ lv3_dark = pg.image.load(os.path.join("levels_image", "level_3", "lv3_without_gu
 lv3_dark = pg.transform.scale(lv3_dark, size)
 lv3_dark_surf = pg.Surface(size, pg.SRCALPHA)
 lv3_dark_surf.blit(lv3_dark, (0, 0))
-"""
+
 lv4_walls_g = pg.image.load(os.path.join("levels_image", "level_4", "lv4_without_guns.png"))
 lv4_walls_g = pg.transform.scale(lv4_walls_g, size)
 lv4_walls_surf_g = pg.Surface(size, pg.SRCALPHA)

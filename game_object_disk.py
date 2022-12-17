@@ -11,8 +11,8 @@ class Disk:
         self.angle = angle
         self.surf = surf
 
-    def move(self):
-        self.angle += self.w
+    def move(self, dt):
+        self.angle += self.w * dt
 
     def draw(self, screen):
         rect = self.surf.get_rect(center=(self.x, self.y))

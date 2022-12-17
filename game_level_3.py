@@ -15,6 +15,7 @@ def level_3(screensize, ball_surf, menu, balls_surfaces, channel):
     bullets = []
     delay = 240
     k = 240
+    FPS = 60
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = ball_surf
@@ -28,6 +29,10 @@ def level_3(screensize, ball_surf, menu, balls_surfaces, channel):
     wall = Wall()
     wall.__init__()
     while running:
+        if FPS != 0:
+            dt = 1 / FPS
+        else:
+            dt = 1/60
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running = False
@@ -38,19 +43,19 @@ def level_3(screensize, ball_surf, menu, balls_surfaces, channel):
                     coord_of_start[2][0]=ball.x
                     coord_of_start[2][1]=ball.y
                     running = False
-        ball.ball_boost()
+        ball.ball_boost(dt)
         ball.play_music(channel, bounce_sound)
-        Ball.ball_move(ball)
+        Ball.ball_move(ball, dt)
         k += 1
         if k >= delay:
             k = 0
-            bullets.append(Bullet(75, 140, 1.57, 2, balls_surfaces))
-            bullets.append(Bullet(1245, 570, -1.57, 2, balls_surfaces))
+            bullets.append(Bullet(75, 140, 1.57, 120, balls_surfaces, dt))
+            bullets.append(Bullet(1245, 570, -1.57, 120, balls_surfaces, dt))
         if bullets:
             for i in range(len(bullets)):
                 b = bullets[i]
-                b.move()
-                kill, kill_ball = b.collusion(level_mask, ball, x3, y3, ball_mask)
+                b.move(dt)
+                kill, kill_ball = b.collusion(level_mask, ball, x3, y3, ball_mask, dt)
                 if kill:
                     del bullets[i]
                     break
@@ -67,4 +72,5 @@ def level_3(screensize, ball_surf, menu, balls_surfaces, channel):
         running = ball.finish(ball_mask, finish_mask, menu, xf3, yf3, running)
         pg.display.flip()
         clock.tick(60)
+        FPS = clock.get_fps()
         print(clock.get_fps())

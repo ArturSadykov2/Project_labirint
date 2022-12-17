@@ -24,4 +24,4 @@ size_ball=np.array([50*scale_x, 50*scale_x])
 cursor_size=100*scale_x
 finish_hight = 50*scale_x
 finish_width = 100*scale_x
-disk_size = np.array([480*scale_x, 480*scale_x])
+disk_size = np.array([450*scale_x, 450*scale_x])

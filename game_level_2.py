@@ -30,8 +30,8 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
     running = True
     ball = Ball(x2, y2)
     ball.__init__(x2, y2)
-    floor_disk = Disk(550, 450, 0.5, 0, disk_floor_surf)
-    wall_disk = Disk(550, 450, 0.5, 0, disk_walls_surf)
+    floor_disk = Disk(550, 450, 30, 0, disk_floor_surf)
+    wall_disk = Disk(550, 450, 30, 0, disk_walls_surf)
     wall = Wall()
     wall.__init__()
     while running:
@@ -52,8 +52,8 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
         ball.ball_boost(dt)
         ball.play_music(channel, bounce_sound)
         Ball.ball_move(ball, dt)
-        floor_disk.move()
-        wall_disk.move()
+        floor_disk.move(dt)
+        wall_disk.move(dt)
         k += 1
         if k >= delay:
             k = 0
