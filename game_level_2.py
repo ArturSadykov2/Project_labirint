@@ -82,4 +82,4 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
         pg.display.flip()
         clock.tick(60)
         FPS = clock.get_fps()
-        print(FPS, dt)
+

@@ -26,7 +26,7 @@ texture_red_png = pg.transform.scale(texture_red_png, size)
 bg_red_surface = pg.Surface(size, pg.SRCALPHA)
 bg_red_surface.blit(texture_red_png, (0, 0))
 
-lv1_light = pg.image.load(os.path.join("levels_image", "level_1", "lv1_super_light.png"))
+lv1_light = pg.image.load(os.path.join("levels_image", "level_1", "lv1_sp_light.png"))
 lv1_light = pg.transform.scale(lv1_light, size)
 lv1_walls_surf = pg.Surface(size, pg.SRCALPHA)
 lv1_walls_surf.blit(lv1_light, (0, 0))
