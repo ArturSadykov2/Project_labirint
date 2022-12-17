@@ -1,19 +1,25 @@
-import pygame as pg
 from game_texture_Artur import *
-from game_texture_oleg import *
 from game_levels_graphics import draw_ball, draw_level, Wall
 from game_objects_ball import Ball
 from game_object_gun import Bullet
 from game_object_disk import Disk
-from random import randint
 from global_values import *
 
 pg.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512, devicename=None)
 pg.init()
 
+
 def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
-    x2,y2 = coord_of_start[1]
-    xf2,yf2 = coord_of_finish[1]
+    """
+        That function start 2-nd level
+        :param screensize: size of screen
+        :param ball_surf: ball texture, that was set in settings
+        :param menu: object in class Menu
+        :param balls_surfaces: massive with ball textures
+        :param channel:
+    """
+    x2, y2 = coord_of_start[1]
+    xf2, yf2 = coord_of_finish[1]
     bullets = []
     k = 180
     delay = 180
@@ -26,7 +32,6 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
     ball_level_mask = pg.mask.from_surface(lv2_walls_surf)
     trap_mask = pg.mask.from_surface(lv2_traps_surf)
     finish_mask = pg.mask.from_surface(finish_surf)
-    bullet_mask = pg.mask.from_surface(lv2_dark_surf)
     running = True
     ball = Ball(x2, y2)
     ball.__init__(x2, y2)
@@ -38,7 +43,7 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
         if FPS != 0:
             dt = 1 / FPS
         else:
-            dt = 1/60
+            dt = 1 / 60
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running = False
@@ -46,8 +51,8 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
                 if event.key == pg.K_SPACE and not menu.menu_live:
                     menu.menu_live = 1
                     menu.pause_menu = 1
-                    coord_of_start[1][0]=ball.x
-                    coord_of_start[1][1]=ball.y
+                    coord_of_start[1][0] = ball.x
+                    coord_of_start[1][1] = ball.y
                     running = False
         ball.ball_boost(dt)
         ball.play_music(channel, bounce_sound)
@@ -57,7 +62,7 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
         k += 1
         if k >= delay:
             k = 0
-            bullets.append(Bullet(400, 80, 0, 120, balls_surfaces, dt))
+            bullets.append(Bullet(400, 80, 0, 120, balls_surfaces))
         if bullets:
             for i in range(len(bullets)):
                 b = bullets[i]
@@ -82,4 +87,3 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
         pg.display.flip()
         clock.tick(60)
         FPS = clock.get_fps()
-

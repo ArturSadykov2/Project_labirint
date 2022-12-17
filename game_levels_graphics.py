@@ -1,28 +1,37 @@
-import pygame as pg
-import math
-from random import choice, randint
-from game_texture_Artur import *
-from game_objects_ball import Ball
-
-
 class Wall:
+    """
+    Class with walls coordinates, that used to turning level
+    """
     def __init__(self):
-        self.ax = 0
-        self.ay = 0
+        self.x = 0
+        self.y = 0
 
 
 def draw_level(screen, lv_surface, lv_traps, bg_surface, ball, finish, x_finish, y_finish, lv_dark, wall):
-    if wall.ax < int(ball.ax * 30):
-        wall.ax += 1
-    if wall.ax > int(ball.ax * 30):
-        wall.ax -= 1
-    if wall.ay < int(ball.ay * 30):
-        wall.ay += 1
-    if wall.ay > int(ball.ay * 30):
-        wall.ay -= 1
+    """
+    Draw background, walls, traps, finish.
+    :param screen: screen in pygame, where function draw all object
+    :param lv_surface: surface with level walls
+    :param lv_traps: surface with traps
+    :param bg_surface: surface with background image
+    :param ball: object in class Ball
+    :param finish: surface with finish image
+    :param x_finish: x coordinate of finish surface
+    :param y_finish: y coordinate of finish surface
+    :param lv_dark: surface with level dark walls
+    :param wall: object in class Wall
+    """
+    if wall.x < int(ball.ax * 30):
+        wall.x += 1
+    if wall.x > int(ball.ax * 30):
+        wall.x -= 1
+    if wall.y < int(ball.ay * 30):
+        wall.y += 1
+    if wall.y > int(ball.ay * 30):
+        wall.y -= 1
     screen.blit(bg_surface, (0 - wall.ax, 0 - wall.ay))
-    ax = wall.ax
-    ay = wall.ay
+    ax = wall.x
+    ay = wall.y
 
     if (ax != 0) and (ay == 0):
         while ax != 0:
@@ -55,4 +64,10 @@ def draw_level(screen, lv_surface, lv_traps, bg_surface, ball, finish, x_finish,
 
 
 def draw_ball(screen, ball_surface, ball):
+    """
+    Draw ball on screen
+    :param screen: screen in pygame, where function draw object
+    :param ball_surface: ball texture, that was select in settings
+    :param ball: object in class Ball
+    """
     screen.blit(ball_surface, (ball.x, ball.y))

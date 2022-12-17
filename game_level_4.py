@@ -1,16 +1,20 @@
-import pygame as pg
-import math
-from random import choice, randint
 from game_texture_Artur import *
-from game_texture_oleg import *
 from game_levels_graphics import draw_ball, draw_level, Wall
 from game_objects_ball import Ball
 from game_object_gun import Bullet
 from global_values import *
 
 
-def level_4(screensize, ball_surf, menu, balls_surfaces,channel):
-    x4,y4 = coord_of_start[3]
+def level_4(screensize, ball_surf, menu, balls_surfaces, channel):
+    """
+        That function start 4-th level
+        :param screensize: size of screen
+        :param ball_surf: ball texture, that was set in settings
+        :param menu: object in class Menu
+        :param balls_surfaces: massive with ball textures
+        :param channel:
+    """
+    x4, y4 = coord_of_start[3]
     xf4, yf4 = coord_of_finish[3]
     bullets = []
     delay = 600
@@ -32,7 +36,7 @@ def level_4(screensize, ball_surf, menu, balls_surfaces,channel):
         if FPS != 0:
             dt = 1 / FPS
         else:
-            dt = 1/60
+            dt = 1 / 60
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running = False
@@ -40,8 +44,8 @@ def level_4(screensize, ball_surf, menu, balls_surfaces,channel):
                 if event.key == pg.K_SPACE and not menu.menu_live:
                     menu.menu_live = 1
                     menu.pause_menu = 1
-                    coord_of_start[3][0]=ball.x
-                    coord_of_start[3][1]=ball.y
+                    coord_of_start[3][0] = ball.x
+                    coord_of_start[3][1] = ball.y
                     running = False
         ball.ball_boost(dt)
         ball.play_music(channel, bounce_sound)
@@ -49,10 +53,10 @@ def level_4(screensize, ball_surf, menu, balls_surfaces,channel):
         k += 1
         if k >= delay:
             k = 0
-            bullets.append(Bullet(150, 100, 0.785398, 120, balls_surfaces, dt))
-            bullets.append(Bullet(640, 100, 0.785398, 120, balls_surfaces, dt))
-            bullets.append(Bullet(150, 620, -0.785398, 120, balls_surfaces, dt))
-            bullets.append(Bullet(640, 620, -0.785398, 120, balls_surfaces, dt))
+            bullets.append(Bullet(150, 100, 0.785398, 120, balls_surfaces))
+            bullets.append(Bullet(640, 100, 0.785398, 120, balls_surfaces))
+            bullets.append(Bullet(150, 620, -0.785398, 120, balls_surfaces))
+            bullets.append(Bullet(640, 620, -0.785398, 120, balls_surfaces))
         if bullets:
             for i in range(len(bullets)):
                 b = bullets[i]

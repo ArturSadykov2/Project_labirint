@@ -1,10 +1,20 @@
-import pygame as pg
 from game_texture_Artur import *
 import numpy as np
 
 
 class Disk:
+    """
+    Class of rotating disk
+    """
     def __init__(self, x, y, w, angle, surf):
+        """
+        Set start values
+        :param x: x coordinate of disk center
+        :param y: y coordinate of disk center
+        :param w: angle speed
+        :param angle: angle, on that rotated disk
+        :param surf: texture of disk
+        """
         self.x = x
         self.y = y
         self.w = w
@@ -12,15 +22,28 @@ class Disk:
         self.surf = surf
 
     def move(self, dt):
+        """
+        Function, that rotated disk
+        :param dt: time interval
+        """
         self.angle += self.w * dt
 
     def draw(self, screen):
+        """
+        Draw disk
+        :param screen: screen in pygame, where function draw object
+        """
         rect = self.surf.get_rect(center=(self.x, self.y))
         rotated_disk = pg.transform.rotate(self.surf, self.angle)
         rot_rect = rotated_disk.get_rect(center=rect.center)
         screen.blit(rotated_disk, rot_rect)
 
     def collusion(self, ball, ball_mask):
+        """
+        Check collusion ball with disk
+        :param ball: object in class Ball
+        :param ball_mask: pygame mask of ball
+        """
         rect = self.surf.get_rect(center=(self.x, self.y))
         rotated_disk = pg.transform.rotate(self.surf, self.angle)
         rot_rect = rotated_disk.get_rect(center=rect.center)

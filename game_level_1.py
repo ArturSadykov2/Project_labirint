@@ -1,8 +1,4 @@
-import pygame as pg
-import math
-from random import choice, randint
 from game_texture_Artur import *
-from game_texture_oleg import *
 from game_levels_graphics import draw_ball, draw_level, Wall
 from game_objects_ball import Ball
 from global_values import *
@@ -12,7 +8,14 @@ pg.init()
 
 
 def level_1(screensize, ball_surf, menu, channel):
-    x1,y1 = coord_of_start[0]
+    """
+    That function start 1-st level
+    :param screensize: size of screen
+    :param ball_surf: ball texture, that was select in settings
+    :param menu: object in class Menu
+    :param channel:
+    """
+    x1, y1 = coord_of_start[0]
     xf1, yf1 = coord_of_finish[0]
     FPS = 60
     screen = pg.display.set_mode(screensize)
@@ -39,8 +42,8 @@ def level_1(screensize, ball_surf, menu, channel):
                 if event.key == pg.K_SPACE and not menu.menu_live:
                     menu.menu_live = 1
                     menu.pause_menu = 1
-                    coord_of_start[0][0]=ball.x
-                    coord_of_start[0][1]=ball.y
+                    coord_of_start[0][0] = ball.x
+                    coord_of_start[0][1] = ball.y
                     running = False
         ball.ball_boost(dt)
         ball.play_music(channel, bounce_sound)
