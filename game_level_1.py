@@ -17,7 +17,7 @@ def level_1(screensize, ball_surf, menu, channel):
     """
     x1, y1 = coord_of_start[0]
     xf1, yf1 = coord_of_finish[0]
-    FPS = 60
+    fps = 60
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = ball_surf
@@ -31,8 +31,8 @@ def level_1(screensize, ball_surf, menu, channel):
     wall = Wall()
     wall.__init__()
     while running:
-        if FPS != 0:
-            dt = 1 / FPS
+        if fps != 0:
+            dt = 1 / fps
         else:
             dt = 1/60
         for event in pg.event.get():
@@ -45,7 +45,7 @@ def level_1(screensize, ball_surf, menu, channel):
                     coord_of_start[0][0] = ball.x
                     coord_of_start[0][1] = ball.y
                     running = False
-        ball.ball_boost(dt)
+        ball.ball_boost()
         ball.play_music(channel, bounce_sound)
         Ball.ball_move(ball, dt)
         Ball.collusion(ball, level_mask, ball_mask, trap_mask, x1, y1)
@@ -55,4 +55,4 @@ def level_1(screensize, ball_surf, menu, channel):
         running = ball.finish(ball_mask, finish_mask, menu, xf1, yf1, running)
         pg.display.flip()
         clock.tick(60)
-        FPS = clock.get_fps()
+        fps = clock.get_fps()

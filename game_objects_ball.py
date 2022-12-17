@@ -17,10 +17,9 @@ class Ball:
         self.hit = False
         self.move = False
 
-    def ball_boost(self, dt):
+    def ball_boost(self):
         """
         Check buttons positions and return ball boost
-        :param dt: time interval
         """
         a = 0.33
         if pg.key.get_pressed()[pg.K_s] or pg.key.get_pressed()[pg.K_DOWN]:

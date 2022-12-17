@@ -70,8 +70,8 @@ def main():
                 cursor.cursor_change_pos(event)
             elif event.type == pg.KEYDOWN:
                 if event.key == pg.K_SPACE:
-                    flPause = not flPause
-                    if flPause:
+                    fl_pause = not fl_pause
+                    if fl_pause:
                         vjm_play.pause()
                     else:
                         vjm_play.unpause()

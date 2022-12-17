@@ -23,7 +23,7 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
     bullets = []
     k = 180
     delay = 180
-    FPS = 60
+    fps = 60
     screen = pg.display.set_mode(screensize)
     clock = pg.time.Clock()
     ball_surface = ball_surf
@@ -40,8 +40,8 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
     wall = Wall()
     wall.__init__()
     while running:
-        if FPS != 0:
-            dt = 1 / FPS
+        if fps != 0:
+            dt = 1 / fps
         else:
             dt = 1 / 60
         for event in pg.event.get():
@@ -54,7 +54,7 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
                     coord_of_start[1][0] = ball.x
                     coord_of_start[1][1] = ball.y
                     running = False
-        ball.ball_boost(dt)
+        ball.ball_boost()
         ball.play_music(channel, bounce_sound)
         Ball.ball_move(ball, dt)
         floor_disk.move(dt)
@@ -86,4 +86,4 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
         running = ball.finish(ball_mask, finish_mask, menu, xf2, yf2, running)
         pg.display.flip()
         clock.tick(60)
-        FPS = clock.get_fps()
+        fps = clock.get_fps()

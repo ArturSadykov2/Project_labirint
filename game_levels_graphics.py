@@ -29,7 +29,7 @@ def draw_level(screen, lv_surface, lv_traps, bg_surface, ball, finish, x_finish,
         wall.y += 1
     if wall.y > int(ball.ay * 30):
         wall.y -= 1
-    screen.blit(bg_surface, (0 - wall.ax, 0 - wall.ay))
+    screen.blit(bg_surface, (0 - wall.x, 0 - wall.y))
     ax = wall.x
     ay = wall.y
 
@@ -58,7 +58,7 @@ def draw_level(screen, lv_surface, lv_traps, bg_surface, ball, finish, x_finish,
                 ay += 1
             else:
                 ay -= 1
-    screen.blit(lv_traps, (0 - wall.ax, 0 - wall.ay))
+    screen.blit(lv_traps, (0 - wall.x, 0 - wall.y))
     screen.blit(lv_surface, (0, 0))
     screen.blit(finish, (x_finish, y_finish))
 

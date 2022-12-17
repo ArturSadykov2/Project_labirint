@@ -1,3 +1,8 @@
+import math
+from random import randint
+from game_texture_Artur import bullet_mask
+
+
 class Bullet:
     """Класс, отрисовывающий снаряд"""
     def __init__(self, x, y, angle, v, balls_surfaces):
