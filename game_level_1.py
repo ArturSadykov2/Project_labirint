@@ -1,7 +1,7 @@
 from game_texture_Artur import *
 from game_levels_graphics import draw_ball, draw_level, Wall
 from game_objects_ball import Ball
-from global_values import *
+
 
 pg.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512, devicename=None)
 pg.init()
