@@ -1,5 +1,3 @@
-import pygame as pg
-import os
 from game_texture_oleg import *
 from global_values import *
 
