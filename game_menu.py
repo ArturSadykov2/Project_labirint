@@ -1,7 +1,3 @@
-import pygame as pg
-import numpy as np
-from global_values import *
-from game_texture_oleg import *
 from game_texture_Artur import *
 
 pg.init()

@@ -1,8 +1,5 @@
-import pygame as pg
-import numpy as np
 from game_menu import *
 from game_colors import *
-from global_values import *
 from game_texture_oleg import *
 from game_level_1 import level_1
 from game_level_2 import level_2
@@ -10,19 +7,20 @@ from game_level_3 import level_3
 from game_level_4 import level_4
 
 pg.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512, devicename=None)
-pg.init()    
+pg.init()
 
 # set fps
 FPS = 60
 
 flPause = False
 
+
 def main():
     """
     Function that draws main Menu with options of choose the level and starting the game
-    """ 
+    """
     vjm_play = vile_jewish_sound.play(-1)
-    rs_play=rolling_sound.play(-1)
+    rs_play = rolling_sound.play(-1)
     rs_play.pause()
     vol = 1
 
@@ -80,11 +78,11 @@ def main():
                 elif event.key == pg.K_LEFT:
                     vol -= 0.1
                     vile_jewish_sound.set_volume(vol)
-                    print( vile_jewish_sound.get_volume() )
+                    print(vile_jewish_sound.get_volume())
                 elif event.key == pg.K_RIGHT:
                     vol += 0.1
                     vile_jewish_sound.set_volume(vol)
-                    print( vile_jewish_sound.get_volume() )
+                    print(vile_jewish_sound.get_volume())
 
         if menu.menu_live:
             menu.play_music(vjm_play)
@@ -93,7 +91,7 @@ def main():
             menu.draw_bottons_balls()
         elif menu.level_1:
             vjm_play.pause()
-            level_1([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu , rs_play)
+            level_1([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, rs_play)
             vjm_play.unpause()
         elif menu.level_2:
             vjm_play.pause()
@@ -110,7 +108,7 @@ def main():
 
         if menu.menu_live:
             cursor.draw_cursor()
-        
+
         pg.display.flip()
 
     pg.quit()
