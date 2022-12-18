@@ -22,7 +22,6 @@ def main():
     vjm_play = vile_jewish_sound.play(-1)
     rs_play = rolling_sound.play(-1)
     rs_play.pause()
-    vol = 1
 
     balls_surfaces = [red_ball_surface, grey_ball_surface, disco_ball_surface, dark_ball_surface, striped_ball_surface,
                       magma_ball_surface]
@@ -78,18 +77,22 @@ def main():
             vjm_play.pause()
             level_1([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, rs_play)
             vjm_play.unpause()
+            rs_play.pause()
         elif menu.level_2:
             vjm_play.pause()
             level_2([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces, rs_play)
             vjm_play.unpause()
+            rs_play.pause()
         elif menu.level_3:
             vjm_play.pause()
             level_3([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces, rs_play)
             vjm_play.unpause()
+            rs_play.pause()
         elif menu.level_4:
             vjm_play.pause()
             level_4([size_hight, size_width], balls_surfaces[menu.ball_index - 1], menu, balls_surfaces, rs_play)
             vjm_play.unpause()
+            rs_play.pause()
 
         if menu.menu_live:
             cursor.draw_cursor()
