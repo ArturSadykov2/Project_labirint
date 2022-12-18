@@ -1,6 +1,5 @@
 from game_texture_Artur import *
-import numpy as np
-import math
+from numpy import pi
 
 
 class Disk:
@@ -44,6 +43,7 @@ class Disk:
         Check collusion ball with disk
         :param ball: object in class Ball
         :param ball_mask: pygame mask of ball
+        :param dt: time interval
         """
         rect = self.surf.get_rect(center=(self.x, self.y))
         rotated_disk = pg.transform.rotate(self.surf, self.angle)
@@ -53,11 +53,11 @@ class Disk:
         overlap_y = mask.overlap(ball_mask, (ball.x - rot_rect[0], ball.y + ball.vy - rot_rect[1]))
         if overlap_x:
             if ball.vx == 0:
-                ball.vx = - self.w * ((ball.x + ball.vx) - self.x)/np.pi * dt
+                ball.vx = - self.w * ((ball.x + ball.vx) - self.x)/pi * dt
             else:
                 ball.vx = -ball.vx
         if overlap_y:
             if ball.vy == 0:
-                ball.vy = - self.w * ((ball.y + ball.vy) - self.y)/np.pi * dt
+                ball.vy = - self.w * ((ball.y + ball.vy) - self.y)/pi * dt
             else:
                 ball.vy = -ball.vy
