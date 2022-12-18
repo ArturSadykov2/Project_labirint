@@ -37,7 +37,7 @@ class Ball:
 
     def play_music(self, channel, sound):
         """
-
+        Start sound effects of roll and collusion
         :param channel:
         :param sound:
 

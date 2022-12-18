@@ -75,7 +75,7 @@ def level_2(screensize, ball_surf, menu, balls_surfaces, channel):
                     bullets = []
                     break
         Ball.collusion(ball, ball_level_mask, ball_mask, trap_mask, x2, y2)
-        wall_disk.collusion(ball, ball_mask)
+        wall_disk.collusion(ball, ball_mask, dt)
         draw_level(screen, lv2_walls_surf, lv2_traps_surf, bg_wood_surface,
                    ball, finish_surf, xf2, yf2, lv2_dark_surf, wall)
         floor_disk.draw(screen)

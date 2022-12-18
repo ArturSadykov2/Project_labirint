@@ -1,5 +1,6 @@
 from game_texture_Artur import *
 import numpy as np
+import math
 
 
 class Disk:
@@ -38,7 +39,7 @@ class Disk:
         rot_rect = rotated_disk.get_rect(center=rect.center)
         screen.blit(rotated_disk, rot_rect)
 
-    def collusion(self, ball, ball_mask):
+    def collusion(self, ball, ball_mask, dt):
         """
         Check collusion ball with disk
         :param ball: object in class Ball
@@ -52,11 +53,11 @@ class Disk:
         overlap_y = mask.overlap(ball_mask, (ball.x - rot_rect[0], ball.y + ball.vy - rot_rect[1]))
         if overlap_x:
             if ball.vx == 0:
-                ball.vx = - self.w * ((ball.x + ball.vx) - self.x)/np.pi
+                ball.vx = - self.w * ((ball.x + ball.vx) - self.x)/np.pi * dt
             else:
                 ball.vx = -ball.vx
         if overlap_y:
             if ball.vy == 0:
-                ball.vy = - self.w * ((ball.y + ball.vy) - self.y)/np.pi
+                ball.vy = - self.w * ((ball.y + ball.vy) - self.y)/np.pi * dt
             else:
                 ball.vy = -ball.vy
