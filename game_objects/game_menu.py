@@ -1,7 +1,5 @@
 from game_texture import *
 
-pg.init()
-
 class Menu:
     """
     Сlass Menu is used for setting up and starting the game, as well as drawing the menu
