@@ -1,6 +1,6 @@
-import math
+from numpy import sin, cos
 from random import randint
-from game_texture_Artur import bullet_mask
+from game_texture import bullet_mask
 
 
 class Bullet:
@@ -17,8 +17,8 @@ class Bullet:
         self.points = 0
         self.x = x
         self.y = y
-        self.vx = v * math.cos(angle)
-        self.vy = v * math.sin(angle)
+        self.vx = v * cos(angle)
+        self.vy = v * sin(angle)
         self.angle = angle
         self.surf = balls_surfaces[randint(2, 5)]
         self.mask = bullet_mask

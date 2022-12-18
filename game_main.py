@@ -1,10 +1,10 @@
-from game_menu import *
+from game_objects.game_menu import *
+from game_levels.game_level_1 import level_1
+from game_levels.game_level_2 import level_2
+from game_levels.game_level_3 import level_3
+from game_levels.game_level_4 import level_4
 from game_colors import WHITE
-from game_texture_oleg import *
-from game_level_1 import level_1
-from game_level_2 import level_2
-from game_level_3 import level_3
-from game_level_4 import level_4
+from game_texture import *
 
 pg.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512, devicename=None)
 pg.init()
@@ -68,21 +68,6 @@ def main():
                     menu.menu_live = 0
             elif event.type == pg.MOUSEMOTION:
                 cursor.cursor_change_pos(event)
-            elif event.type == pg.KEYDOWN:
-                if event.key == pg.K_SPACE:
-                    fl_pause = not fl_pause
-                    if fl_pause:
-                        vjm_play.pause()
-                    else:
-                        vjm_play.unpause()
-                elif event.key == pg.K_LEFT:
-                    vol -= 0.1
-                    vile_jewish_sound.set_volume(vol)
-                    print(vile_jewish_sound.get_volume())
-                elif event.key == pg.K_RIGHT:
-                    vol += 0.1
-                    vile_jewish_sound.set_volume(vol)
-                    print(vile_jewish_sound.get_volume())
 
         if menu.menu_live:
             menu.play_music(vjm_play)

@@ -1,7 +1,6 @@
-from game_texture_Artur import *
+from game_texture import *
 
 pg.init()
-
 
 class Menu:
     """
