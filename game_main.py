@@ -12,9 +12,6 @@ pg.init()
 # set fps
 FPS = 60
 
-flPause = False
-
-
 def main():
     """
     Function that draws main Menu with options of choose the level and starting the game
