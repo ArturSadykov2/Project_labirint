@@ -171,11 +171,6 @@ texture_wood_png = pg.transform.scale(texture_wood_png, size)
 bg_wood_surface = pg.Surface(size, pg.SRCALPHA)
 bg_wood_surface.blit(texture_wood_png, (0, 0))
 
-texture_red_png = pg.image.load(os.path.join("image", "levels_image", "red_background.jpg"))
-texture_red_png = pg.transform.scale(texture_red_png, size)
-bg_red_surface = pg.Surface(size, pg.SRCALPHA)
-bg_red_surface.blit(texture_red_png, (0, 0))
-
 lv1_light = pg.image.load(os.path.join("image", "levels_image", "level_1", "lv1_sp_light.png"))
 lv1_light = pg.transform.scale(lv1_light, size)
 lv1_walls_surf = pg.Surface(size, pg.SRCALPHA)
